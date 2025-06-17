@@ -1,0 +1,30 @@
+{
+  "mcpServers": {
+    "datetime-mcp": {
+      "command": "/Users/esakrissa/Desktop/mcp-server/datetime-mcp/.venv/bin/python",
+      "args": ["-m", "datetime_mcp"]
+    },
+    "airbnb": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@openbnb/mcp-server-airbnb",
+        "--ignore-robots-txt"
+      ],
+      "transport": "stdio"
+    },
+    "supabase": {
+      "command": "/Users/esakrissa/Desktop/mcp-server/supabase/.venv/bin/python",
+      "args": [
+        "-m",
+        "supabase_mcp.main", 
+        "--access-mode=unrestricted"
+      ],
+      "env": {
+        "DATABASE_URI": "postgresql://postgres:PostgreSQL_server_2025@localhost:5432/postgres",
+        "PATH": "/Users/esakrissa/Desktop/mcp-server/supabase/.venv/bin:/usr/local/opt/rabbitmq/sbin:/usr/local/opt/postgresql@17/bin:/Users/esakrissa/.cargo/bin:/Users/esakrissa/.local/bin:/Users/esakrissa/.local/bin:/Users/esakrissa/anaconda3/condabin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/opt/X11/bin:/Library/Apple/usr/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/esakrissa/.composer/vendor/bin:/usr/local/go/bin:/usr/local/bin:/usr/local/mysql/bin:/Users/esakrissa/.fzf/bin"
+      },
+      "transport": "stdio"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "data": [
+    {
+      "location_id": "7181580",
+      "name": "Dejulius Tour",
+      "distance": "1.31931921822284E-4",
+      "bearing": "south",
+      "address_obj": {
+        "city": "Ubud",
+        "country": "Bali",
+        "address_string": "Ubud Indonesia"
+      }
+    },
+    {
+      "location_id": "26443843",
+      "name": "Karana Ubud by Pristine Resort",
+      "distance": "0.017494266486726126",
+      "bearing": "northeast",
+      "address_obj": {
+        "street1": "Jalan Gunung Abang",
+        "street2": "Penataran",
+        "city": "Padangtegal",
+        "country": "Bali",
+        "postalcode": "80582",
+        "address_string": "Jalan Gunung Abang Penataran, Padangtegal, Ubud 80582 Indonesia"
+      }
+    },
+    {
+      "location_id": "1515940",
+      "name": "Siam Sally",
+      "distance": "0.010425771350122964",
+      "bearing": "northeast",
+      "address_obj": {
+        "street1": "Hanoman Street",
+        "street2": "",
+        "city": "Ubud",
+        "country": "Bali",
+        "postalcode": "",
+        "address_string": "Hanoman Street, Ubud Indonesia"
+      }
+    },
+    {
+      "location_id": "7395424",
+      "name": "The Melting Pot Saloon",
+      "distance": "0.01183359156270491",
+      "bearing": "southeast",
+      "address_obj": {
+        "street1": "Jalan Raya Pengosekan",
+        "street2": "90 Meters South of Coco's",
+        "city": "Ubud",
+        "country": "Bali",
+        "postalcode": "50830",
+        "address_string": "Jalan Raya Pengosekan 90 Meters South of Coco's, Ubud 50830 Indonesia"
+      }
+    },
+    {
+      "location_id": "2049819",
+      "name": "The Melting Pot Saloon",
+      "distance": "0.02555506053580849",
+      "bearing": "southeast",
+      "address_obj": {
+        "street1": "Jl. Pengosekan No. 22x",
+        "city": "Ubud",
+        "country": "Bali",
+        "postalcode": "80571",
+        "address_string": "Jl. Pengosekan No. 22x, Ubud 80571 Indonesia"
+      }
+    },
+    {
+      "location_id": "22911399",
+      "name": "JAPA Suites & Villas",
+      "distance": "0.08021404024813296",
+      "bearing": "south",
+      "address_obj": {
+        "street1": "Jalan Raya Pengosekan",
+        "city": "Ubud",
+        "country": "Bali",
+        "postalcode": "80571",
+        "address_string": "Jalan Raya Pengosekan, Ubud 80571 Indonesia"
+      }
+    },
+    {
+      "location_id": "3974891",
+      "name": "Jiwa Raga Spa & Wellness",
+      "distance": "0.034532980935872495",
+      "bearing": "southeast",
+      "address_obj": {
+        "street1": "Jl. Raya Pengosekan",
+        "city": "Ubud",
+        "country": "Bali",
+        "postalcode": "80571",
+        "address_string": "Jl. Raya Pengosekan, Ubud 80571 Indonesia"
+      }
+    },
+    {
+      "location_id": "1077921",
+      "name": "Kakiang Bungalows",
+      "distance": "0.059427862198488585",
+      "bearing": "south",
+      "address_obj": {
+        "street1": "Jl. Pengosekan",
+        "street2": "",
+        "city": "Ubud",
+        "country": "Bali",
+        "postalcode": "",
+        "address_string": "Jl. Pengosekan, Ubud Indonesia"
+      }
+    },
+    {
+      "location_id": "8027912",
+      "name": "Gusti's Driving Service",
+      "distance": "1.31931921822284E-4",
+      "bearing": "south",
+      "address_obj": {
+        "city": "Ubud",
+        "country": "Bali",
+        "address_string": "Ubud Indonesia"
+      }
+    },
+    {
+      "location_id": "9798738",
+      "name": "Urip Waras House",
+      "distance": "1.31931921822284E-4",
+      "bearing": "south",
+      "address_obj": {
+        "street1": "Br. Pengosekan Kelod",
+        "city": "Ubud",
+        "country": "Bali",
+        "postalcode": "80571",
+        "address_string": "Br. Pengosekan Kelod, Ubud 80571 Indonesia"
+      }
+    }
+  ]
+}

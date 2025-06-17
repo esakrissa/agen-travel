@@ -1,0 +1,102 @@
+# Backend API Dynamic Configuration
+# Routing untuk FastAPI backend service
+
+http:
+  routers:
+    # Router untuk Backend API (accept any host untuk ngrok)
+    backend-api:
+      rule: "PathPrefix(`/api`)"
+      entryPoints:
+        - "web"
+      service: "backend-service"
+      middlewares:
+        - "backend-cors"
+        - "backend-headers"
+        - "api-ratelimit"
+      # Priority untuk memastikan routing yang tepat
+      priority: 100
+
+    # Router untuk Backend Health Check (accept any host)
+    backend-health:
+      rule: "Path(`/health`)"
+      entryPoints:
+        - "web"
+      service: "backend-service"
+      priority: 200
+
+    # Router untuk FastAPI Swagger Docs (direct - no rewrite needed)
+    backend-api-docs:
+      rule: "Path(`/api/docs`)"
+      entryPoints:
+        - "web"
+      service: "backend-service"
+      middlewares:
+        - "api-auth"          # Basic Auth untuk API docs
+        - "backend-cors"
+        - "backend-headers"
+      priority: 200
+
+    # Router untuk FastAPI ReDoc (direct - no rewrite needed)
+    backend-api-redoc:
+      rule: "Path(`/api/redoc`)"
+      entryPoints:
+        - "web"
+      service: "backend-service"
+      middlewares:
+        - "api-auth"          # Basic Auth untuk API docs
+        - "backend-cors"
+        - "backend-headers"
+      priority: 200
+
+    # Router untuk OpenAPI JSON (direct - no rewrite needed)
+    backend-api-openapi:
+      rule: "Path(`/api/openapi.json`)"
+      entryPoints:
+        - "web"
+      service: "backend-service"
+      middlewares:
+        - "api-auth"          # Basic Auth untuk API docs
+        - "backend-cors"
+        - "backend-headers"
+      priority: 200
+
+    # Router untuk FastAPI root docs (landing page)
+    backend-root-docs:
+      rule: "Path(`/`)"
+      entryPoints:
+        - "web"
+      service: "backend-service"
+      middlewares:
+        - "backend-cors"
+        - "backend-headers"
+      priority: 50
+
+    # Router untuk FastAPI static files (accept any host)
+    backend-static:
+      rule: "PathPrefix(`/static`)"
+      entryPoints:
+        - "web"
+      service: "backend-service"
+      priority: 150
+
+  services:
+    # Service definition untuk Backend
+    backend-service:
+      loadBalancer:
+        servers:
+          - url: "http://backend:2025"
+        
+        # Health check configuration
+        healthCheck:
+          path: "/health"
+          interval: "30s"
+          timeout: "10s"
+          
+        # Load balancing configuration
+        sticky:
+          cookie:
+            name: "backend-session"
+            secure: false
+            httpOnly: true
+
+

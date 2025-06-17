@@ -1,0 +1,19 @@
+{
+    "title": "Agen Travel",
+    "description": "Sistem Multi-Agen untuk Pemesanan Hotel dan Pesawat",
+    "version": "0.1.0",
+    "modules": {
+      "../backend/agents.graph": {
+        "functions": ["build_graph"]
+      }
+    },
+    "entrypoint": "../backend/agents.graph.build_graph",
+    "graphs": {
+      "agen_travel": "../backend/agents.graph:build_graph"
+    },
+    "dependencies": [
+      "langgraph",
+      "langchain",
+      "langchain-openai"
+    ]
+  }

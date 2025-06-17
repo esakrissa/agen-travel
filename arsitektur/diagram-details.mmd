@@ -1,0 +1,185 @@
+%%{init: {'theme': 'base', 'themeVariables': {
+    'primaryColor': '#e4e1f5',
+    'primaryTextColor': '#5a5a5a',
+    'primaryBorderColor': '#b6a4e3',
+    'lineColor': '#b6a4e3',
+    'secondaryColor': '#f0f0f0',
+    'tertiaryColor': '#f0f0f0'
+    }}}%%
+graph TD
+
+    %% Main nodes
+    START([Start])
+    supervisor[Supervisor Agent]
+
+    %% Agent paths - separated for clarity
+    subgraph HotelPath[Hotel Path]
+        hotel_agent_entrypoint[Hotel Agent Entry Node]
+        hotel_agent[Hotel Agent]
+        hotel_agent_tools[Hotel Tools]
+    end
+
+    subgraph FlightPath[Flight Path]
+        flight_agent_entrypoint[Flight Agent Entry Node]
+        flight_agent[Flight Agent]
+        flight_agent_tools[Flight Tools]
+    end
+
+    subgraph TourPath[Tour Path]
+        tour_agent_entrypoint[Tour Agent Entry Node]
+        tour_agent[Tour Agent]
+        tour_agent_tools[Tour Tools]
+    end
+
+    subgraph CustomerServicePath[Customer Service Path]
+        customer_service_entrypoint[Customer Service Entry Node]
+        customer_service[Customer Service]
+        customer_service_tools[Customer Service Tools]
+    end
+
+    %% Positioned at bottom of diagram
+    return_to_supervisor[Return to Supervisor]
+    END([End])
+
+    %% Main flow connections
+    START -->|route_to_workflow| supervisor
+
+    %% Supervisor routing
+    supervisor -->|ToHotelAgent| hotel_agent_entrypoint
+    supervisor -->|ToFlightAgent| flight_agent_entrypoint
+    supervisor -->|ToTourAgent| tour_agent_entrypoint
+    supervisor -->|ToCustomerService| customer_service_entrypoint
+    supervisor -->|CompleteOrEscalate/ToSupervisor| END
+
+    %% Hotel path flow
+    hotel_agent_entrypoint -->|Entry Node Message| hotel_agent
+    hotel_agent -->|tool_condition route| hotel_agent_tools
+    hotel_agent -.->|CompleteOrEscalate| return_to_supervisor
+    hotel_agent_tools -->|Tool Response| hotel_agent
+    hotel_agent -.->|END condition| END
+
+    %% Flight path flow
+    flight_agent_entrypoint -->|Entry Node Message| flight_agent
+    flight_agent -->|tool_condition route| flight_agent_tools
+    flight_agent -.->|CompleteOrEscalate| return_to_supervisor
+    flight_agent_tools -->|Tool Response| flight_agent
+    flight_agent -.->|END condition| END
+
+    %% Tour path flow
+    tour_agent_entrypoint -->|Entry Node Message| tour_agent
+    tour_agent -->|tool_condition route| tour_agent_tools
+    tour_agent -.->|CompleteOrEscalate| return_to_supervisor
+    tour_agent_tools -->|Tool Response| tour_agent
+    tour_agent -.->|END condition| END
+
+    %% Customer Service path flow
+    customer_service_entrypoint -->|Entry Node Message| customer_service
+    customer_service -->|tool_condition route| customer_service_tools
+    customer_service -.->|CompleteOrEscalate| return_to_supervisor
+    customer_service_tools -->|Tool Response| customer_service
+    customer_service -.->|END condition| END
+
+    %% Return path
+    return_to_supervisor -->|Pop Dialog State| supervisor
+
+    %% Direct routing from START (fallback paths)
+    START -.->|direct routing| hotel_agent
+    START -.->|direct routing| flight_agent
+    START -.->|direct routing| tour_agent
+    START -.->|direct routing| customer_service
+
+    %% Hotel Tools Definition
+    subgraph HotelTools[Hotel Tool Functions]
+        get_hotels[get_hotels]
+        search_hotels_by_location[search_hotels_by_location]
+        get_hotel_details[get_hotel_details]
+        check_available_rooms[check_available_rooms]
+        book_hotel_room[book_hotel_room]
+        process_hotel_payment[process_hotel_payment]
+        cancel_hotel_booking[cancel_hotel_booking]
+        register_user_hotel[register_user]
+        check_user_exists_hotel[check_user_exists]
+        get_booking_details_hotel[get_booking_details]
+        check_unpaid_bookings_hotel[check_unpaid_bookings]
+    end
+
+    %% Flight Tools Definition
+    subgraph FlightTools[Flight Tool Functions]
+        get_flights[get_flights]
+        search_flights_by_route[search_flights_by_route]
+        get_flight_details[get_flight_details]
+        book_flight[book_flight]
+        process_flight_payment[process_flight_payment]
+        cancel_flight_booking[cancel_flight_booking]
+        register_user_flight[register_user]
+        check_user_exists_flight[check_user_exists]
+        get_booking_details_flight[get_booking_details]
+        check_unpaid_bookings_flight[check_unpaid_bookings]
+    end
+
+    %% Tour Tools Definition
+    subgraph TourTools[Tour Tool Functions]
+        get_tours[get_tours]
+        search_tours_by_destination[search_tours_by_destination]
+        get_tour_details[get_tour_details]
+        check_tour_availability[check_tour_availability]
+        book_tour[book_tour]
+        process_tour_payment[process_tour_payment]
+        cancel_tour_booking[cancel_tour_booking]
+        register_user_tour[register_user]
+        check_user_exists_tour[check_user_exists]
+        get_booking_details_tour[get_booking_details]
+        check_unpaid_bookings_tour[check_unpaid_bookings]
+    end
+
+    %% Customer Service Tools Definition
+    subgraph CustomerServiceTools[Customer Service Tool Functions]
+        get_user_booking_history[get_user_booking_history]
+        get_booking_details[get_booking_details]
+    end
+
+    %% Tool connections
+    hotel_agent_tools --- HotelTools
+    flight_agent_tools --- FlightTools
+    tour_agent_tools --- TourTools
+    customer_service_tools --- CustomerServiceTools
+
+    %% Add descriptive notes
+    note_hotel[Hotel Agent gets hotel information]
+    note_flight[Flight Agent gets flight information]
+    note_tour[Tour Agent handles tour packages and bookings]
+    note_customer_service[Customer Service handles booking history and details]
+    note_supervisor[Supervisor routes to correct sub agent]
+
+    HotelPath --- note_hotel
+    FlightPath --- note_flight
+    TourPath --- note_tour
+    CustomerServicePath --- note_customer_service
+    supervisor --- note_supervisor
+
+    %% Explicit positioning to avoid overlaps
+    hotel_agent -..-> END
+    flight_agent -..-> END
+    tour_agent -..-> END
+    customer_service -..-> END
+
+    %% Styling classes
+    classDef supervisor fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef agent fill:#fcf,stroke:#333,stroke-width:1px;
+    classDef tool fill:#bbf,stroke:#333,stroke-width:1px;
+    classDef user fill:#dfd,stroke:#333,stroke-width:2px;
+    classDef flow fill:none,stroke:#999,stroke-width:1px,stroke-dasharray: 5 5;
+    classDef start_end fill:#f9f,stroke:#333,stroke-width:2px,shape:circle;
+    classDef note fill:#fff,stroke:#999,stroke-width:1px,stroke-dasharray: 5 5;
+
+    %% Apply styles
+    class START,END start_end
+    class supervisor supervisor
+    class hotel_agent,flight_agent,tour_agent,customer_service agent
+    class hotel_agent_entrypoint,flight_agent_entrypoint,tour_agent_entrypoint,customer_service_entrypoint flow
+    class hotel_agent_tools,get_hotels,search_hotels_by_location,get_hotel_details,check_available_rooms,book_hotel_room,process_hotel_payment,cancel_hotel_booking,register_user_hotel,check_user_exists_hotel,get_booking_details_hotel,check_unpaid_bookings_hotel tool
+    class flight_agent_tools,get_flights,search_flights_by_route,get_flight_details,book_flight,process_flight_payment,cancel_flight_booking,register_user_flight,check_user_exists_flight,get_booking_details_flight,check_unpaid_bookings_flight tool
+    class tour_agent_tools,get_tours,search_tours_by_destination,get_tour_details,check_tour_availability,book_tour,process_tour_payment,cancel_tour_booking,register_user_tour,check_user_exists_tour,get_booking_details_tour,check_unpaid_bookings_tour tool
+    class customer_service_tools,get_user_booking_history,get_booking_details tool
+    class return_to_supervisor,HotelPath,FlightPath,TourPath,CustomerServicePath flow
+    class note_hotel,note_flight,note_tour,note_customer_service,note_supervisor note

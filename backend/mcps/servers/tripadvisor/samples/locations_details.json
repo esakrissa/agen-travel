@@ -1,0 +1,47 @@
+{
+  "location_id": "297701",
+  "name": "Ubud",
+  "description": "The village cluster of Ubud is the ideal place to try a famed Balinese massage and soak up the ambiance of one of Asia’s top spa destinations. Acupressure, reflexology, stretching and aromatherapy star in the island's distinctively firm massage treatments. Ubud is also the vivacious center of Bali’s arts scene, home to a small treasure trove of museums and galleries. Monkey around at nearby nature reserve Monkey Forest Park, home to hundreds of mischievous long-tailed macaques. Don’t miss the valley of tomb cloisters at Gunung Kawi.",
+  "web_url": "https://www.tripadvisor.com/Tourism-g297701-Ubud_Gianyar_Regency_Bali-Vacations.html?m=66827",
+  "address_obj": {
+    "street1": "",
+    "street2": "",
+    "city": "Bali",
+    "country": "Bali",
+    "postalcode": "",
+    "address_string": "Ubud Indonesia"
+  },
+  "ancestors": [
+    {
+      "level": "Region",
+      "name": "Gianyar Regency",
+      "location_id": "15795170"
+    },
+    {
+      "level": "IslandGroup",
+      "name": "Bali",
+      "location_id": "294226"
+    },
+    {
+      "level": "Country",
+      "name": "Indonesia",
+      "location_id": "294225"
+    }
+  ],
+  "latitude": "-8.506847",
+  "longitude": "115.26246",
+  "timezone": "Asia/Makassar",
+  "see_all_photos": "https://www.tripadvisor.com/Tourism-g297701-m66827-Ubud_Gianyar_Regency_Bali-Vacations.html#photos",
+  "category": {
+    "name": "geographic",
+    "localized_name": "Geographic"
+  },
+  "subcategory": [
+    {
+      "name": "municipality",
+      "localized_name": "Municipality"
+    }
+  ],
+  "neighborhood_info": [],
+  "awards": []
+}

@@ -1,0 +1,21 @@
+# Core web framework
+fastapi>=0.115.12
+uvicorn>=0.34.3
+python-multipart>=0.0.20
+prometheus-fastapi-instrumentator>=6.1.0
+prometheus-client>=0.22.1
+
+# Telegram bot
+python-telegram-bot>=22.0
+
+# Environment setup
+python-dotenv>=1.1.0
+
+# Database
+supabase>=2.15.3
+psycopg>=3.2.9
+psycopg-pool>=3.2.6
+asyncpg>=0.30.0
+
+# Utilitas
+pytz>=2025.2

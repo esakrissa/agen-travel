@@ -1,0 +1,191 @@
+{
+  "status": true,
+  "message": "Success",
+  "timestamp": 1749373625476,
+  "search_params": {
+    "dest_id": "835",
+    "search_type": "REGION",
+    "arrival_date": "2025-06-19",
+    "departure_date": "2025-06-21",
+    "adults": 2
+  },
+  "data": [
+    {
+      "hotel_id": 13867039,
+      "accessibility_label": "Villa Shinta by JB Villas.\n4 out of 5 for property rating.\n10 Exceptional 3 reviews.\n‎Seminyak‬.\nLimited-time Deal.\n Entire villa – 120 m² : 1 bed • 1 bedroom • 3 bathrooms.\nOriginal price 608 USD. Current price 365 USD..\nIncludes taxes and charges.\nOnly 1 left at this price on Booking.com.",
+      "property": {
+        "id": 13867039,
+        "name": "Villa Shinta by JB Villas",
+        "country_code": "id",
+        "currency": "IDR",
+        "wishlist_name": "Seminyak",
+        "location": {
+          "latitude": -8.6847806,
+          "longitude": 115.1667077,
+          "ufi": 900040134
+        },
+        "rating": {
+          "property_class": 0,
+          "accurate_property_class": 0,
+          "quality_class": 4,
+          "review_score": 10,
+          "review_count": 3,
+          "review_score_word": "Exceptional"
+        },
+        "dates": {
+          "checkin_date": "2025-06-19",
+          "checkout_date": "2025-06-21",
+          "checkin": {
+            "from_time": "14:00",
+            "until_time": "16:00"
+          },
+          "checkout": {
+            "from_time": "08:00",
+            "until_time": "12:00"
+          }
+        },
+        "pricing": {
+          "gross_price": {
+            "value": 364.975312463196,
+            "currency": "USD"
+          },
+          "strikethrough_price": {
+            "value": 608.29218743866,
+            "currency": "USD"
+          },
+          "tax_exceptions": [],
+          "benefit_badges": [
+            {
+              "identifier": "Limited Time Deal",
+              "variant": "constructive",
+              "explanation": "Limited-time Deal",
+              "text": "Limited-time Deal"
+            }
+          ]
+        },
+        "images": {
+          "main_photo_id": 693930950,
+          "photo_urls": [
+            "https://cf.bstatic.com/xdata/images/hotel/square500/693930950.jpg?k=d3b55255a5cedc3511afa1f83ba3c918b36bb5207bbdb2c8618eb6747ad66b31&o=",
+            "https://cf.bstatic.com/xdata/images/hotel/square1024/693930950.jpg?k=d3b55255a5cedc3511afa1f83ba3c918b36bb5207bbdb2c8618eb6747ad66b31&o=",
+            "https://cf.bstatic.com/xdata/images/hotel/square2000/693930950.jpg?k=d3b55255a5cedc3511afa1f83ba3c918b36bb5207bbdb2c8618eb6747ad66b31&o="
+          ]
+        },
+        "booking_info": {
+          "block_ids": ["1386703901_410678599_6_2_0"],
+          "position": 0,
+          "ranking_position": 0,
+          "is_first_page": true,
+          "opt_out_from_gallery_changes": 0
+        }
+      }
+    },
+    {
+      "hotel_id": 1674170,
+      "accessibility_label": "Tijili Hotel Seminyak.\n4 out of 5 stars.\nThis is a Preferred Plus property.\n8.3 Very good 2037 reviews.\n‎Drupadi, Seminyak‬.\n Hotel room : 2 beds.\n88 USD.\nIncludes taxes and charges.",
+      "property": {
+        "id": 1674170,
+        "name": "Tijili Hotel Seminyak",
+        "country_code": "id",
+        "currency": "IDR",
+        "wishlist_name": "Seminyak",
+        "location": {
+          "latitude": -8.69070137239189,
+          "longitude": 115.161631825131,
+          "ufi": 900040134
+        },
+        "rating": {
+          "property_class": 4,
+          "accurate_property_class": 4,
+          "quality_class": 0,
+          "review_score": 8.3,
+          "review_count": 2037,
+          "review_score_word": "Very good"
+        },
+        "preferences": {
+          "is_preferred": true,
+          "is_preferred_plus": true
+        },
+        "dates": {
+          "checkin_date": "2025-06-19",
+          "checkout_date": "2025-06-21",
+          "checkin": {
+            "from_time": "15:00",
+            "until_time": "00:00"
+          },
+          "checkout": {
+            "from_time": "00:00",
+            "until_time": "12:00"
+          }
+        },
+        "pricing": {
+          "gross_price": {
+            "value": 88.3200000000001,
+            "currency": "USD"
+          },
+          "tax_exceptions": [],
+          "benefit_badges": []
+        },
+        "images": {
+          "main_photo_id": 658566095,
+          "photo_urls": [
+            "https://cf.bstatic.com/xdata/images/hotel/square500/658566095.jpg?k=af9a80140a086a9d8103bd1dabbb58a90f0d8dc6d704544c212ac9e497388b3d&o=",
+            "https://cf.bstatic.com/xdata/images/hotel/square1024/658566095.jpg?k=af9a80140a086a9d8103bd1dabbb58a90f0d8dc6d704544c212ac9e497388b3d&o=",
+            "https://cf.bstatic.com/xdata/images/hotel/square2000/658566095.jpg?k=af9a80140a086a9d8103bd1dabbb58a90f0d8dc6d704544c212ac9e497388b3d&o="
+          ]
+        },
+        "booking_info": {
+          "block_ids": ["167417001_0_2_0_0"],
+          "position": 1,
+          "ranking_position": 1,
+          "is_first_page": true,
+          "opt_out_from_gallery_changes": 0
+        }
+      }
+    }
+  ],
+  "available_fields_summary": {
+    "hotel_level": [
+      "hotel_id",
+      "accessibility_label"
+    ],
+    "property_level": [
+      "accurate_property_class",
+      "block_ids",
+      "checkin",
+      "checkin_date",
+      "checkout",
+      "checkout_date",
+      "country_code",
+      "currency",
+      "id",
+      "is_first_page",
+      "is_preferred",
+      "is_preferred_plus",
+      "latitude",
+      "longitude",
+      "main_photo_id",
+      "name",
+      "opt_out_from_gallery_changes",
+      "photo_urls",
+      "position",
+      "price_breakdown",
+      "property_class",
+      "quality_class",
+      "ranking_position",
+      "review_count",
+      "review_score",
+      "review_score_word",
+      "ufi",
+      "wishlist_name"
+    ],
+    "notes": {
+      "accessibility_label": "Contains rich text description with room details, pricing, and availability info",
+      "price_breakdown": "Contains gross_price, strikethrough_price, tax_exceptions, benefit_badges",
+      "benefit_badges": "Contains deal information like 'Limited Time Deal', 'Getaway Deal', etc.",
+      "preferences": "is_preferred and is_preferred_plus indicate Booking.com quality ratings",
+      "ufi": "Unique location identifier for the area",
+      "block_ids": "Internal booking system identifiers for room availability"
+    }
+  }
+}

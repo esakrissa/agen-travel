@@ -1,0 +1,873 @@
+{
+  "status": true,
+  "message": "Success",
+  "timestamp": 1749376476250,
+  "data": {
+    "token": "d6a1f_H4sIAAAAAAAA_y2QXXOiMBiFf029WkKCiKYzmR0XsEvlQz601psMQkC6rOmQrCi_flPoJDnnOefmfScXKT_Fs65XbVNfpNAaBmoueZ1LBgr-V686JWfO_zTXWs-bTnd2qf2yRfh1H-roB9Q1dYrn958s_2xAByriHjM3Cdc-zRJvR3eJZ3vhy4zdpSa6gsyaMwM50TDGE4qCoPQbO2KBRZCc8GZzHKuCS2ICy_Gj1FymWTSVHfmNktBbj6kkgSP6CJ7caNhE6r1Fw8nNXJyFTmnv23gZZKWzf_T3EIaZ77jzGAXi0LZbxXC_eRdBlsSHDyGDtDeitB8Su-99G959p4zHEaxQOwJgLjEaM88FMScqJEFwwlKS9Pi6XDtTlMTCeD7ynaC5ZeCZYC0rZMOvW_Ygq18LBLGmPvLf1VhouyfDPi8et7JV8DRfq1tTqPQyak4PWNmZmrGyYrKSViu2UsAoWpmGgop-aUMRgAAp-qDem7KBWjc43Ph_0mi6F-0BAAA.",
+    "segments": [
+      {
+        "departureAirport": {
+          "type": "AIRPORT",
+          "code": "DPS",
+          "name": "Ngurah Rai International Airport",
+          "city": "DPS",
+          "cityName": "Kuta",
+          "country": "ID",
+          "countryName": "Indonesia",
+          "province": "Bali"
+        },
+        "arrivalAirport": {
+          "type": "AIRPORT",
+          "code": "CGK",
+          "name": "Soekarno-Hatta International Airport",
+          "city": "JKT",
+          "cityName": "Jakarta",
+          "country": "ID",
+          "countryName": "Indonesia",
+          "province": "Jakarta Province"
+        },
+        "departureTime": "2025-06-19T18:45:00",
+        "arrivalTime": "2025-06-19T19:30:00",
+        "legs": [
+          {
+            "departureTime": "2025-06-19T18:45:00",
+            "arrivalTime": "2025-06-19T19:30:00",
+            "departureAirport": {
+              "type": "AIRPORT",
+              "code": "DPS",
+              "name": "Ngurah Rai International Airport",
+              "city": "DPS",
+              "cityName": "Kuta",
+              "country": "ID",
+              "countryName": "Indonesia",
+              "province": "Bali"
+            },
+            "arrivalAirport": {
+              "type": "AIRPORT",
+              "code": "CGK",
+              "name": "Soekarno-Hatta International Airport",
+              "city": "JKT",
+              "cityName": "Jakarta",
+              "country": "ID",
+              "countryName": "Indonesia",
+              "province": "Jakarta Province"
+            },
+            "cabinClass": "ECONOMY",
+            "flightInfo": {
+              "facilities": [],
+              "flightNumber": 5109,
+              "planeType": "",
+              "carrierInfo": {
+                "operatingCarrier": "8B",
+                "marketingCarrier": "8B",
+                "operatingCarrierDisclosureText": ""
+              }
+            },
+            "carriers": [
+              "8B",
+              "8B"
+            ],
+            "carriersData": [
+              {
+                "name": "TransNusa Aviation",
+                "code": "8B",
+                "logo": "https://r-xx.bstatic.com/data/airlines_logo/8B.png"
+              },
+              {
+                "name": "TransNusa Aviation",
+                "code": "8B",
+                "logo": "https://r-xx.bstatic.com/data/airlines_logo/8B.png"
+              }
+            ],
+            "totalTime": 6300,
+            "flightStops": [],
+            "amenities": []
+          }
+        ],
+        "totalTime": 6300,
+        "travellerCheckedLuggage": [
+          {
+            "travellerReference": "1",
+            "luggageAllowance": {
+              "luggageType": "CHECKED_IN",
+              "ruleType": "PIECE_BASED",
+              "maxPiece": 2,
+              "maxWeightPerPiece": 10,
+              "massUnit": "KG"
+            }
+          }
+        ],
+        "travellerCabinLuggage": [
+          {
+            "travellerReference": "1",
+            "luggageAllowance": {
+              "luggageType": "HAND",
+              "maxPiece": 1,
+              "maxWeightPerPiece": 7,
+              "massUnit": "KG",
+              "sizeRestrictions": {
+                "maxLength": 56,
+                "maxWidth": 36,
+                "maxHeight": 23,
+                "sizeUnit": "CM"
+              }
+            }
+          }
+        ],
+        "isAtolProtected": false,
+        "showWarningDestinationAirport": false,
+        "showWarningOriginAirport": false
+      }
+    ],
+    "priceBreakdown": {
+      "total": {
+        "currencyCode": "IDR",
+        "units": 1220945,
+        "nanos": 320000000
+      },
+      "baseFare": {
+        "currencyCode": "IDR",
+        "units": 981649,
+        "nanos": 680000000
+      },
+      "fee": {
+        "currencyCode": "IDR",
+        "units": 0,
+        "nanos": 0
+      },
+      "tax": {
+        "currencyCode": "IDR",
+        "units": 314550,
+        "nanos": 510000000
+      },
+      "totalRounded": {
+        "currencyCode": "IDR",
+        "nanos": 960000000,
+        "units": 1223354
+      },
+      "discount": {
+        "currencyCode": "IDR",
+        "units": 0,
+        "nanos": 0
+      },
+      "totalWithoutDiscount": {
+        "currencyCode": "IDR",
+        "units": 1296200,
+        "nanos": 190000000
+      },
+      "totalWithoutDiscountRounded": {
+        "currencyCode": "IDR",
+        "nanos": 680000000,
+        "units": 1297497
+      },
+      "bcomMargin": {
+        "currencyCode": "IDR",
+        "units": -74142,
+        "nanos": 720000000
+      },
+      "bcomPricingItems": [
+        {
+          "amount": {
+            "currencyCode": "IDR",
+            "units": -74142,
+            "nanos": 720000000
+          },
+          "itemType": "SUMMER_DEAL",
+          "name": "Summer deal*",
+          "disclaimer": "*Booking.com pays on your behalf"
+        }
+      ],
+      "carrierTaxBreakdown": [
+        {
+          "carrier": {
+            "name": "TransNusa Aviation",
+            "code": "8B",
+            "logo": "https://r-xx.bstatic.com/data/airlines_logo/8B.png"
+          },
+          "avgPerAdult": {
+            "currencyCode": "IDR",
+            "units": 305653,
+            "nanos": 380000000
+          },
+          "avgPerInfant": {
+            "currencyCode": "IDR",
+            "units": 8897,
+            "nanos": 130000000
+          }
+        }
+      ],
+      "showPriceStrikethrough": true,
+      "carrierPriceBreakdown": []
+    },
+    "travellerPrices": [
+      {
+        "travellerPriceBreakdown": {
+          "total": {
+            "currencyCode": "IDR",
+            "units": 1123262,
+            "nanos": 280000000
+          },
+          "baseFare": {
+            "currencyCode": "IDR",
+            "units": 845227,
+            "nanos": 60000000
+          },
+          "fee": {
+            "currencyCode": "IDR",
+            "units": 0,
+            "nanos": 0
+          },
+          "tax": {
+            "currencyCode": "IDR",
+            "units": 305653,
+            "nanos": 380000000
+          },
+          "totalRounded": {
+            "currencyCode": "IDR",
+            "nanos": 550000000,
+            "units": 1130676
+          },
+          "discount": {
+            "currencyCode": "IDR",
+            "units": 0,
+            "nanos": 0
+          },
+          "totalWithoutDiscount": {
+            "currencyCode": "IDR",
+            "units": 1165894,
+            "nanos": 350000000
+          },
+          "totalWithoutDiscountRounded": {
+            "currencyCode": "IDR",
+            "nanos": 910000000,
+            "units": 1167747
+          },
+          "bcomMargin": {
+            "currencyCode": "IDR",
+            "units": -37071,
+            "nanos": 360000000
+          },
+          "bcomPricingItems": [
+            {
+              "amount": {
+                "currencyCode": "IDR",
+                "units": -37071,
+                "nanos": 360000000
+              },
+              "itemType": "SUMMER_DEAL",
+              "name": "Summer deal*",
+              "disclaimer": "*Booking.com pays on your behalf"
+            }
+          ],
+          "showPriceStrikethrough": true,
+          "carrierPriceBreakdown": []
+        },
+        "travellerReference": "1",
+        "travellerType": "ADULT"
+      },
+      {
+        "travellerPriceBreakdown": {
+          "total": {
+            "currencyCode": "IDR",
+            "units": 107692,
+            "nanos": 310000000
+          },
+          "baseFare": {
+            "currencyCode": "IDR",
+            "units": 136422,
+            "nanos": 610000000
+          },
+          "fee": {
+            "currencyCode": "IDR",
+            "units": 0,
+            "nanos": 0
+          },
+          "tax": {
+            "currencyCode": "IDR",
+            "units": 8897,
+            "nanos": 130000000
+          },
+          "totalRounded": {
+            "currencyCode": "IDR",
+            "nanos": 90000000,
+            "units": 111214
+          },
+          "discount": {
+            "currencyCode": "IDR",
+            "units": 0,
+            "nanos": 0
+          },
+          "totalWithoutDiscount": {
+            "currencyCode": "IDR",
+            "units": 145319,
+            "nanos": 740000000
+          },
+          "totalWithoutDiscountRounded": {
+            "currencyCode": "IDR",
+            "nanos": 450000000,
+            "units": 148285
+          },
+          "bcomMargin": {
+            "currencyCode": "IDR",
+            "units": -37071,
+            "nanos": 360000000
+          },
+          "bcomPricingItems": [
+            {
+              "amount": {
+                "currencyCode": "IDR",
+                "units": -37071,
+                "nanos": 360000000
+              },
+              "itemType": "SUMMER_DEAL",
+              "name": "Summer deal*",
+              "disclaimer": "*Booking.com pays on your behalf"
+            }
+          ],
+          "showPriceStrikethrough": true,
+          "carrierPriceBreakdown": []
+        },
+        "travellerReference": "2",
+        "travellerType": "KID"
+      }
+    ],
+    "priceDisplayRequirements": [],
+    "pointOfSale": "ie",
+    "tripType": "ONEWAY",
+    "offerReference": "d6a1f_2254961673",
+    "travellerDataRequirements": [
+      "PASSPORT_NUMBER",
+      "PASSPORT_EXPIRY_DATE",
+      "DATE_OF_BIRTH"
+    ],
+    "bookerDataRequirement": [
+      "EMAIL",
+      "PHONE"
+    ],
+    "travellers": [
+      {
+        "travellerReference": "1",
+        "type": "ADULT"
+      },
+      {
+        "travellerReference": "2",
+        "type": "KID",
+        "age": 0
+      }
+    ],
+    "posMismatch": {
+      "detectedPointOfSale": "ca",
+      "isPOSMismatch": false,
+      "offerSalesCountry": "ie"
+    },
+    "includedProductsBySegment": [
+      [
+        {
+          "travellerReference": "1",
+          "travellerProducts": [
+            {
+              "type": "checkedInBaggage",
+              "product": {
+                "luggageType": "CHECKED_IN",
+                "ruleType": "PIECE_BASED",
+                "maxPiece": 2,
+                "maxWeightPerPiece": 10,
+                "massUnit": "KG"
+              }
+            },
+            {
+              "type": "cabinBaggage",
+              "product": {
+                "luggageType": "HAND",
+                "maxPiece": 1,
+                "maxWeightPerPiece": 7,
+                "massUnit": "KG",
+                "sizeRestrictions": {
+                  "maxLength": 56,
+                  "maxWidth": 36,
+                  "maxHeight": 23,
+                  "sizeUnit": "CM"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    "includedProducts": {
+      "areAllSegmentsIdentical": true,
+      "segments": [
+        [
+          {
+            "luggageType": "HAND",
+            "maxPiece": 1,
+            "maxWeightPerPiece": 7,
+            "massUnit": "KG",
+            "sizeRestrictions": {
+              "maxLength": 56,
+              "maxWidth": 36,
+              "maxHeight": 23,
+              "sizeUnit": "CM"
+            },
+            "piecePerPax": 1
+          },
+          {
+            "luggageType": "CHECKED_IN",
+            "ruleType": "PIECE_BASED",
+            "maxPiece": 2,
+            "maxWeightPerPiece": 10,
+            "massUnit": "KG",
+            "piecePerPax": 2
+          }
+        ]
+      ]
+    },
+    "extraProducts": [
+      {
+        "type": "flexibleTicket",
+        "priceBreakdown": {
+          "total": {
+            "currencyCode": "IDR",
+            "units": 183503,
+            "nanos": 240000000
+          },
+          "baseFare": {
+            "currencyCode": "IDR",
+            "units": 183503,
+            "nanos": 240000000
+          },
+          "fee": {
+            "currencyCode": "IDR",
+            "units": 0,
+            "nanos": 0
+          },
+          "tax": {
+            "currencyCode": "IDR",
+            "units": 0,
+            "nanos": 0
+          },
+          "discount": {
+            "currencyCode": "IDR",
+            "units": 0,
+            "nanos": 0
+          },
+          "totalWithoutDiscount": {
+            "currencyCode": "IDR",
+            "units": 183503,
+            "nanos": 240000000
+          },
+          "carrierPriceBreakdown": []
+        }
+      }
+    ],
+    "offerExtras": {
+      "flexibleTicket": {
+        "airProductReference": "n/a",
+        "travellers": [
+          "1"
+        ],
+        "recommendation": {
+          "recommended": false,
+          "confidence": "UNKNOWN_LEVEL"
+        },
+        "priceBreakdown": {
+          "total": {
+            "currencyCode": "IDR",
+            "units": 183503,
+            "nanos": 240000000
+          },
+          "baseFare": {
+            "currencyCode": "IDR",
+            "units": 183503,
+            "nanos": 240000000
+          },
+          "fee": {
+            "currencyCode": "IDR",
+            "units": 0,
+            "nanos": 0
+          },
+          "tax": {
+            "currencyCode": "IDR",
+            "units": 0,
+            "nanos": 0
+          },
+          "totalRounded": {
+            "currencyCode": "IDR",
+            "nanos": 810000000,
+            "units": 185356
+          },
+          "discount": {
+            "currencyCode": "IDR",
+            "units": 0,
+            "nanos": 0
+          },
+          "totalWithoutDiscount": {
+            "currencyCode": "IDR",
+            "units": 183503,
+            "nanos": 240000000
+          },
+          "totalWithoutDiscountRounded": {
+            "currencyCode": "IDR",
+            "nanos": 810000000,
+            "units": 185356
+          },
+          "showPriceStrikethrough": false,
+          "carrierPriceBreakdown": []
+        },
+        "supplierInfo": {
+          "name": "OY SRG Finland Ab",
+          "termsUrl": "https://flights-ie.gotogate.com/rf/travel-conditions",
+          "privacyPolicyUrl": "https://flights-ie.gotogate.com/rf/privacy-policy"
+        }
+      }
+    },
+    "ancillaries": {
+      "flexibleTicket": {
+        "airProductReference": "n/a",
+        "travellers": [
+          "1"
+        ],
+        "priceBreakdown": {
+          "total": {
+            "currencyCode": "IDR",
+            "units": 183503,
+            "nanos": 240000000
+          },
+          "baseFare": {
+            "currencyCode": "IDR",
+            "units": 183503,
+            "nanos": 240000000
+          },
+          "fee": {
+            "currencyCode": "IDR",
+            "units": 0,
+            "nanos": 0
+          },
+          "tax": {
+            "currencyCode": "IDR",
+            "units": 0,
+            "nanos": 0
+          },
+          "discount": {
+            "currencyCode": "IDR",
+            "units": 0,
+            "nanos": 0
+          },
+          "totalWithoutDiscount": {
+            "currencyCode": "IDR",
+            "units": 183503,
+            "nanos": 240000000
+          },
+          "showPriceStrikethrough": false,
+          "carrierPriceBreakdown": []
+        },
+        "preSelected": false,
+        "recommendation": {
+          "recommended": false,
+          "confidence": "UNKNOWN_LEVEL"
+        },
+        "supplierInfo": {
+          "name": "OY SRG Finland Ab",
+          "termsUrl": "https://flights-ie.gotogate.com/rf/travel-conditions",
+          "privacyPolicyUrl": "https://flights-ie.gotogate.com/rf/privacy-policy"
+        }
+      },
+      "travelInsurance": {
+        "options": {
+          "type": "COMPREHENSIVE_INSURANCE_COVER_GENIUS",
+          "travellers": [
+            "1"
+          ],
+          "priceBreakdown": {
+            "total": {
+              "currencyCode": "IDR",
+              "units": 434847,
+              "nanos": 80000000
+            },
+            "baseFare": {
+              "currencyCode": "IDR",
+              "units": 434847,
+              "nanos": 80000000
+            },
+            "fee": {
+              "currencyCode": "IDR",
+              "units": 0,
+              "nanos": 0
+            },
+            "tax": {
+              "currencyCode": "IDR",
+              "units": 0,
+              "nanos": 0
+            },
+            "discount": {
+              "currencyCode": "IDR",
+              "units": 0,
+              "nanos": 0
+            },
+            "totalWithoutDiscount": {
+              "currencyCode": "IDR",
+              "units": 434847,
+              "nanos": 80000000
+            },
+            "carrierPriceBreakdown": []
+          },
+          "disclaimer": "You confirm you have read and agree to the Policy Terms & Insurance Product Information Document which provides a summary of the key policy features. This insurance is arranged by Cover Genius Europe B.V. trading as XCover who are regulated by the AFM (No. 12046177). The travel insurance cover is underwritten by Cowen Insurance Company Ltd which is authorised by the Malta Financial Services Authority to carry on insurance business under the insurance business act, 1998. By selecting this insurance you confirm that you are a resident of Ireland. booking is an Ancillary Insurance Intermediary of Cover Genius Europe B.V.",
+          "termsAndConditionsUrl": "https://www.xcover.com/en/pds/SQKNK-QBN2Q-INS",
+          "productInformationDocumentUrl": "https://static.xcover.com/media/pds/59003340-bc95-4902-9134-d449e3a87dee/IPID_Comprehensive_IE.pdf"
+        },
+        "documents": {
+          "terms_and_conditions": "https://www.xcover.com/en/pds/SQKNK-QBN2Q-INS",
+          "details": "https://static.xcover.com/media/pds/59003340-bc95-4902-9134-d449e3a87dee/IPID_Comprehensive_IE.pdf"
+        },
+        "content": {
+          "header": "Travel protection",
+          "pageTitle": "Choose your cover",
+          "subheader": "Protect yourself from the unexpected. XCover's Travel Protection covers flight costs and more.",
+          "optInTitle": "Travel protection",
+          "optOutTitle": "No travel protection",
+          "exclusions": [
+            "No coverage for losses due to pre-existing medical conditions"
+          ],
+          "priceBreakdownNote": "Price includes Insurance Premium Tax",
+          "coveredStatusLabel": "Insured",
+          "notCoveredStatusLabel": "Not insured",
+          "benefitsTitle": "What’s covered by your travel insurance",
+          "closeA11y": "Close and go back to the travel insurance overview section.",
+          "paxStatus": "1 insured",
+          "benefits": [
+            "Trip cancellation - Unforeseen covered circumstances that force you to cancel your trip",
+            "Trip interruption - Unexpected events that require you to return home during your trip",
+            "Delayed departure - Expenses, like hotels and food, if your departing flight is delayed",
+            "Baggage loss or theft - Coverage may be available for lost or stolen personal items",
+            "Baggage delay - Purchases you make, like toiletries and clothes, if your baggage is delayed",
+            "Medical and dental, emergency assistance and transportation while you’re abroad (international flight bookings only)"
+          ],
+          "finePrint": [
+            "I confirm that I've read and agree to the <a href='https://www.xcover.com/en/pds/SQKNK-QBN2Q-INS' id='insurance_terms_link' target='_blank' rel='noopener noreferrer' >Policy Terms</a> and <a href='https://static.xcover.com/media/pds/59003340-bc95-4902-9134-d449e3a87dee/IPID_Comprehensive_IE.pdf' id='insurance_details_link' target='_blank' rel='noopener noreferrer' >Insurance Product Information Document</a>, and that all insured travellers are residents of Ireland.",
+            "This insurance is provided by Cover Genius Europe B.V. and underwritten by Cowen Insurance Company Ltd., which is authorised by the Malta Financial Services Authority to carry on insurance business under the Insurance Business Act of 1998. Cover Genius Europe B.V., trading as XCover, is regulated by the AFM (No. 12046177). Booking.com B.V. is an Ancillary Insurance Intermediary of Cover Genius Europe B.V."
+          ]
+        },
+        "forceForAllTravellers": true,
+        "isPerTraveller": true,
+        "version": 1,
+        "recommendation": {
+          "recommended": false,
+          "confidence": "UNKNOWN_LEVEL"
+        }
+      }
+    },
+    "brandedFareInfo": {
+      "fareName": "ECONOMY SEAT",
+      "cabinClass": "ECONOMY",
+      "features": [
+        {
+          "featureName": "CABIN_BAGGAGE",
+          "category": "BAGGAGE",
+          "code": "BK02",
+          "label": "1 cabin bag (7 kg)\t",
+          "availability": "INCLUDED"
+        },
+        {
+          "featureName": "CHECK_BAGGAGE",
+          "category": "BAGGAGE",
+          "code": "BK01",
+          "label": "2 checked bags (10 kg each)",
+          "availability": "INCLUDED"
+        }
+      ],
+      "fareAttributes": [],
+      "nonIncludedFeaturesRequired": false,
+      "nonIncludedFeatures": [
+        {
+          "featureName": "REFUNDABLE_TICKET",
+          "availability": "NOT_INCLUDED",
+          "category": "CANCEL",
+          "code": "",
+          "label": "No refund if you cancel "
+        }
+      ],
+      "featuresList": [
+        {
+          "featureName": "CABIN_BAGGAGE",
+          "category": "BAGGAGE",
+          "code": "BK02",
+          "label": "1 cabin bag (7 kg)\t",
+          "availability": "INCLUDED"
+        },
+        {
+          "featureName": "CHECK_BAGGAGE",
+          "category": "BAGGAGE",
+          "code": "BK01",
+          "label": "2 checked bags (10 kg each)",
+          "availability": "INCLUDED"
+        },
+        {
+          "featureName": "REFUNDABLE_TICKET",
+          "availability": "NOT_INCLUDED",
+          "category": "CANCEL",
+          "code": "",
+          "label": "No refund if you cancel "
+        }
+      ]
+    },
+    "fareRules": [
+      {
+        "segmentIdentifiers": [
+          {
+            "segmentIndex": 0,
+            "legIndex": 0
+          }
+        ],
+        "availablePolicies": [],
+        "unavailablePolicies": [
+          {
+            "type": "CANCEL_BEFORE",
+            "priceBreakdown": {
+              "total": {
+                "currencyCode": "IDR",
+                "units": 0,
+                "nanos": 0
+              },
+              "baseFare": {
+                "currencyCode": "IDR",
+                "units": 0,
+                "nanos": 0
+              },
+              "fee": {
+                "currencyCode": "IDR",
+                "units": 0,
+                "nanos": 0
+              },
+              "tax": {
+                "currencyCode": "IDR",
+                "units": 0,
+                "nanos": 0
+              },
+              "carrierPriceBreakdown": []
+            }
+          }
+        ]
+      }
+    ],
+    "appliedDiscounts": [
+      {
+        "discountName": "SUMMER_DEAL_NON_US",
+        "discountValue": {
+          "currencyCode": "IDR",
+          "units": 85264,
+          "nanos": 130000000
+        }
+      }
+    ],
+    "offerKeyToHighlight": "1_8B5109.DPS20250619",
+    "baggagePolicies": [
+      {
+        "code": "8B",
+        "name": "TransNusa Aviation",
+        "url": "https://www.transnusa.co.id/product/baggage"
+      }
+    ],
+    "extraProductDisplayRequirements": {},
+    "campaignDisplay": {
+      "badges": [
+        {
+          "style": "VIVID",
+          "text": "Summer deal"
+        }
+      ]
+    },
+    "unifiedPriceBreakdown": {
+      "price": {
+        "currencyCode": "IDR",
+        "units": 1220945,
+        "nanos": 320000000
+      },
+      "items": [
+        {
+          "scope": "FLIGHT_ADULT",
+          "id": "flight_adult",
+          "title": "Adult (1)",
+          "price": {
+            "currencyCode": "IDR",
+            "units": 1165894,
+            "nanos": 350000000
+          },
+          "items": [
+            {
+              "id": "flight_adult-basefare",
+              "title": "Flight fare",
+              "price": {
+                "currencyCode": "IDR",
+                "units": 845227,
+                "nanos": 60000000
+              },
+              "items": []
+            },
+            {
+              "id": "flight_adult-tax",
+              "title": "Airline taxes and charges",
+              "price": {
+                "currencyCode": "IDR",
+                "units": 305653,
+                "nanos": 380000000
+              },
+              "items": []
+            }
+          ]
+        },
+        {
+          "scope": "FLIGHT_INFANT",
+          "id": "flight_infant",
+          "title": "Infant (1)",
+          "price": {
+            "currencyCode": "IDR",
+            "units": 145319,
+            "nanos": 740000000
+          },
+          "items": [
+            {
+              "id": "flight_infant-basefare",
+              "title": "Flight fare",
+              "price": {
+                "currencyCode": "IDR",
+                "units": 136422,
+                "nanos": 610000000
+              },
+              "items": []
+            },
+            {
+              "id": "flight_infant-tax",
+              "title": "Airline taxes and charges",
+              "price": {
+                "currencyCode": "IDR",
+                "units": 8897,
+                "nanos": 130000000
+              },
+              "items": []
+            }
+          ]
+        },
+        {
+          "id": "discount-summer_deal",
+          "title": "Summer deal*",
+          "price": {
+            "currencyCode": "IDR",
+            "units": -74142,
+            "nanos": 720000000
+          },
+          "items": [],
+          "scope": "DISCOUNT"
+        }
+      ],
+      "addedItems": []
+    },
+    "displayOptions": {
+      "skipExtrasPage": false
+    },
+    "personalisationSegments": [
+      "FRUGAL_COMPANIONS",
+      "SHORT_HAUL_TRIP",
+      "FAMILY_TRAVELLERS"
+    ]
+  }
+}

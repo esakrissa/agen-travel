@@ -1,0 +1,86 @@
+%%{init: {'theme': 'base', 'themeVariables': {
+    'primaryColor': '#e4e1f5',
+    'primaryTextColor': '#5a5a5a',
+    'primaryBorderColor': '#b6a4e3',
+    'lineColor': '#b6a4e3',
+    'secondaryColor': '#f0f0f0',
+    'tertiaryColor': '#f0f0f0'
+    }}}%%
+graph TD
+    %% Define nodes
+    START([_start_])
+    END([_end_])
+
+    supervisor[supervisor]
+
+    hotel_agent_entrypoint[hotel_agent_entrypoint]
+    hotel_agent[hotel_agent]
+    hotel_agent_tools[hotel_agent_tools]
+
+    flight_agent_entrypoint[flight_agent_entrypoint]
+    flight_agent[flight_agent]
+    flight_agent_tools[flight_agent_tools]
+
+    tour_agent_entrypoint[tour_agent_entrypoint]
+    tour_agent[tour_agent]
+    tour_agent_tools[tour_agent_tools]
+
+    customer_service_entrypoint[customer_service_entrypoint]
+    customer_service[customer_service]
+    customer_service_tools[customer_service_tools]
+
+    return_to_supervisor[return_to_supervisor]
+
+    %% Connections
+    START -.-> supervisor
+    START -.-> hotel_agent
+    START -.-> flight_agent
+    START -.-> tour_agent
+    START -.-> customer_service
+
+    supervisor -.-> hotel_agent_entrypoint
+    supervisor -.-> flight_agent_entrypoint
+    supervisor -.-> tour_agent_entrypoint
+    supervisor -.-> customer_service_entrypoint
+    supervisor -.-> END
+
+    hotel_agent_entrypoint --> hotel_agent
+    hotel_agent --> hotel_agent_tools
+    hotel_agent -.-> return_to_supervisor
+    hotel_agent_tools --> hotel_agent
+    hotel_agent -.-> END
+
+    flight_agent_entrypoint --> flight_agent
+    flight_agent --> flight_agent_tools
+    flight_agent -.-> return_to_supervisor
+    flight_agent_tools --> flight_agent
+    flight_agent -.-> END
+
+    tour_agent_entrypoint --> tour_agent
+    tour_agent --> tour_agent_tools
+    tour_agent -.-> return_to_supervisor
+    tour_agent_tools --> tour_agent
+    tour_agent -.-> END
+
+    customer_service_entrypoint --> customer_service
+    customer_service --> customer_service_tools
+    customer_service -.-> return_to_supervisor
+    customer_service_tools --> customer_service
+    customer_service -.-> END
+
+    return_to_supervisor --> supervisor
+
+    %% Styling classes
+    classDef supervisor fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef agent fill:#fcf,stroke:#333,stroke-width:1px;
+    classDef tool fill:#bbf,stroke:#333,stroke-width:1px;
+    classDef user fill:#dfd,stroke:#333,stroke-width:2px;
+    classDef flow fill:none,stroke:#999,stroke-width:1px,stroke-dasharray: 5 5;
+    classDef start_end fill:#f9f,stroke:#333,stroke-width:2px,shape:circle;
+
+    %% Apply styling
+    class supervisor supervisor;
+    class hotel_agent,flight_agent,tour_agent,customer_service agent;
+    class hotel_agent_tools,flight_agent_tools,tour_agent_tools,customer_service_tools tool;
+    class hotel_agent_entrypoint,flight_agent_entrypoint,tour_agent_entrypoint,customer_service_entrypoint,return_to_supervisor flow;
+    class START,END start_end;

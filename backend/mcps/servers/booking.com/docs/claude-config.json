@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "booking-com": {
+      "command": "python",
+      "args": [
+        "/path/to/booking.com/src/booking_com_mcp/main.py"
+      ],
+      "env": {
+        "RAPIDAPI_KEY": "your_rapidapi_key_here"
+      }
+    }
+  }
+}

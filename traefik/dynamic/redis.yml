@@ -1,0 +1,25 @@
+# Redis Services Dynamic Configuration
+# Routing untuk Redis Insight web interface dengan Basic Authentication
+
+http:
+  routers:
+    # Router untuk Redis Insight Dashboard - menggunakan subdomain dengan basic auth
+    redis-dashboard:
+      rule: "Host(`redis.localhost`) || Host(`redis.agen-travel.live`)"
+      entryPoints:
+        - "web"
+      service: "redis-service"
+      middlewares:
+        - "redis-auth"        # Tambahkan basic auth
+        - "redis-headers"     # Headers untuk proxy support
+        - "gzip-compression"  # Kompresi untuk performance
+      priority: 150
+
+  services:
+    # Service definition untuk Redis Insight
+    redis-service:
+      loadBalancer:
+        servers:
+          - url: "http://redis:8001"
+
+

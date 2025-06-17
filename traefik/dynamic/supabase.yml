@@ -1,0 +1,85 @@
+# Supabase Services Dynamic Configuration
+# Routing untuk Supabase Dashboard via Kong Gateway dan API endpoints
+
+http:
+  routers:
+    # Router untuk Supabase Dashboard - menggunakan subdomain
+    supabase-dashboard:
+      rule: "Host(`supabase.localhost`) || Host(`supabase.agen-travel.live`)"
+      entryPoints:
+        - "web"
+      service: "supabase-kong-service"
+      middlewares:
+        - "supabase-headers"
+        - "basic-security"
+      priority: 200
+
+    # Router untuk Supabase API endpoints - semua API melalui Kong Gateway (mendukung localhost dan production domain)
+    supabase-api:
+      rule: "(Host(`localhost`) || Host(`agen-travel.live`)) && PathPrefix(`/supabase/api`)"
+      entryPoints:
+        - "web"
+      service: "supabase-kong-service"
+      middlewares:
+        - "supabase-api-stripprefix"
+        - "supabase-api-cors"
+        - "basic-security"
+      priority: 160
+
+    # Router untuk Supabase Auth endpoints (mendukung localhost dan production domain)
+    supabase-auth:
+      rule: "(Host(`localhost`) || Host(`agen-travel.live`)) && PathPrefix(`/supabase/auth`)"
+      entryPoints:
+        - "web"
+      service: "supabase-kong-service"
+      middlewares:
+        - "supabase-auth-stripprefix"
+        - "supabase-api-cors"
+        - "basic-security"
+      priority: 160
+
+    # Router khusus untuk email verification tanpa prefix /supabase (mendukung localhost dan production domain)
+    supabase-auth-verify:
+      rule: "(Host(`localhost`) || Host(`agen-travel.live`)) && PathPrefix(`/auth/v1/verify`)"
+      entryPoints:
+        - "web"
+      service: "supabase-kong-service"
+      middlewares:
+        - "supabase-api-cors"
+        - "basic-security"
+      priority: 170
+
+    # Router untuk Supabase Storage endpoints (mendukung localhost dan production domain)
+    supabase-storage:
+      rule: "(Host(`localhost`) || Host(`agen-travel.live`)) && PathPrefix(`/supabase/storage`)"
+      entryPoints:
+        - "web"
+      service: "supabase-kong-service"
+      middlewares:
+        - "supabase-storage-stripprefix"
+        - "supabase-api-cors"
+        - "basic-security"
+      priority: 160
+
+    # Router untuk Supabase Database Meta API (mendukung localhost dan production domain)
+    supabase-db:
+      rule: "(Host(`localhost`) || Host(`agen-travel.live`)) && PathPrefix(`/supabase/db`)"
+      entryPoints:
+        - "web"
+      service: "supabase-kong-service"
+      middlewares:
+        - "supabase-db-stripprefix"
+        - "supabase-api-cors"
+        - "basic-security"
+      priority: 160
+
+  services:
+    # Service definition untuk Supabase Kong Gateway
+    # Kong Gateway akan proxy semua requests ke services yang sesuai
+    supabase-kong-service:
+      loadBalancer:
+        servers:
+          - url: "http://supabase-kong:8000"
+        # Health check disabled karena Kong memerlukan auth untuk semua endpoints
+
+

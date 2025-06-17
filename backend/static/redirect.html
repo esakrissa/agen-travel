@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #202124;
+            min-height: 100vh;
+            padding: 40px 20px;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            margin-bottom: 32px;
+        }
+
+        .logo {
+            font-size: 14px;
+            color: #5f6368;
+            margin-bottom: 8px;
+        }
+
+        .status {
+            font-size: 24px;
+            color: #202124;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .status.success {
+            color: #137333;
+        }
+
+        .status.error {
+            color: #d93025;
+        }
+
+        .message {
+            font-size: 14px;
+            color: #5f6368;
+            margin-bottom: 24px;
+        }
+
+        .message.success {
+            color: #137333;
+        }
+
+        .message.error {
+            color: #d93025;
+        }
+
+        .countdown {
+            font-size: 12px;
+            color: #5f6368;
+            margin-top: 16px;
+            font-style: italic;
+        }
+
+        .icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .icon.success {
+            color: #137333;
+        }
+
+        .icon.error {
+            color: #d93025;
+        }
+
+        .action {
+            margin-top: 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1a73e8;
+            color: #ffffff;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .btn:hover {
+            background-color: #1557b0;
+        }
+
+        .footer {
+            margin-top: 48px;
+            padding-top: 16px;
+            border-top: 1px solid #e8eaed;
+            font-size: 12px;
+            color: #5f6368;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 16px;
+            }
+
+            .status {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">Agen Travel</div>
+        </div>
+
+        <div id="success-content" style="display: none;">
+            <div class="icon success">✅</div>
+            <div class="status success">🎉 Email Berhasil Diverifikasi!</div>
+            <div class="message success">Selamat! Alamat email Anda telah berhasil diverifikasi dan akun Anda sudah aktif. Anda sekarang dapat menggunakan semua fitur Agen Travel.</div>
+            <div class="action">
+                <button class="btn" onclick="closeWindow()">Tutup</button>
+            </div>
+            <div class="countdown" id="success-countdown">Tab akan tertutup otomatis dalam 60 detik...</div>
+        </div>
+
+        <div id="error-content" style="display: none;">
+            <div class="icon error">❌</div>
+            <div class="status error">⚠️ Verifikasi Gagal!</div>
+            <div class="message error" id="error-message">Link verifikasi tidak valid atau sudah kadaluarsa. Silakan coba lagi atau minta link verifikasi baru.</div>
+            <div class="action">
+                <button class="btn" onclick="closeWindow()">Tutup</button>
+            </div>
+            <div class="countdown" id="error-countdown">Tab akan tertutup otomatis dalam 60 detik...</div>
+        </div>
+
+        <div class="footer">
+            <div>© 2025 Agen Travel</div>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk mendapatkan parameter URL dari query string
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Fungsi untuk mendapatkan parameter dari fragment (hash)
+        function getFragmentParameter(name) {
+            var hash = window.location.hash.substring(1);
+            var params = new URLSearchParams(hash);
+            return params.get(name);
+        }
+        
+        // Cek status dari URL parameter atau handle Supabase Auth callback
+        window.onload = function() {
+            // Cek apakah ini callback dari Supabase Auth (ada access_token di fragment)
+            const accessToken = getFragmentParameter('access_token');
+            let tokenType = getFragmentParameter('type');
+
+            // Jika tidak ada type di fragment, cek di query string atau default ke 'signup'
+            if (!tokenType) {
+                tokenType = getUrlParameter('type') || 'signup';
+            }
+
+            if (accessToken) {
+                // Ini adalah callback dari Supabase Auth, proses verifikasi
+                processSupabaseCallback(accessToken, tokenType);
+                return;
+            }
+
+            // Jika bukan callback, cek status normal
+            const status = getUrlParameter('status');
+            const message = getUrlParameter('message');
+
+            if (status === 'success') {
+                document.getElementById('success-content').style.display = 'block';
+                startCountdown('success-countdown', 60);
+            } else if (status === 'error') {
+                document.getElementById('error-content').style.display = 'block';
+                if (message) {
+                    document.getElementById('error-message').textContent = '⚠️ ' + message;
+                }
+                startCountdown('error-countdown', 60);
+            } else {
+                // Default ke error jika tidak ada status
+                document.getElementById('error-content').style.display = 'block';
+                startCountdown('error-countdown', 60);
+            }
+        };
+
+        // Fungsi untuk memproses callback dari Supabase Auth
+        async function processSupabaseCallback(accessToken, tokenType) {
+            try {
+                // Tampilkan loading state
+                document.getElementById('success-content').innerHTML = `
+                    <div class="status">Memverifikasi...</div>
+                    <div class="message">Mohon tunggu sementara kami memverifikasi alamat email Anda.</div>
+                `;
+                document.getElementById('success-content').style.display = 'block';
+
+                // Panggil API backend untuk verifikasi
+                const response = await fetch('/api/v1/email/verify-email-api', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        token: accessToken,
+                        token_type: tokenType || 'signup'
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Verifikasi berhasil
+                    document.getElementById('success-content').innerHTML = `
+                        <div class="icon success">✅</div>
+                        <div class="status success">🎉 Email Berhasil Diverifikasi!</div>
+                        <div class="message success">Selamat! Alamat email Anda telah berhasil diverifikasi dan akun Anda sudah aktif. Anda sekarang dapat menggunakan semua fitur Agen Travel.</div>
+                        <div class="action">
+                            <button class="btn" onclick="closeWindow()">Tutup</button>
+                        </div>
+                        <div class="countdown" id="success-countdown">Tab akan tertutup otomatis dalam 60 detik...</div>
+                    `;
+                    startCountdown('success-countdown', 60);
+                } else {
+                    // Verifikasi gagal
+                    document.getElementById('success-content').style.display = 'none';
+                    document.getElementById('error-content').style.display = 'block';
+                    document.getElementById('error-message').textContent = result.message || '⚠️ Verifikasi gagal! Link tidak valid atau sudah kadaluarsa.';
+                    startCountdown('error-countdown', 60);
+                }
+            } catch (error) {
+                console.error('Error memproses verifikasi:', error);
+                // Tampilkan error
+                document.getElementById('success-content').style.display = 'none';
+                document.getElementById('error-content').style.display = 'block';
+                document.getElementById('error-message').textContent = '❌ Terjadi kesalahan saat memproses verifikasi! Silakan coba lagi nanti.';
+                startCountdown('error-countdown', 60);
+            }
+        }
+
+        // Fungsi countdown timer
+        function startCountdown(elementId, seconds) {
+            let timeLeft = seconds;
+            const countdownElement = document.getElementById(elementId);
+
+            if (!countdownElement) return;
+
+            const timer = setInterval(function() {
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    closeWindow();
+                    return;
+                }
+
+                countdownElement.textContent = `Tab akan tertutup otomatis dalam ${timeLeft} detik...`;
+                timeLeft--;
+            }, 1000);
+
+            // Simpan timer ID untuk bisa dibatalkan jika perlu
+            window.countdownTimer = timer;
+        }
+
+        // Auto close setelah 1 menit (60 detik)
+        setTimeout(function() {
+            const status = getUrlParameter('status');
+            if (status === 'success' || status === 'error') {
+                closeWindow();
+            }
+        }, 60000);
+
+        // Keyboard shortcut untuk close (Escape atau Ctrl+W)
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' || (event.ctrlKey && event.key === 'w')) {
+                event.preventDefault();
+                closeWindow();
+            }
+        });
+
+        // Batalkan countdown jika user mengklik tombol tutup
+        function closeWindow() {
+            if (window.countdownTimer) {
+                clearInterval(window.countdownTimer);
+            }
+
+            try {
+                // Method 1: Coba tutup tab langsung
+                window.close();
+
+                // Method 2: Jika masih ada, coba dengan opener
+                if (window.opener) {
+                    window.opener = null;
+                    window.close();
+                }
+
+                // Method 3: Fallback - redirect ke blank page dan tutup
+                setTimeout(() => {
+                    if (!window.closed) {
+                        window.location.href = 'about:blank';
+                        window.close();
+                    }
+                }, 100);
+
+                // Method 4: Ultimate fallback - show message
+                setTimeout(() => {
+                    if (!window.closed) {
+                        document.body.innerHTML = `
+                            <div class="container">
+                                <div class="header">
+                                    <div class="logo">Agen Travel</div>
+                                </div>
+                                <div class="status">✅ Anda dapat menutup tab ini</div>
+                                <div class="message">Silakan tutup tab browser ini secara manual.</div>
+                            </div>
+                        `;
+                    }
+                }, 500);
+
+            } catch (error) {
+                console.log('Tidak dapat menutup tab secara otomatis:', error);
+                // Tampilkan pesan untuk tutup manual
+                document.body.innerHTML = `
+                    <div class="container">
+                        <div class="header">
+                            <div class="logo">Agen Travel</div>
+                        </div>
+                        <div class="status">✅ Anda dapat menutup tab ini</div>
+                        <div class="message">Silakan tutup tab browser ini secara manual.</div>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

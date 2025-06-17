@@ -1,0 +1,82 @@
+{
+  "search_results": {
+    "denpasar": {
+      "status": true,
+      "message": "Success",
+      "timestamp": 1749375544696,
+      "data": [
+        {
+          "id": "DPS.AIRPORT",
+          "type": "AIRPORT",
+          "name": "Ngurah Rai International Airport",
+          "code": "DPS",
+          "city": "DPS",
+          "cityName": "Kuta",
+          "regionName": "Bali",
+          "country": "ID",
+          "countryName": "Indonesia",
+          "countryNameShort": "Indonesia",
+          "photoUri": "https://q-xx.bstatic.com/xdata/images/city/square150/688060.jpg?k=57065d3be37fb33083964a32334c077cf3cbc52eac00202e887d8c20636514e6&o=",
+          "distanceToCity": {
+            "value": 2.2196330094499337,
+            "unit": "km"
+          },
+          "parent": "DPS"
+        }
+      ]
+    },
+    "jakarta": {
+      "status": true,
+      "message": "Success",
+      "timestamp": 1749375781781,
+      "data": [
+        {
+          "id": "JKT.CITY",
+          "type": "CITY",
+          "name": "Jakarta",
+          "code": "JKT",
+          "regionName": "Jakarta Province",
+          "country": "ID",
+          "countryName": "Indonesia",
+          "photoUri": "https://q-xx.bstatic.com/xdata/images/city/square150/688052.jpg?k=2f1b6381dacc6b06942e5fdb94ba971c1e8d9cf4b92d19c96b395cb189d98ebd&o="
+        },
+        {
+          "id": "CGK.AIRPORT",
+          "type": "AIRPORT",
+          "name": "Soekarno-Hatta International Airport",
+          "code": "CGK",
+          "city": "JKT",
+          "cityName": "Jakarta",
+          "regionName": "Jakarta Province",
+          "country": "ID",
+          "countryName": "Indonesia",
+          "countryNameShort": "Indonesia",
+          "photoUri": "https://q-xx.bstatic.com/xdata/images/city/square150/688052.jpg?k=2f1b6381dacc6b06942e5fdb94ba971c1e8d9cf4b92d19c96b395cb189d98ebd&o=",
+          "distanceToCity": {
+            "value": 20.166796001338913,
+            "unit": "km"
+          },
+          "parent": "JKT"
+        },
+        {
+          "id": "HLP.AIRPORT",
+          "type": "AIRPORT",
+          "name": "Halim Perdanakusuma International Airport",
+          "code": "HLP",
+          "city": "JKT",
+          "cityName": "Jakarta",
+          "regionName": "Jakarta Province",
+          "country": "ID",
+          "countryName": "Indonesia",
+          "countryNameShort": "Indonesia",
+          "photoUri": "https://q-xx.bstatic.com/xdata/images/city/square150/688052.jpg?k=2f1b6381dacc6b06942e5fdb94ba971c1e8d9cf4b92d19c96b395cb189d98ebd&o=",
+          "distanceToCity": {
+            "value": 10.507723160896402,
+            "unit": "km"
+          },
+          "parent": "JKT"
+        }
+      ]
+    }
+  }
+}

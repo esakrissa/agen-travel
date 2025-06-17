@@ -1,0 +1,136 @@
+%%{init: {'theme': 'base', 'themeVariables': {
+    'primaryColor': '#e4e1f5',
+    'primaryTextColor': '#5a5a5a',
+    'primaryBorderColor': '#b6a4e3',
+    'lineColor': '#b6a4e3',
+    'secondaryColor': '#f0f0f0',
+    'tertiaryColor': '#f0f0f0'
+    }}}%%
+graph TD
+    %% Define nodes
+    START([_start_])
+    END([_end_])
+
+    supervisor[supervisor]
+
+    hotel_agent_entrypoint[hotel_agent_entrypoint]
+    hotel_agent[hotel_agent]
+    hotel_agent_tools[hotel_agent_tools]
+
+    flight_agent_entrypoint[flight_agent_entrypoint]
+    flight_agent[flight_agent]
+    flight_agent_tools[flight_agent_tools]
+
+    tour_agent_entrypoint[tour_agent_entrypoint]
+    tour_agent[tour_agent]
+    tour_agent_tools[tour_agent_tools]
+
+    customer_service_entrypoint[customer_service_entrypoint]
+    customer_service[customer_service]
+    customer_service_tools[customer_service_tools]
+
+    return_to_supervisor[return_to_supervisor]
+
+    %% Hotel Tools Definition
+    subgraph HotelTools[Hotel Tool Functions]
+        search_hotels_destination[search_hotels_destination]
+        get_hotel_details[get_hotel_details]
+        boook_hotel_room[boook_hotel_room]
+    end
+
+    %% Flight Tools Definition
+    subgraph FlightTools[Flight Tool Functions]
+        search_flights_route[search_flights_route]
+        get_flight_details[get_flight_details]
+        book_flight[book_flight]
+    end
+
+    %% Tour Tools Definition
+    subgraph TourTools[Tour Tool Functions]
+        search_tours_by_destination[search_tours_by_destination]
+        get_tour_details[get_tour_details]
+        book_tour[book_tour]
+    end
+
+    %% Customer Service Tools Definition
+    subgraph CustomerServiceTools[Customer Service Tool Functions]
+        get_user_booking_history[get_user_booking_history]
+        get_booking_details[get_booking_details]
+    end
+
+    %% Connections
+    START -.-> supervisor
+    START -.-> hotel_agent
+    START -.-> flight_agent
+    START -.-> tour_agent
+    START -.-> customer_service
+
+    supervisor -.-> hotel_agent_entrypoint
+    supervisor -.-> flight_agent_entrypoint
+    supervisor -.-> tour_agent_entrypoint
+    supervisor -.-> customer_service_entrypoint
+    supervisor -.-> END
+
+    hotel_agent_entrypoint --> hotel_agent
+    hotel_agent --> hotel_agent_tools
+    hotel_agent -.-> return_to_supervisor
+    hotel_agent_tools --> hotel_agent
+    hotel_agent -.-> END
+
+    flight_agent_entrypoint --> flight_agent
+    flight_agent --> flight_agent_tools
+    flight_agent -.-> return_to_supervisor
+    flight_agent_tools --> flight_agent
+    flight_agent -.-> END
+
+    tour_agent_entrypoint --> tour_agent
+    tour_agent --> tour_agent_tools
+    tour_agent -.-> return_to_supervisor
+    tour_agent_tools --> tour_agent
+    tour_agent -.-> END
+
+    customer_service_entrypoint --> customer_service
+    customer_service --> customer_service_tools
+    customer_service -.-> return_to_supervisor
+    customer_service_tools --> customer_service
+    customer_service -.-> END
+
+    return_to_supervisor --> supervisor
+
+    %% Tool connections
+    hotel_agent_tools --- HotelTools
+    flight_agent_tools --- FlightTools
+    tour_agent_tools --- TourTools
+    customer_service_tools --- CustomerServiceTools
+
+    %% Add invisible nodes to balance the layout
+    hotel_agent -.-> InvisibleNode1[" "]:::invisible
+    InvisibleNode1 -.-> END
+    flight_agent -.-> InvisibleNode2[" "]:::invisible
+    InvisibleNode2 -.-> END
+    tour_agent -.-> InvisibleNode3[" "]:::invisible
+    InvisibleNode3 -.-> END
+    customer_service -.-> InvisibleNode4[" "]:::invisible
+    InvisibleNode4 -.-> END
+
+    %% Styling classes
+    classDef supervisor fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef agent fill:#fcf,stroke:#333,stroke-width:1px;
+    classDef tool fill:#bbf,stroke:#333,stroke-width:1px;
+    classDef user fill:#dfd,stroke:#333,stroke-width:2px;
+    classDef flow fill:none,stroke:#999,stroke-width:1px,stroke-dasharray: 5 5;
+    classDef start_end fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef invisible fill:none,stroke:none;
+
+    %% Apply styling
+    class supervisor supervisor;
+    class hotel_agent,flight_agent,tour_agent,customer_service agent;
+    class hotel_agent_tools,flight_agent_tools,tour_agent_tools,customer_service_tools tool;
+    class search_hotels_destination,boook_hotel_room,get_hotel_details tool;
+    class search_flights_route,book_flight,get_flight_details tool;
+    class get_tours,search_tours_by_destination,get_tour_details,check_tour_availability,book_tour,process_tour_payment,cancel_tour_booking tool;
+    class get_user_booking_history,get_booking_details tool;
+    class hotel_agent_entrypoint,flight_agent_entrypoint,tour_agent_entrypoint,customer_service_entrypoint,return_to_supervisor flow;
+    class HotelTools,FlightTools,TourTools,CustomerServiceTools flow;
+    class InvisibleNode1,InvisibleNode2,InvisibleNode3,InvisibleNode4 invisible;
+    class START,END start_end;

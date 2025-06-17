@@ -1,0 +1,114 @@
+{
+  "data": [
+    {
+      "location_id": "297701",
+      "name": "Ubud",
+      "address_obj": {
+        "street1": "",
+        "street2": "",
+        "city": "Bali",
+        "country": "Bali",
+        "postalcode": "",
+        "address_string": "Ubud Indonesia"
+      }
+    },
+    {
+      "location_id": "15142407",
+      "name": "All-Inclusive Ubud Private Tour",
+      "address_obj": {
+        "city": "Ubud",
+        "country": "Bali",
+        "address_string": "Ubud Indonesia"
+      }
+    },
+    {
+      "location_id": "7907965",
+      "name": "Padma Resort Ubud",
+      "address_obj": {
+        "street1": "Banjar Carik",
+        "city": "Puhu",
+        "country": "Bali",
+        "postalcode": "80572",
+        "address_string": "Banjar Carik, Puhu, Payangan 80572 Indonesia"
+      }
+    },
+    {
+      "location_id": "8046149",
+      "name": "Ubud Traditional Spa",
+      "address_obj": {
+        "street1": "Jalan Rsi Markandya I",
+        "city": "Ubud",
+        "country": "Bali",
+        "postalcode": "80571",
+        "address_string": "Jalan Rsi Markandya I, Ubud 80571 Indonesia"
+      }
+    },
+    {
+      "location_id": "378979",
+      "name": "Ubud Traditional Art Market",
+      "address_obj": {
+        "street1": "Jl. Raya Ubud No.35",
+        "street2": "",
+        "city": "Ubud",
+        "country": "Bali",
+        "postalcode": "80571",
+        "address_string": "Jl. Raya Ubud No.35, Ubud 80571 Indonesia"
+      }
+    },
+    {
+      "location_id": "23338837",
+      "name": "Tablespoon Ubud",
+      "address_obj": {
+        "street1": "Jl. Suweta No.99",
+        "city": "Ubud",
+        "country": "Bali",
+        "postalcode": "80571",
+        "address_string": "Jl. Suweta No.99, Ubud 80571 Indonesia"
+      }
+    },
+    {
+      "location_id": "17555149",
+      "name": "Best of Ubud 1-Day Private Tour",
+      "address_obj": {
+        "city": "Ubud",
+        "country": "Bali",
+        "address_string": "Ubud Indonesia"
+      }
+    },
+    {
+      "location_id": "23303551",
+      "name": "Cretya Ubud",
+      "address_obj": {
+        "street1": "Jl. Raya Tegallalang",
+        "street2": "Alas Harum",
+        "city": "Ubud",
+        "country": "Bali",
+        "postalcode": "80561",
+        "address_string": "Jl. Raya Tegallalang Alas Harum, Ubud 80561 Indonesia"
+      }
+    },
+    {
+      "location_id": "3580843",
+      "name": "Alaya Resort Ubud",
+      "address_obj": {
+        "street1": "Jl. Hanoman",
+        "city": "Ubud",
+        "country": "Bali",
+        "postalcode": "80571",
+        "address_string": "Jl. Hanoman, Ubud 80571 Indonesia"
+      }
+    },
+    {
+      "location_id": "552948",
+      "name": "Ubud Village Hotel",
+      "address_obj": {
+        "street1": "Jalan Monkey Forest",
+        "street2": "",
+        "city": "Ubud",
+        "country": "Bali",
+        "postalcode": "80571",
+        "address_string": "Jalan Monkey Forest, Ubud 80571 Indonesia"
+      }
+    }
+  ]
+}

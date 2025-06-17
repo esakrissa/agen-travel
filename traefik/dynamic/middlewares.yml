@@ -1,0 +1,490 @@
+# Middlewares Configuration
+# Semua middleware yang digunakan di seluruh aplikasi
+
+http:
+  middlewares:
+    # ===== AUTHENTICATION MIDDLEWARES =====
+
+    # Basic Auth untuk Traefik Dashboard
+    # Menggunakan .htpasswd khusus untuk dashboard
+    traefik-auth:
+      basicAuth:
+        usersFile: "/etc/traefik/config/.htpasswd"
+        realm: "Traefik Dashboard"
+        removeHeader: false
+
+    # Basic Auth untuk Prometheus Dashboard
+    # Grafana tidak menggunakan basic auth karena sudah ada login page sendiri
+    prometheus-auth:
+      basicAuth:
+        usersFile: "/etc/traefik/config/.htpasswd-prometheus"
+        realm: "Prometheus Dashboard"
+        removeHeader: false
+
+    # Basic Auth untuk Supabase Studio Dashboard
+    # Menggunakan file terpisah untuk Supabase admin access
+    supabase-auth:
+      basicAuth:
+        usersFile: "/etc/traefik/config/.htpasswd-supabase"
+        realm: "Supabase Studio Dashboard"
+        removeHeader: false
+
+    # Basic Auth untuk Redis Insight Dashboard
+    # Menggunakan file terpisah untuk Redis admin access
+    redis-auth:
+      basicAuth:
+        usersFile: "/etc/traefik/config/.htpasswd-redis"
+        realm: "Redis Insight Dashboard"
+        removeHeader: false
+
+    # Basic Auth untuk API Documentation
+    # Menggunakan file terpisah untuk API docs access
+    api-auth:
+      basicAuth:
+        usersFile: "/etc/traefik/config/.htpasswd-api"
+        realm: "API Documentation"
+        removeHeader: false
+
+    # ===== RATE LIMITING MIDDLEWARES =====
+    
+    # Rate limit untuk dashboard access (moderat)
+    dashboard-ratelimit:
+      rateLimit:
+        average: 30   # 30 requests per second
+        burst: 50     # Burst hingga 50 requests
+        period: "1s"  # Per detik
+        sourceCriterion:
+          ipStrategy:
+            depth: 1
+
+    # Rate limit untuk API endpoints (ketat)
+    api-ratelimit:
+      rateLimit:
+        average: 100  # 100 requests per second
+        burst: 200    # Burst hingga 200 requests
+        period: "1s"  # Per detik
+        sourceCriterion:
+          ipStrategy:
+            depth: 1
+            excludedIPs:
+              - "127.0.0.1"
+              - "::1"
+
+    # Rate limit untuk webhook Telegram (sangat ketat)
+    webhook-ratelimit:
+      rateLimit:
+        average: 10   # 10 requests per second
+        burst: 20     # Burst hingga 20 requests
+        period: "1s"  # Per detik
+        sourceCriterion:
+          ipStrategy:
+            depth: 1
+
+    # Rate limit untuk Supabase API (ketat)
+    supabase-ratelimit:
+      rateLimit:
+        average: 200  # 200 requests per second
+        burst: 400    # Burst hingga 400 requests
+        period: "1s"  # Per detik
+        sourceCriterion:
+          ipStrategy:
+            depth: 1
+
+    # Rate limit untuk monitoring (longgar)
+    monitoring-ratelimit:
+      rateLimit:
+        average: 50   # 50 requests per second
+        burst: 100    # Burst hingga 100 requests
+        period: "1s"  # Per detik
+        sourceCriterion:
+          ipStrategy:
+            depth: 1
+
+    # ===== SECURITY MIDDLEWARES =====
+    
+    # Security headers dasar untuk semua service
+    basic-security:
+      headers:
+        customResponseHeaders:
+          X-Content-Type-Options: "nosniff"
+          X-Frame-Options: "DENY"
+          X-XSS-Protection: "1; mode=block"
+          Referrer-Policy: "strict-origin-when-cross-origin"
+          Permissions-Policy: "geolocation=(), microphone=(), camera=()"
+        contentTypeNosniff: true
+        frameDeny: true
+        browserXssFilter: true
+        contentSecurityPolicy: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
+
+    # Security headers untuk API (lebih ketat)
+    api-security:
+      headers:
+        customRequestHeaders:
+          X-Forwarded-Proto: "http"
+          X-Forwarded-Port: "80"
+        customResponseHeaders:
+          X-Content-Type-Options: "nosniff"
+          X-Frame-Options: "SAMEORIGIN"
+          X-XSS-Protection: "1; mode=block"
+          Referrer-Policy: "strict-origin-when-cross-origin"
+          Permissions-Policy: "geolocation=(), microphone=(), camera=()"
+          Cache-Control: "no-cache, no-store, must-revalidate"
+          Pragma: "no-cache"
+          Expires: "0"
+        contentTypeNosniff: true
+        browserXssFilter: true
+
+    # Security untuk dashboard (enhanced)
+    dashboard-security:
+      headers:
+        customResponseHeaders:
+          X-Content-Type-Options: "nosniff"
+          X-Frame-Options: "DENY"
+          X-XSS-Protection: "1; mode=block"
+          Referrer-Policy: "strict-origin-when-cross-origin"
+          Strict-Transport-Security: "max-age=31536000; includeSubDomains"
+        contentTypeNosniff: true
+        frameDeny: true
+        browserXssFilter: true
+        stsSeconds: 31536000
+        stsIncludeSubdomains: true
+
+    # Security untuk webhook
+    webhook-security:
+      headers:
+        customRequestHeaders:
+          X-Forwarded-Proto: "http"
+          X-Real-IP: ""
+        customResponseHeaders:
+          X-Content-Type-Options: "nosniff"
+          X-Frame-Options: "DENY"
+          Cache-Control: "no-cache, no-store, must-revalidate"
+        contentTypeNosniff: true
+        frameDeny: true
+
+    # ===== CORS MIDDLEWARES =====
+    
+    # CORS untuk API development (comprehensive) - mendukung localhost dan production domain
+    api-cors:
+      headers:
+        accessControlAllowMethods:
+          - "GET"
+          - "POST"
+          - "PUT"
+          - "DELETE"
+          - "PATCH"
+          - "OPTIONS"
+        accessControlAllowOriginList:
+          - "http://localhost"
+          - "http://localhost:3000"
+          - "http://localhost:3001"
+          - "http://localhost:8080"
+          - "http://127.0.0.1"
+          - "http://127.0.0.1:3000"
+          - "http://127.0.0.1:8080"
+          - "https://agen-travel.live"
+          - "http://agen-travel.live"
+        accessControlAllowHeaders:
+          - "Accept"
+          - "Authorization"
+          - "Content-Type"
+          - "X-CSRF-Token"
+          - "X-Requested-With"
+          - "X-Thread-ID"
+          - "X-User-ID"
+          - "Origin"
+        accessControlExposeHeaders:
+          - "Content-Length"
+          - "Content-Range"
+          - "X-Total-Count"
+          - "X-Request-ID"
+          - "X-Response-Time"
+        accessControlAllowCredentials: true
+        accessControlMaxAge: 86400
+
+    # CORS untuk development (lebih permissive)
+    dev-cors:
+      headers:
+        accessControlAllowMethods:
+          - "*"
+        accessControlAllowOriginList:
+          - "*"
+        accessControlAllowHeaders:
+          - "*"
+        accessControlAllowCredentials: true
+        accessControlMaxAge: 3600
+
+    # CORS untuk webhook (lebih restrictive)
+    webhook-cors:
+      headers:
+        accessControlAllowMethods:
+          - "POST"
+          - "OPTIONS"
+        accessControlAllowOriginList:
+          - "https://api.telegram.org"
+        accessControlAllowHeaders:
+          - "Content-Type"
+          - "X-Telegram-Bot-Api-Secret-Token"
+        accessControlAllowCredentials: false
+        accessControlMaxAge: 3600
+
+    # CORS untuk production (lebih ketat)
+    production-cors:
+      headers:
+        accessControlAllowMethods:
+          - GET
+          - POST
+          - PUT
+          - DELETE
+        accessControlAllowOriginList:
+          - "https://yourdomain.com"
+          - "https://www.yourdomain.com"
+        accessControlAllowHeaders:
+          - "Content-Type"
+          - "Authorization"
+        accessControlAllowCredentials: true
+        accessControlMaxAge: 3600
+
+    # ===== UTILITY MIDDLEWARES =====
+
+    # Redirect untuk dashboard tanpa trailing slash ke dengan trailing slash
+    dashboard-redirect:
+      redirectRegex:
+        regex: "^(.*)/traefik/dashboard$"
+        replacement: "${1}/traefik/dashboard/"
+        permanent: false  # 302 redirect (temporary) untuk fleksibilitas
+
+    # Strip prefix untuk dashboard routing
+    traefik-stripprefix:
+      stripPrefix:
+        prefixes:
+          - "/traefik"
+
+    # Strip prefix untuk Redis routing
+    redis-stripprefix:
+      stripPrefix:
+        prefixes:
+          - "/redis"
+
+    # Strip prefix untuk Grafana routing
+    grafana-stripprefix:
+      stripPrefix:
+        prefixes:
+          - "/grafana"
+
+    # Strip prefix untuk Prometheus routing
+    prometheus-stripprefix:
+      stripPrefix:
+        prefixes:
+          - "/prometheus"
+
+    # Strip prefix untuk Telegram webhook routing
+    telegram-stripprefix:
+      stripPrefix:
+        prefixes:
+          - "/webhook"
+
+    # Security headers untuk Telegram webhook
+    telegram-security:
+      headers:
+        customRequestHeaders:
+          X-Forwarded-Proto: "http"
+          X-Forwarded-Port: "80"
+          X-Real-IP: ""
+        customResponseHeaders:
+          X-Content-Type-Options: "nosniff"
+          X-Frame-Options: "DENY"
+          X-XSS-Protection: "1; mode=block"
+        contentTypeNosniff: true
+        frameDeny: true
+        browserXssFilter: true
+
+    # Rate limiting untuk Telegram webhook (mencegah spam)
+    telegram-ratelimit:
+      rateLimit:
+        burst: 100
+        period: "1m"
+        sourceCriterion:
+          ipStrategy:
+            depth: 1
+            excludedIPs:
+              - "127.0.0.1"
+              - "::1"
+
+    # CORS middleware untuk Backend API - mendukung localhost dan production domain
+    backend-cors:
+      headers:
+        accessControlAllowMethods:
+          - "GET"
+          - "POST"
+          - "PUT"
+          - "DELETE"
+          - "OPTIONS"
+        accessControlAllowOriginList:
+          - "http://localhost"
+          - "http://localhost:3000"
+          - "http://localhost:8080"
+          - "https://agen-travel.live"
+          - "http://agen-travel.live"
+        accessControlAllowHeaders:
+          - "Content-Type"
+          - "Authorization"
+          - "X-Requested-With"
+          - "X-Thread-ID"
+        accessControlExposeHeaders:
+          - "X-Total-Count"
+          - "X-Request-ID"
+        accessControlAllowCredentials: true
+        accessControlMaxAge: 86400
+
+    # Security headers untuk Backend API
+    backend-headers:
+      headers:
+        customRequestHeaders:
+          X-Forwarded-Proto: "http"
+          X-Forwarded-Port: "80"
+        customResponseHeaders:
+          X-Content-Type-Options: "nosniff"
+          X-Frame-Options: "DENY"
+          X-XSS-Protection: "1; mode=block"
+          Referrer-Policy: "strict-origin-when-cross-origin"
+        contentTypeNosniff: true
+        frameDeny: true
+        browserXssFilter: true
+
+    # ===== SUPABASE MIDDLEWARES =====
+
+    # Strip prefix untuk Supabase Dashboard
+    supabase-dashboard-stripprefix:
+      stripPrefix:
+        prefixes:
+          - "/supabase/dashboard"
+
+    # Headers untuk Supabase Dashboard via Kong Gateway - mendukung localhost dan production domain
+    supabase-dashboard-headers:
+      headers:
+        customRequestHeaders:
+          X-Forwarded-Proto: "http"
+          X-Forwarded-Host: ""
+          X-Forwarded-Port: "80"
+        customResponseHeaders:
+          X-Frame-Options: "SAMEORIGIN"
+
+    # Strip prefix untuk Supabase API endpoints
+    supabase-api-stripprefix:
+      stripPrefix:
+        prefixes:
+          - "/supabase/api"
+
+    # Strip prefix untuk Supabase Auth endpoints
+    supabase-auth-stripprefix:
+      stripPrefix:
+        prefixes:
+          - "/supabase/auth"
+
+    # Strip prefix untuk Supabase Storage endpoints
+    supabase-storage-stripprefix:
+      stripPrefix:
+        prefixes:
+          - "/supabase/storage"
+
+    # Strip prefix untuk Supabase Database Meta API
+    supabase-db-stripprefix:
+      stripPrefix:
+        prefixes:
+          - "/supabase/db"
+
+    # CORS middleware untuk Supabase API - mendukung localhost dan production domain
+    supabase-api-cors:
+      headers:
+        accessControlAllowMethods:
+          - "GET"
+          - "POST"
+          - "PUT"
+          - "DELETE"
+          - "OPTIONS"
+        accessControlAllowOriginList:
+          - "http://localhost"
+          - "http://localhost:3000"
+          - "http://localhost:8080"
+          - "https://agen-travel.live"
+          - "http://agen-travel.live"
+        accessControlAllowHeaders:
+          - "Content-Type"
+          - "Authorization"
+          - "X-Requested-With"
+          - "X-Thread-ID"
+          - "apikey"
+        accessControlExposeHeaders:
+          - "X-Total-Count"
+          - "X-Request-ID"
+        accessControlAllowCredentials: true
+        accessControlMaxAge: 86400
+
+    # Headers khusus untuk Redis Insight dengan proxy support - menggunakan subdomain
+    redis-headers:
+      headers:
+        customRequestHeaders:
+          # Forward original host dan protocol untuk proxy support
+          X-Forwarded-Host: ""
+          X-Forwarded-Proto: "http"
+          X-Forwarded-Port: "80"
+          # Trust proxy untuk Redis Insight
+          X-Real-IP: ""
+        customResponseHeaders:
+          # CORS headers untuk AJAX requests (mendukung multiple origins)
+          Access-Control-Allow-Origin: "*"
+          Access-Control-Allow-Methods: "GET, POST, PUT, DELETE, OPTIONS"
+          Access-Control-Allow-Headers: "Content-Type, Authorization, X-Requested-With"
+          Access-Control-Allow-Credentials: "true"
+          # Security headers
+          X-Frame-Options: "SAMEORIGIN"
+
+    # Headers untuk Grafana dengan subdomain support
+    grafana-headers:
+      headers:
+        customRequestHeaders:
+          X-Forwarded-Host: ""
+          X-Forwarded-Proto: "http"
+          X-Forwarded-Port: "80"
+          X-Real-IP: ""
+        customResponseHeaders:
+          X-Frame-Options: "SAMEORIGIN"
+          Cache-Control: "no-cache, no-store, must-revalidate"
+
+    # Headers untuk Prometheus dengan subdomain support
+    prometheus-headers:
+      headers:
+        customRequestHeaders:
+          X-Forwarded-Host: ""
+          X-Forwarded-Proto: "http"
+          X-Forwarded-Port: "80"
+          X-Real-IP: ""
+        customResponseHeaders:
+          Cache-Control: "no-cache, no-store, must-revalidate"
+
+    # Headers untuk Supabase dengan subdomain support
+    supabase-headers:
+      headers:
+        customRequestHeaders:
+          X-Forwarded-Host: ""
+          X-Forwarded-Proto: "http"
+          X-Forwarded-Port: "80"
+          X-Real-IP: ""
+        customResponseHeaders:
+          X-Frame-Options: "SAMEORIGIN"
+
+    # Compress responses untuk performance
+    gzip-compression:
+      compress: {}
+
+    # Redirect HTTP to HTTPS (untuk production)
+    https-redirect:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+    # Add prefix untuk API versioning
+    api-v1-prefix:
+      addPrefix:
+        prefix: "/api/v1"

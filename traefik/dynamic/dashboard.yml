@@ -1,0 +1,16 @@
+# Traefik Dashboard Dynamic Configuration
+# Secure routing untuk Traefik dashboard dengan basic authentication
+
+http:
+  routers:
+    # Router untuk Traefik Dashboard - menggunakan subdomain
+    traefik-dashboard:
+      rule: "Host(`traefik.localhost`) || Host(`traefik.agen-travel.live`)"
+      entryPoints:
+        - "web"
+      service: "api@internal"
+      middlewares:
+        - "traefik-auth"
+        - "dashboard-ratelimit"
+        - "basic-security"
+      priority: 300

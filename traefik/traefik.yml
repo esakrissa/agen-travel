@@ -1,0 +1,85 @@
+# Traefik Static Configuration
+# Konfigurasi dasar untuk reverse proxy dan load balancing
+
+# Global configuration
+global:
+  checkNewVersion: false
+  sendAnonymousUsage: false
+
+# Entry points - port yang akan digunakan Traefik
+entryPoints:
+  # HTTP entry point (port 80)
+  web:
+    address: ":80"
+    # Redirect HTTP to HTTPS (untuk production)
+    # http:
+    #   redirections:
+    #     entrypoint:
+    #       to: websecure
+    #       scheme: https
+
+  # HTTPS entry point (port 443) - untuk future SSL
+  websecure:
+    address: ":443"
+
+  # Traefik dashboard entry point (port 8080)
+  traefik:
+    address: ":8080"
+
+# Providers - sumber konfigurasi routing
+providers:
+  # Docker provider - auto-discovery dari container labels
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false  # Hanya expose container dengan label traefik.enable=true
+    network: "agen-travel-network"  # Network yang digunakan untuk komunikasi
+    watch: true  # Watch untuk perubahan container
+
+  # File provider - konfigurasi dari file YAML
+  file:
+    # Single directory untuk semua dynamic config (termasuk middlewares)
+    directory: /etc/traefik/dynamic
+    watch: true  # Watch untuk perubahan file
+
+# API dan Dashboard
+api:
+  dashboard: true  # Enable dashboard
+  debug: false     # Disable debug mode untuk production
+  insecure: false  # Secure mode - dashboard hanya bisa diakses via routing
+  # No basePath untuk subdomain routing
+
+# Logging
+log:
+  level: INFO  # Level: DEBUG, INFO, WARN, ERROR
+  format: json # Format: json atau common
+
+# Access logs
+accessLog:
+  format: json
+  # filePath: "/var/log/traefik/access.log"  # Uncomment untuk log ke file
+
+# Metrics untuk Prometheus
+metrics:
+  prometheus:
+    addEntryPointsLabels: true
+    addServicesLabels: true
+    addRoutersLabels: true
+
+# Ping endpoint untuk health check
+ping:
+  entryPoint: "traefik"
+
+# Tracing (optional - untuk debugging)
+# tracing:
+#   jaeger:
+#     samplingServerURL: http://jaeger:14268/api/sampling
+#     localAgentHostPort: jaeger:6831
+
+# Certificate resolvers (untuk production SSL)
+# certificatesResolvers:
+#   letsencrypt:
+#     acme:
+#       email: your-email@example.com
+#       storage: /etc/traefik/acme.json
+#       httpChallenge:
+#         entryPoint: web

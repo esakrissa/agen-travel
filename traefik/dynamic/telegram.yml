@@ -1,0 +1,47 @@
+# Telegram Bot Webhook Dynamic Configuration
+# Routing untuk Telegram bot webhook service
+
+http:
+  routers:
+    # Router untuk Telegram Webhook (accept any host untuk ngrok)
+    telegram-webhook:
+      rule: "PathPrefix(`/webhook`)"
+      entryPoints:
+        - "web"
+      service: "telegram-service"
+      middlewares:
+        - "telegram-stripprefix"
+        - "telegram-security"
+        - "webhook-ratelimit"
+      # High priority untuk webhook
+      priority: 150
+
+    # Router untuk Telegram Bot Metrics (jika ada)
+    telegram-metrics:
+      rule: "Host(`localhost`) && PathPrefix(`/webhook`) && Path(`/metrics`)"
+      entryPoints:
+        - "web"
+      service: "telegram-service"
+      priority: 200
+
+  services:
+    # Service definition untuk Telegram Bot
+    telegram-service:
+      loadBalancer:
+        servers:
+          - url: "http://telegram-bot:8444"
+        
+        # Health check (jika bot punya endpoint health)
+        # healthCheck:
+        #   path: "/health"
+        #   interval: "30s"
+        #   timeout: "10s"
+        
+        # Load balancing untuk multiple bot instances
+        sticky:
+          cookie:
+            name: "telegram-session"
+            secure: false
+            httpOnly: true
+
+

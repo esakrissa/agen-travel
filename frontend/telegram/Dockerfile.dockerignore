@@ -1,0 +1,68 @@
+# Sistem dan editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+.env
+.env.*
+!.env.example
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.egg-info/
+.installed.cfg
+*.egg
+
+# Logs
+logs/
+*.log
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+docker-compose*.yaml
+.docker/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+.github/
+
+# Documentación
+README.md
+LICENSE
+CHANGELOG.md
+*.md
+docs/
+
+# File sementara
+tmp/
+temp/
+.tmp/
+.temp/
+
+# File test
+tests/
+test_*.py
+*_test.py

@@ -1,0 +1,1634 @@
+{
+  "status": true,
+  "message": "Success",
+  "timestamp": 1749374436286,
+  "data": {
+    "ufi": 900040134,
+    "hotel_id": 13867039,
+    "hotel_name": "Villa Shinta by JB Villas",
+    "url": "https://www.booking.com/hotel/id/villa-sinta-by-jb-villas.html",
+    "hotel_name_trans": "",
+    "review_nr": 3,
+    "arrival_date": "2025-06-19",
+    "departure_date": "2025-06-21",
+    "price_transparency_mode": "none",
+    "accommodation_type_name": "Villas",
+    "latitude": -8.6847806,
+    "longitude": 115.1667077,
+    "address": "Jalan Raya Basangkasa No.25 Villa Sinta - Puri Keraton Complex",
+    "address_trans": "",
+    "city": "Kabupaten Badung",
+    "city_trans": "Seminyak",
+    "city_in_trans": "in Seminyak",
+    "city_name_en": "Seminyak",
+    "district": null,
+    "countrycode": "id",
+    "distance_to_cc": 1.10234871415137,
+    "default_language": "en-gb",
+    "country_trans": "Indonesia",
+    "currency_code": "IDR",
+    "zip": "80361",
+    "timezone": "Asia/Makassar",
+    "rare_find_state": "RARER_USUALLY_UNAVAILABLE",
+    "soldout": 0,
+    "available_rooms": 1,
+    "max_rooms_in_reservation": 10,
+    "average_room_size_for_ufi_m2": "67.89",
+    "is_family_friendly": 0,
+    "is_closed": 0,
+    "is_crimea": 0,
+    "is_hotel_ctrip": 0,
+    "is_price_transparent": 0,
+    "is_genius_deal": 0,
+    "is_cash_accepted_check_enabled": 1,
+    "qualifies_for_no_cc_reservation": 0,
+    "hotel_include_breakfast": 0,
+    "cc1": "id",
+    "family_facilities": [
+      "Outdoor pool (year-round)",
+      "Babysitting/Child services",
+      "Outdoor pool"
+    ],
+    "product_price_breakdown": {
+      "has_long_stays_weekly_rate_price": 0,
+      "strikethrough_amount_per_night": {
+        "currency": "USD",
+        "amount_rounded": "$276",
+        "value": 276.496448835754,
+        "amount_unrounded": "$276.50"
+      },
+      "gross_amount": {
+        "currency": "USD",
+        "amount_rounded": "$332",
+        "value": 331.795738602905,
+        "amount_unrounded": "$331.80"
+      },
+      "all_inclusive_amount": {
+        "amount_rounded": "$365",
+        "currency": "USD",
+        "amount_unrounded": "$364.98",
+        "value": 364.975312463196
+      },
+      "items": [
+        {
+          "kind": "charge",
+          "base": {
+            "kind": "percentage",
+            "percentage": 10
+          },
+          "inclusion_type": "excluded",
+          "name": "TAX",
+          "item_amount": {
+            "currency": "USD",
+            "amount_rounded": "$33",
+            "value": 33.1795738602905,
+            "amount_unrounded": "$33.18"
+          },
+          "details": "10 % TAX"
+        },
+        {
+          "kind": "charge",
+          "base": {
+            "kind": "percentage",
+            "percentage": 0
+          },
+          "inclusion_type": "excluded",
+          "item_amount": {
+            "value": 0,
+            "amount_unrounded": "$0",
+            "currency": "USD",
+            "amount_rounded": "$0"
+          },
+          "name": "City tax",
+          "details": "0 % City tax"
+        },
+        {
+          "kind": "discount",
+          "base": {
+            "kind": "rate"
+          },
+          "item_amount": {
+            "amount_unrounded": "$221.20",
+            "value": 221.197159068603,
+            "amount_rounded": "$221",
+            "currency": "USD"
+          },
+          "name": "Limited-time Deal",
+          "details": "You're getting a discount because—for a limited time only—this property is offering reduced rates on rooms that match your search.",
+          "identifier": "limited-time-deal"
+        }
+      ],
+      "included_taxes_and_charges_amount": {
+        "value": 0,
+        "amount_unrounded": "$0",
+        "currency": "USD",
+        "amount_rounded": "$0"
+      },
+      "gross_amount_per_night": {
+        "amount_unrounded": "$165.90",
+        "value": 165.897869301453,
+        "amount_rounded": "$166",
+        "currency": "USD"
+      },
+      "charges_details": {
+        "translated_copy": "",
+        "amount": {
+          "value": 33,
+          "currency": "USD"
+        },
+        "mode": "extra_charges"
+      },
+      "price_display_config": [
+        {
+          "value": 0,
+          "key": "use_nightly_prices"
+        },
+        {
+          "key": "use_nightly_as_dominant",
+          "value": 0
+        },
+        {
+          "value": 1,
+          "key": "use_js_tracking"
+        }
+      ],
+      "benefits": [
+        {
+          "name": "40% off",
+          "identifier": "combined-discount",
+          "details": "You’re getting a reduced rate because this property is offering a discount.",
+          "kind": "badge",
+          "badge_variant": "constructive",
+          "icon": null
+        },
+        {
+          "icon": null,
+          "kind": "badge",
+          "badge_variant": "constructive",
+          "details": "You’re getting a reduced rate because this property has a limited-time deal running. These deals only last up to 48 hours.",
+          "identifier": "limited-time-deal",
+          "name": "Limited-time Deal"
+        }
+      ],
+      "strikethrough_amount": {
+        "value": 552.992897671509,
+        "amount_unrounded": "$552.99",
+        "currency": "USD",
+        "amount_rounded": "$553"
+      },
+      "gross_amount_hotel_currency": {
+        "amount_rounded": "Rp 5,400,000",
+        "currency": "IDR",
+        "amount_unrounded": "Rp 5,400,000",
+        "value": 5400000
+      },
+      "nr_stays": 1,
+      "excluded_amount": {
+        "value": 33.1795738602905,
+        "amount_unrounded": "$33.18",
+        "currency": "USD",
+        "amount_rounded": "$33"
+      },
+      "discounted_amount": {
+        "value": 221.197159068603,
+        "amount_unrounded": "$221.20",
+        "currency": "USD",
+        "amount_rounded": "$221"
+      },
+      "all_inclusive_amount_hotel_currency": {
+        "currency": "IDR",
+        "amount_rounded": "Rp 5,940,000",
+        "value": 5940000,
+        "amount_unrounded": "Rp 5,940,000"
+      },
+      "net_amount": {
+        "currency": "USD",
+        "amount_rounded": "$332",
+        "value": 331.795738602905,
+        "amount_unrounded": "$331.80"
+      },
+      "has_long_stays_monthly_rate_price": 0
+    },
+    "composite_price_breakdown": {
+      "net_amount": {
+        "amount_rounded": "$332",
+        "currency": "USD",
+        "amount_unrounded": "$331.80",
+        "value": 331.795738602905
+      },
+      "has_long_stays_monthly_rate_price": 0,
+      "discounted_amount": {
+        "amount_rounded": "$221",
+        "currency": "USD",
+        "amount_unrounded": "$221.20",
+        "value": 221.197159068603
+      },
+      "all_inclusive_amount_hotel_currency": {
+        "amount_unrounded": "Rp 5,940,000",
+        "value": 5940000,
+        "amount_rounded": "Rp 5,940,000",
+        "currency": "IDR"
+      },
+      "strikethrough_amount": {
+        "value": 552.992897671509,
+        "amount_unrounded": "$552.99",
+        "currency": "USD",
+        "amount_rounded": "$553"
+      },
+      "gross_amount_hotel_currency": {
+        "value": 5400000,
+        "amount_unrounded": "Rp 5,400,000",
+        "currency": "IDR",
+        "amount_rounded": "Rp 5,400,000"
+      },
+      "excluded_amount": {
+        "amount_rounded": "$33",
+        "currency": "USD",
+        "amount_unrounded": "$33.18",
+        "value": 33.1795738602905
+      },
+      "charges_details": {
+        "amount": {
+          "currency": "USD",
+          "value": 33
+        },
+        "mode": "extra_charges",
+        "translated_copy": ""
+      },
+      "price_display_config": [
+        {
+          "key": "use_nightly_prices",
+          "value": 0
+        },
+        {
+          "key": "use_nightly_as_dominant",
+          "value": 0
+        },
+        {
+          "value": 1,
+          "key": "use_js_tracking"
+        }
+      ],
+      "benefits": [
+        {
+          "identifier": "combined-discount",
+          "details": "You’re getting a reduced rate because this property is offering a discount.",
+          "name": "40% off",
+          "icon": null,
+          "badge_variant": "constructive",
+          "kind": "badge"
+        },
+        {
+          "badge_variant": "constructive",
+          "kind": "badge",
+          "icon": null,
+          "name": "Limited-time Deal",
+          "details": "You’re getting a reduced rate because this property has a limited-time deal running. These deals only last up to 48 hours.",
+          "identifier": "limited-time-deal"
+        }
+      ],
+      "items": [
+        {
+          "name": "TAX",
+          "item_amount": {
+            "value": 33.1795738602905,
+            "amount_unrounded": "$33.18",
+            "currency": "USD",
+            "amount_rounded": "$33"
+          },
+          "details": "10 % TAX",
+          "kind": "charge",
+          "inclusion_type": "excluded",
+          "base": {
+            "kind": "percentage",
+            "percentage": 10
+          }
+        },
+        {
+          "kind": "charge",
+          "base": {
+            "kind": "percentage",
+            "percentage": 0
+          },
+          "inclusion_type": "excluded",
+          "name": "City tax",
+          "item_amount": {
+            "amount_unrounded": "$0",
+            "value": 0,
+            "amount_rounded": "$0",
+            "currency": "USD"
+          },
+          "details": "0 % City tax"
+        },
+        {
+          "kind": "discount",
+          "base": {
+            "kind": "rate"
+          },
+          "item_amount": {
+            "currency": "USD",
+            "amount_rounded": "$221",
+            "value": 221.197159068603,
+            "amount_unrounded": "$221.20"
+          },
+          "name": "Limited-time Deal",
+          "identifier": "limited-time-deal",
+          "details": "You're getting a discount because—for a limited time only—this property is offering reduced rates on rooms that match your search."
+        }
+      ],
+      "gross_amount_per_night": {
+        "currency": "USD",
+        "amount_rounded": "$166",
+        "value": 165.897869301453,
+        "amount_unrounded": "$165.90"
+      },
+      "included_taxes_and_charges_amount": {
+        "value": 0,
+        "amount_unrounded": "$0",
+        "currency": "USD",
+        "amount_rounded": "$0"
+      },
+      "gross_amount": {
+        "currency": "USD",
+        "amount_rounded": "$332",
+        "value": 331.795738602905,
+        "amount_unrounded": "$331.80"
+      },
+      "all_inclusive_amount": {
+        "amount_unrounded": "$364.98",
+        "value": 364.975312463196,
+        "amount_rounded": "$365",
+        "currency": "USD"
+      },
+      "has_long_stays_weekly_rate_price": 0,
+      "strikethrough_amount_per_night": {
+        "amount_unrounded": "$276.50",
+        "value": 276.496448835754,
+        "amount_rounded": "$276",
+        "currency": "USD"
+      }
+    },
+    "property_highlight_strip": [
+      {
+        "name": "1 bedroom",
+        "context": 5,
+        "icon_list": [
+          {
+            "size": 1,
+            "icon": "door_open"
+          }
+        ]
+      },
+      {
+        "context": 5,
+        "icon_list": [
+          {
+            "icon": "bed",
+            "size": 1
+          }
+        ],
+        "name": "1 bed"
+      },
+      {
+        "name": "3 bathrooms",
+        "context": 1,
+        "icon_list": [
+          {
+            "size": 1,
+            "icon": "shower"
+          }
+        ]
+      },
+      {
+        "context": 1,
+        "icon_list": [
+          {
+            "icon": "wifi",
+            "size": 1
+          }
+        ],
+        "name": "Free Wifi"
+      },
+      {
+        "context": 3,
+        "icon_list": [
+          {
+            "icon": "food",
+            "size": 1
+          }
+        ],
+        "name": "Kitchen"
+      },
+      {
+        "name": "Private Bathroom",
+        "context": 3,
+        "icon_list": [
+          {
+            "icon": "bath",
+            "size": 1
+          }
+        ]
+      },
+      {
+        "name": "Garden",
+        "context": 3,
+        "icon_list": [
+          {
+            "size": 1,
+            "icon": "garden"
+          }
+        ]
+      },
+      {
+        "context": 1,
+        "icon_list": [
+          {
+            "size": 1,
+            "icon": "parking_sign"
+          }
+        ],
+        "name": "Parking"
+      },
+      {
+        "context": 1,
+        "icon_list": [
+          {
+            "size": 1,
+            "icon": "pawprint"
+          }
+        ],
+        "name": "Pet Friendly"
+      }
+    ],
+    "facilities_block": {
+      "type": "popular",
+      "name": "Most Popular Facilities",
+      "facilities": [
+        {
+          "icon": "pool",
+          "name": "1 swimming pool"
+        },
+        {
+          "name": "Airport shuttle",
+          "icon": "shuttle"
+        },
+        {
+          "name": "Non-smoking rooms",
+          "icon": "nosmoking"
+        },
+        {
+          "icon": "wifi",
+          "name": "Free Wifi"
+        },
+        {
+          "icon": "wifi",
+          "name": "Wifi in all areas"
+        },
+        {
+          "icon": "parking_sign",
+          "name": "Private Parking"
+        },
+        {
+          "name": "Free parking",
+          "icon": "parking_sign"
+        },
+        {
+          "icon": "pawprint",
+          "name": "Pet friendly"
+        }
+      ]
+    },
+    "top_ufi_benefits": [
+      {
+        "icon": "pool",
+        "translated_name": "Swimming pool"
+      },
+      {
+        "icon": "wifi",
+        "translated_name": "Wifi"
+      },
+      {
+        "translated_name": "Outdoor pool",
+        "icon": "pool"
+      },
+      {
+        "icon": "shuttle",
+        "translated_name": "Airport shuttle"
+      },
+      {
+        "icon": "nosmoking",
+        "translated_name": "Non-smoking rooms"
+      },
+      {
+        "translated_name": "Parking",
+        "icon": "parking_sign"
+      }
+    ],
+    "languages_spoken": {
+      "languagecode": [
+        "id",
+        "en-gb"
+      ]
+    },
+    "spoken_languages": [
+      "id",
+      "en-gb"
+    ],
+    "breakfast_review_score": {
+      "review_score": 0,
+      "review_count": 0,
+      "review_score_word": "",
+      "review_snippet": "",
+      "review_number": 0,
+      "rating": 0
+    },
+    "min_room_distribution": {
+      "children": [],
+      "adults": 1
+    },
+    "tax_exceptions": [],
+    "booking_home": {
+      "is_aparthotel": 0,
+      "is_single_unit_property": 1,
+      "house_rules": [
+        {
+          "icon": "smoking",
+          "description": "No smoking",
+          "type": "POLICY_SMOKING",
+          "title": "Smoking"
+        },
+        {
+          "description": "Parties/events are not allowed.",
+          "icon": "fooddrink",
+          "title": "Parties",
+          "type": "POLICY_PARTIES"
+        }
+      ],
+      "checkin_methods": [],
+      "segment": 2,
+      "group": "house_like",
+      "is_single_type_property": 1,
+      "is_booking_home": 1,
+      "quality_class": 4,
+      "is_vacation_rental": 1
+    },
+    "aggregated_data": {
+      "common_kitchen_fac": [
+        {
+          "name": "Dining table",
+          "id": 126
+        },
+        {
+          "id": 22,
+          "name": "Refrigerator"
+        },
+        {
+          "name": "Stovetop",
+          "id": 97
+        },
+        {
+          "name": "Electric kettle",
+          "id": 86
+        },
+        {
+          "name": "Kitchen",
+          "id": 45
+        }
+      ],
+      "has_kitchen": 1,
+      "has_nonrefundable": 1,
+      "has_seating": 1,
+      "has_refundable": 0
+    },
+    "last_reservation": {
+      "country": null,
+      "countrycode": null,
+      "time": ""
+    },
+    "free_facilities_cancel_breakfast": [
+      {
+        "facility_id": 46
+      }
+    ],
+    "room_recommendation": [
+      {
+        "number_of_extra_babycots": 0,
+        "total_extra_bed_price_in_hotel_currency": 0,
+        "extra_beds_for_children_price": 0,
+        "block_id": "1386703901_410678599_6_2_0",
+        "number_of_extra_beds_and_babycots_total": 0,
+        "extra_beds_for_adults_price": 0,
+        "number_of_extra_beds_for_adults": 0,
+        "children": 0,
+        "babies": 0,
+        "extra_babycots_price": 0,
+        "extra_babycots_price_in_hotel_currency": 0,
+        "number_of_extra_beds_for_children": 0,
+        "extra_beds_for_children_price_in_hotel_currency": 0,
+        "adults": 1,
+        "extra_beds_for_adults_price_in_hotel_currency": 0,
+        "total_extra_bed_price": 0
+      }
+    ],
+    "hotel_text": {},
+    "districts": [
+      6124
+    ],
+    "preferences": [],
+    "hotel_important_information_with_codes": [
+      {
+        "executing_phase": 0,
+        "phrase": "This property does not accommodate bachelor(ette) or similar parties.",
+        "sentence_id": 28
+      }
+    ],
+    "rooms": {
+      "1386703901": {
+        "children_and_beds_text": {
+          "cribs_and_extra_beds": [
+            {
+              "highlight": 0,
+              "text": "The price in IDR has been converted to show you the approximate price in USD."
+            },
+            {
+              "highlight": 0,
+              "text": "Additional fees are not calculated automatically in the total cost and will have to be paid for separately during your stay."
+            },
+            {
+              "text": "The maximum number of cribs, extra beds, and children allowed in existing beds can vary depending on the option booked.",
+              "highlight": 0
+            },
+            {
+              "highlight": 0,
+              "text": "All cribs and extra beds are subject to availability."
+            },
+            {
+              "highlight": 0,
+              "text": "No capacity for extra beds."
+            }
+          ],
+          "children_at_the_property": [
+            {
+              "highlight": 0,
+              "text": "Children of all ages are welcome."
+            },
+            {
+              "highlight": 1,
+              "text": "To see correct prices and occupancy info, add the number and ages of children in your group to your search."
+            }
+          ],
+          "allow_children": 1,
+          "age_intervals": [
+            {
+              "max_age": 3,
+              "crib": {
+                "price_mode_n": 0,
+                "price": "$4.61",
+                "price_mode": "per_night",
+                "guaranteed": 0,
+                "id": 43762569,
+                "price_type": "fixed",
+                "price_type_n": 2
+              },
+              "group_by_price": {
+                "fixed,per_night,4.61": [
+                  "crib"
+                ]
+              },
+              "min_age": 0,
+              "types_by_price": [
+                [
+                  "crib"
+                ]
+              ]
+            }
+          ]
+        },
+        "highlights": [
+          {
+            "translated_name": "Free WiFi",
+            "icon": "wifi"
+          },
+          {
+            "id": 11,
+            "translated_name": "Air conditioning",
+            "icon": "snowflake"
+          },
+          {
+            "translated_name": "Attached bathroom",
+            "icon": "bath",
+            "id": 38
+          },
+          {
+            "id": 93,
+            "translated_name": "Private pool",
+            "icon": "pool"
+          },
+          {
+            "id": 17,
+            "icon": "checkmark",
+            "translated_name": "Balcony"
+          },
+          {
+            "translated_name": "Garden view",
+            "icon": "garden",
+            "id": 110
+          },
+          {
+            "id": 37,
+            "icon": "resort",
+            "translated_name": "Patio"
+          },
+          {
+            "id": 75,
+            "translated_name": "Flat-screen TV",
+            "icon": "screen"
+          }
+        ],
+        "photos": [
+          {
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930950.jpg?k=4bdb4d812356b9fc592fb0f1eb60ab0743602b65f732ad161f7e98217b51b482&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930950.jpg?k=4bdb4d812356b9fc592fb0f1eb60ab0743602b65f732ad161f7e98217b51b482&o=",
+            "photo_id": 693930950,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930950.jpg?k=4bdb4d812356b9fc592fb0f1eb60ab0743602b65f732ad161f7e98217b51b482&o=",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930950.jpg?k=4bdb4d812356b9fc592fb0f1eb60ab0743602b65f732ad161f7e98217b51b482&o=",
+            "ratio": 1.5,
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930950.jpg?k=4bdb4d812356b9fc592fb0f1eb60ab0743602b65f732ad161f7e98217b51b482&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930950.jpg?k=4bdb4d812356b9fc592fb0f1eb60ab0743602b65f732ad161f7e98217b51b482&o=",
+            "last_update_date": "2025-06-07 05:32:51",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930950.jpg?k=4bdb4d812356b9fc592fb0f1eb60ab0743602b65f732ad161f7e98217b51b482&o="
+          },
+          {
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930970.jpg?k=1b6a06f34314f622cdc603496938555dd18656d3389b93169a96044d8e17fcaf&o=",
+            "photo_id": 693930970,
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930970.jpg?k=1b6a06f34314f622cdc603496938555dd18656d3389b93169a96044d8e17fcaf&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930970.jpg?k=1b6a06f34314f622cdc603496938555dd18656d3389b93169a96044d8e17fcaf&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930970.jpg?k=1b6a06f34314f622cdc603496938555dd18656d3389b93169a96044d8e17fcaf&o=",
+            "last_update_date": "2025-06-07 05:33:11",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930970.jpg?k=1b6a06f34314f622cdc603496938555dd18656d3389b93169a96044d8e17fcaf&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930970.jpg?k=1b6a06f34314f622cdc603496938555dd18656d3389b93169a96044d8e17fcaf&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930970.jpg?k=1b6a06f34314f622cdc603496938555dd18656d3389b93169a96044d8e17fcaf&o="
+          },
+          {
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930963.jpg?k=6b5228d5a71bdb50483253900859a6bf653071f0979bcb6030664b8a703a17ff&o=",
+            "photo_id": 693930963,
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930963.jpg?k=6b5228d5a71bdb50483253900859a6bf653071f0979bcb6030664b8a703a17ff&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930963.jpg?k=6b5228d5a71bdb50483253900859a6bf653071f0979bcb6030664b8a703a17ff&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930963.jpg?k=6b5228d5a71bdb50483253900859a6bf653071f0979bcb6030664b8a703a17ff&o=",
+            "last_update_date": "2025-06-07 05:33:07",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930963.jpg?k=6b5228d5a71bdb50483253900859a6bf653071f0979bcb6030664b8a703a17ff&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930963.jpg?k=6b5228d5a71bdb50483253900859a6bf653071f0979bcb6030664b8a703a17ff&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930963.jpg?k=6b5228d5a71bdb50483253900859a6bf653071f0979bcb6030664b8a703a17ff&o="
+          },
+          {
+            "last_update_date": "2025-06-07 05:32:51",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930948.jpg?k=d84c15f0d963eca1033f86c60b1ee00e07ca30ae3f58fa1b063eeaad10aa98ad&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930948.jpg?k=d84c15f0d963eca1033f86c60b1ee00e07ca30ae3f58fa1b063eeaad10aa98ad&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930948.jpg?k=d84c15f0d963eca1033f86c60b1ee00e07ca30ae3f58fa1b063eeaad10aa98ad&o=",
+            "photo_id": 693930948,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930948.jpg?k=d84c15f0d963eca1033f86c60b1ee00e07ca30ae3f58fa1b063eeaad10aa98ad&o=",
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930948.jpg?k=d84c15f0d963eca1033f86c60b1ee00e07ca30ae3f58fa1b063eeaad10aa98ad&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930948.jpg?k=d84c15f0d963eca1033f86c60b1ee00e07ca30ae3f58fa1b063eeaad10aa98ad&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930948.jpg?k=d84c15f0d963eca1033f86c60b1ee00e07ca30ae3f58fa1b063eeaad10aa98ad&o="
+          },
+          {
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930883.jpg?k=bec4a590f062ecd605258368bf5ec4d9459db2956546d3e09273d22e8ddef0b3&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930883.jpg?k=bec4a590f062ecd605258368bf5ec4d9459db2956546d3e09273d22e8ddef0b3&o=",
+            "last_update_date": "2025-06-07 05:32:19",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930883.jpg?k=bec4a590f062ecd605258368bf5ec4d9459db2956546d3e09273d22e8ddef0b3&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930883.jpg?k=bec4a590f062ecd605258368bf5ec4d9459db2956546d3e09273d22e8ddef0b3&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930883.jpg?k=bec4a590f062ecd605258368bf5ec4d9459db2956546d3e09273d22e8ddef0b3&o=",
+            "photo_id": 693930883,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930883.jpg?k=bec4a590f062ecd605258368bf5ec4d9459db2956546d3e09273d22e8ddef0b3&o=",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930883.jpg?k=bec4a590f062ecd605258368bf5ec4d9459db2956546d3e09273d22e8ddef0b3&o=",
+            "ratio": 1.5
+          },
+          {
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930847.jpg?k=e27e3d767e8d6bfbe5e96e5645168ff5e104f1a4f1fae5495085f2c973638c01&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930847.jpg?k=e27e3d767e8d6bfbe5e96e5645168ff5e104f1a4f1fae5495085f2c973638c01&o=",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930847.jpg?k=e27e3d767e8d6bfbe5e96e5645168ff5e104f1a4f1fae5495085f2c973638c01&o=",
+            "last_update_date": "2025-06-07 05:31:53",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930847.jpg?k=e27e3d767e8d6bfbe5e96e5645168ff5e104f1a4f1fae5495085f2c973638c01&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930847.jpg?k=e27e3d767e8d6bfbe5e96e5645168ff5e104f1a4f1fae5495085f2c973638c01&o=",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930847.jpg?k=e27e3d767e8d6bfbe5e96e5645168ff5e104f1a4f1fae5495085f2c973638c01&o=",
+            "ratio": 1.5,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930847.jpg?k=e27e3d767e8d6bfbe5e96e5645168ff5e104f1a4f1fae5495085f2c973638c01&o=",
+            "photo_id": 693930847
+          },
+          {
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930947.jpg?k=063e4e416f9f5afd9e0b201972dbe479f1672cab6767990bb5ea5987581c00f7&o=",
+            "last_update_date": "2025-06-07 05:32:49",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930947.jpg?k=063e4e416f9f5afd9e0b201972dbe479f1672cab6767990bb5ea5987581c00f7&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930947.jpg?k=063e4e416f9f5afd9e0b201972dbe479f1672cab6767990bb5ea5987581c00f7&o=",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930947.jpg?k=063e4e416f9f5afd9e0b201972dbe479f1672cab6767990bb5ea5987581c00f7&o=",
+            "ratio": 1.5,
+            "photo_id": 693930947,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930947.jpg?k=063e4e416f9f5afd9e0b201972dbe479f1672cab6767990bb5ea5987581c00f7&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930947.jpg?k=063e4e416f9f5afd9e0b201972dbe479f1672cab6767990bb5ea5987581c00f7&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930947.jpg?k=063e4e416f9f5afd9e0b201972dbe479f1672cab6767990bb5ea5987581c00f7&o="
+          },
+          {
+            "last_update_date": "2025-06-07 05:33:10",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930969.jpg?k=d0bea75fe849eded4fddc778c4f1e0c0d21fa4bc03343e355332f691fe633e6a&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930969.jpg?k=d0bea75fe849eded4fddc778c4f1e0c0d21fa4bc03343e355332f691fe633e6a&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930969.jpg?k=d0bea75fe849eded4fddc778c4f1e0c0d21fa4bc03343e355332f691fe633e6a&o=",
+            "photo_id": 693930969,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930969.jpg?k=d0bea75fe849eded4fddc778c4f1e0c0d21fa4bc03343e355332f691fe633e6a&o=",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930969.jpg?k=d0bea75fe849eded4fddc778c4f1e0c0d21fa4bc03343e355332f691fe633e6a&o=",
+            "ratio": 1.5,
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930969.jpg?k=d0bea75fe849eded4fddc778c4f1e0c0d21fa4bc03343e355332f691fe633e6a&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930969.jpg?k=d0bea75fe849eded4fddc778c4f1e0c0d21fa4bc03343e355332f691fe633e6a&o="
+          },
+          {
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930941.jpg?k=248f539bbc8790735b4c08a731aa2645a1983e818f4b4ed7d391b60cf9281ba9&o=",
+            "last_update_date": "2025-06-07 05:32:43",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930941.jpg?k=248f539bbc8790735b4c08a731aa2645a1983e818f4b4ed7d391b60cf9281ba9&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930941.jpg?k=248f539bbc8790735b4c08a731aa2645a1983e818f4b4ed7d391b60cf9281ba9&o=",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930941.jpg?k=248f539bbc8790735b4c08a731aa2645a1983e818f4b4ed7d391b60cf9281ba9&o=",
+            "ratio": 1.5,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930941.jpg?k=248f539bbc8790735b4c08a731aa2645a1983e818f4b4ed7d391b60cf9281ba9&o=",
+            "photo_id": 693930941,
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930941.jpg?k=248f539bbc8790735b4c08a731aa2645a1983e818f4b4ed7d391b60cf9281ba9&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930941.jpg?k=248f539bbc8790735b4c08a731aa2645a1983e818f4b4ed7d391b60cf9281ba9&o="
+          },
+          {
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930848.jpg?k=8488e948d7a9a63a43e7d7c321c303606e7687f8b432a3c3abf774a1abff43b3&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930848.jpg?k=8488e948d7a9a63a43e7d7c321c303606e7687f8b432a3c3abf774a1abff43b3&o=",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930848.jpg?k=8488e948d7a9a63a43e7d7c321c303606e7687f8b432a3c3abf774a1abff43b3&o=",
+            "last_update_date": "2025-06-07 05:31:57",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930848.jpg?k=8488e948d7a9a63a43e7d7c321c303606e7687f8b432a3c3abf774a1abff43b3&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930848.jpg?k=8488e948d7a9a63a43e7d7c321c303606e7687f8b432a3c3abf774a1abff43b3&o=",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930848.jpg?k=8488e948d7a9a63a43e7d7c321c303606e7687f8b432a3c3abf774a1abff43b3&o=",
+            "ratio": 1.5,
+            "photo_id": 693930848,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930848.jpg?k=8488e948d7a9a63a43e7d7c321c303606e7687f8b432a3c3abf774a1abff43b3&o="
+          },
+          {
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930851.jpg?k=39ab968c622e8f52ab62ab248dd72d06c47b4b0980ce5b703ef51ca6515c2aff&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930851.jpg?k=39ab968c622e8f52ab62ab248dd72d06c47b4b0980ce5b703ef51ca6515c2aff&o=",
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930851.jpg?k=39ab968c622e8f52ab62ab248dd72d06c47b4b0980ce5b703ef51ca6515c2aff&o=",
+            "photo_id": 693930851,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930851.jpg?k=39ab968c622e8f52ab62ab248dd72d06c47b4b0980ce5b703ef51ca6515c2aff&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930851.jpg?k=39ab968c622e8f52ab62ab248dd72d06c47b4b0980ce5b703ef51ca6515c2aff&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930851.jpg?k=39ab968c622e8f52ab62ab248dd72d06c47b4b0980ce5b703ef51ca6515c2aff&o=",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930851.jpg?k=39ab968c622e8f52ab62ab248dd72d06c47b4b0980ce5b703ef51ca6515c2aff&o=",
+            "last_update_date": "2025-06-07 05:32:07"
+          },
+          {
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930850.jpg?k=99074167e71f135ce102fd7a487eaac7d6ddc056b6432928c6f33cb164e4cbb5&o=",
+            "last_update_date": "2025-06-07 05:32:05",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930850.jpg?k=99074167e71f135ce102fd7a487eaac7d6ddc056b6432928c6f33cb164e4cbb5&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930850.jpg?k=99074167e71f135ce102fd7a487eaac7d6ddc056b6432928c6f33cb164e4cbb5&o=",
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930850.jpg?k=99074167e71f135ce102fd7a487eaac7d6ddc056b6432928c6f33cb164e4cbb5&o=",
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930850.jpg?k=99074167e71f135ce102fd7a487eaac7d6ddc056b6432928c6f33cb164e4cbb5&o=",
+            "photo_id": 693930850,
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930850.jpg?k=99074167e71f135ce102fd7a487eaac7d6ddc056b6432928c6f33cb164e4cbb5&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930850.jpg?k=99074167e71f135ce102fd7a487eaac7d6ddc056b6432928c6f33cb164e4cbb5&o="
+          },
+          {
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930852.jpg?k=286eeeb400172b31a1e7850d7f70bb7808777be2e4daa12be70ddc89398d55b0&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930852.jpg?k=286eeeb400172b31a1e7850d7f70bb7808777be2e4daa12be70ddc89398d55b0&o=",
+            "photo_id": 693930852,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930852.jpg?k=286eeeb400172b31a1e7850d7f70bb7808777be2e4daa12be70ddc89398d55b0&o=",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930852.jpg?k=286eeeb400172b31a1e7850d7f70bb7808777be2e4daa12be70ddc89398d55b0&o=",
+            "ratio": 1.5,
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930852.jpg?k=286eeeb400172b31a1e7850d7f70bb7808777be2e4daa12be70ddc89398d55b0&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930852.jpg?k=286eeeb400172b31a1e7850d7f70bb7808777be2e4daa12be70ddc89398d55b0&o=",
+            "last_update_date": "2025-06-07 05:32:08",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930852.jpg?k=286eeeb400172b31a1e7850d7f70bb7808777be2e4daa12be70ddc89398d55b0&o="
+          },
+          {
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930854.jpg?k=a0055ef62727fb564beb8208fb9a95af6287a8500967c58335abb770be1510a4&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930854.jpg?k=a0055ef62727fb564beb8208fb9a95af6287a8500967c58335abb770be1510a4&o=",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930854.jpg?k=a0055ef62727fb564beb8208fb9a95af6287a8500967c58335abb770be1510a4&o=",
+            "ratio": 1.5,
+            "photo_id": 693930854,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930854.jpg?k=a0055ef62727fb564beb8208fb9a95af6287a8500967c58335abb770be1510a4&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930854.jpg?k=a0055ef62727fb564beb8208fb9a95af6287a8500967c58335abb770be1510a4&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930854.jpg?k=a0055ef62727fb564beb8208fb9a95af6287a8500967c58335abb770be1510a4&o=",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930854.jpg?k=a0055ef62727fb564beb8208fb9a95af6287a8500967c58335abb770be1510a4&o=",
+            "last_update_date": "2025-06-07 05:32:08"
+          },
+          {
+            "last_update_date": "2025-06-07 05:32:16",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930879.jpg?k=b33efd82f2a0c62fe5ff16118c5f9f965f8481c2100d04a00fb73c44e82f394b&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930879.jpg?k=b33efd82f2a0c62fe5ff16118c5f9f965f8481c2100d04a00fb73c44e82f394b&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930879.jpg?k=b33efd82f2a0c62fe5ff16118c5f9f965f8481c2100d04a00fb73c44e82f394b&o=",
+            "photo_id": 693930879,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930879.jpg?k=b33efd82f2a0c62fe5ff16118c5f9f965f8481c2100d04a00fb73c44e82f394b&o=",
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930879.jpg?k=b33efd82f2a0c62fe5ff16118c5f9f965f8481c2100d04a00fb73c44e82f394b&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930879.jpg?k=b33efd82f2a0c62fe5ff16118c5f9f965f8481c2100d04a00fb73c44e82f394b&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930879.jpg?k=b33efd82f2a0c62fe5ff16118c5f9f965f8481c2100d04a00fb73c44e82f394b&o="
+          },
+          {
+            "last_update_date": "2025-06-07 05:32:46",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930944.jpg?k=17ef6615ac05f8280fb622eb21eeb1d9bb55ddd4a53e9ae1d2545cb16e2b4e38&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930944.jpg?k=17ef6615ac05f8280fb622eb21eeb1d9bb55ddd4a53e9ae1d2545cb16e2b4e38&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930944.jpg?k=17ef6615ac05f8280fb622eb21eeb1d9bb55ddd4a53e9ae1d2545cb16e2b4e38&o=",
+            "photo_id": 693930944,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930944.jpg?k=17ef6615ac05f8280fb622eb21eeb1d9bb55ddd4a53e9ae1d2545cb16e2b4e38&o=",
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930944.jpg?k=17ef6615ac05f8280fb622eb21eeb1d9bb55ddd4a53e9ae1d2545cb16e2b4e38&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930944.jpg?k=17ef6615ac05f8280fb622eb21eeb1d9bb55ddd4a53e9ae1d2545cb16e2b4e38&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930944.jpg?k=17ef6615ac05f8280fb622eb21eeb1d9bb55ddd4a53e9ae1d2545cb16e2b4e38&o="
+          },
+          {
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930843.jpg?k=9fc686c66c4f26ba416f2d1d97fe5f22c81bfa4e0285ff0c54b076232b78772b&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930843.jpg?k=9fc686c66c4f26ba416f2d1d97fe5f22c81bfa4e0285ff0c54b076232b78772b&o=",
+            "last_update_date": "2025-06-07 05:31:50",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930843.jpg?k=9fc686c66c4f26ba416f2d1d97fe5f22c81bfa4e0285ff0c54b076232b78772b&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930843.jpg?k=9fc686c66c4f26ba416f2d1d97fe5f22c81bfa4e0285ff0c54b076232b78772b&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930843.jpg?k=9fc686c66c4f26ba416f2d1d97fe5f22c81bfa4e0285ff0c54b076232b78772b&o=",
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930843.jpg?k=9fc686c66c4f26ba416f2d1d97fe5f22c81bfa4e0285ff0c54b076232b78772b&o=",
+            "photo_id": 693930843,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930843.jpg?k=9fc686c66c4f26ba416f2d1d97fe5f22c81bfa4e0285ff0c54b076232b78772b&o=",
+            "ratio": 1.5
+          },
+          {
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930887.jpg?k=723b01f49162409d86cbe5cfe65b017929de033c8f3462faed36d88bcbeb9479&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930887.jpg?k=723b01f49162409d86cbe5cfe65b017929de033c8f3462faed36d88bcbeb9479&o=",
+            "last_update_date": "2025-06-07 05:32:20",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930887.jpg?k=723b01f49162409d86cbe5cfe65b017929de033c8f3462faed36d88bcbeb9479&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930887.jpg?k=723b01f49162409d86cbe5cfe65b017929de033c8f3462faed36d88bcbeb9479&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930887.jpg?k=723b01f49162409d86cbe5cfe65b017929de033c8f3462faed36d88bcbeb9479&o=",
+            "photo_id": 693930887,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930887.jpg?k=723b01f49162409d86cbe5cfe65b017929de033c8f3462faed36d88bcbeb9479&o=",
+            "ratio": 0.666666666666667,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930887.jpg?k=723b01f49162409d86cbe5cfe65b017929de033c8f3462faed36d88bcbeb9479&o="
+          },
+          {
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930952.jpg?k=755d6487f62cb0d8390a7e58975ecd05f1e158f41ad9ef406db78c8adf6ea571&o=",
+            "ratio": 1.5,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930952.jpg?k=755d6487f62cb0d8390a7e58975ecd05f1e158f41ad9ef406db78c8adf6ea571&o=",
+            "photo_id": 693930952,
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930952.jpg?k=755d6487f62cb0d8390a7e58975ecd05f1e158f41ad9ef406db78c8adf6ea571&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930952.jpg?k=755d6487f62cb0d8390a7e58975ecd05f1e158f41ad9ef406db78c8adf6ea571&o=",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930952.jpg?k=755d6487f62cb0d8390a7e58975ecd05f1e158f41ad9ef406db78c8adf6ea571&o=",
+            "last_update_date": "2025-06-07 05:32:54",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930952.jpg?k=755d6487f62cb0d8390a7e58975ecd05f1e158f41ad9ef406db78c8adf6ea571&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930952.jpg?k=755d6487f62cb0d8390a7e58975ecd05f1e158f41ad9ef406db78c8adf6ea571&o="
+          },
+          {
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930878.jpg?k=8934cc8a5d0338d4ff2f59477b03c2ce03680bdfcd1c2fefae703c4d9508275a&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930878.jpg?k=8934cc8a5d0338d4ff2f59477b03c2ce03680bdfcd1c2fefae703c4d9508275a&o=",
+            "last_update_date": "2025-06-07 05:32:16",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930878.jpg?k=8934cc8a5d0338d4ff2f59477b03c2ce03680bdfcd1c2fefae703c4d9508275a&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930878.jpg?k=8934cc8a5d0338d4ff2f59477b03c2ce03680bdfcd1c2fefae703c4d9508275a&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930878.jpg?k=8934cc8a5d0338d4ff2f59477b03c2ce03680bdfcd1c2fefae703c4d9508275a&o=",
+            "photo_id": 693930878,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930878.jpg?k=8934cc8a5d0338d4ff2f59477b03c2ce03680bdfcd1c2fefae703c4d9508275a&o=",
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930878.jpg?k=8934cc8a5d0338d4ff2f59477b03c2ce03680bdfcd1c2fefae703c4d9508275a&o="
+          },
+          {
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930889.jpg?k=651a666a1b2823fc946f0d7dcb26b8ba1f07afe514f3fe00a8b4fc5cd7818edd&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930889.jpg?k=651a666a1b2823fc946f0d7dcb26b8ba1f07afe514f3fe00a8b4fc5cd7818edd&o=",
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930889.jpg?k=651a666a1b2823fc946f0d7dcb26b8ba1f07afe514f3fe00a8b4fc5cd7818edd&o=",
+            "photo_id": 693930889,
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930889.jpg?k=651a666a1b2823fc946f0d7dcb26b8ba1f07afe514f3fe00a8b4fc5cd7818edd&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930889.jpg?k=651a666a1b2823fc946f0d7dcb26b8ba1f07afe514f3fe00a8b4fc5cd7818edd&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930889.jpg?k=651a666a1b2823fc946f0d7dcb26b8ba1f07afe514f3fe00a8b4fc5cd7818edd&o=",
+            "last_update_date": "2025-06-07 05:32:21",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930889.jpg?k=651a666a1b2823fc946f0d7dcb26b8ba1f07afe514f3fe00a8b4fc5cd7818edd&o="
+          },
+          {
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930932.jpg?k=d7270804d9804d86980b0af62bcbd2e6ea9bb8487a1f5f7d6f55c7014adaf8b5&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930932.jpg?k=d7270804d9804d86980b0af62bcbd2e6ea9bb8487a1f5f7d6f55c7014adaf8b5&o=",
+            "last_update_date": "2025-06-07 05:32:39",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930932.jpg?k=d7270804d9804d86980b0af62bcbd2e6ea9bb8487a1f5f7d6f55c7014adaf8b5&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930932.jpg?k=d7270804d9804d86980b0af62bcbd2e6ea9bb8487a1f5f7d6f55c7014adaf8b5&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930932.jpg?k=d7270804d9804d86980b0af62bcbd2e6ea9bb8487a1f5f7d6f55c7014adaf8b5&o=",
+            "photo_id": 693930932,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930932.jpg?k=d7270804d9804d86980b0af62bcbd2e6ea9bb8487a1f5f7d6f55c7014adaf8b5&o=",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930932.jpg?k=d7270804d9804d86980b0af62bcbd2e6ea9bb8487a1f5f7d6f55c7014adaf8b5&o=",
+            "ratio": 1.5
+          },
+          {
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930942.jpg?k=8debf198f9beb4c5c829d126a87cc6172ad1460c9a1d2f420c4195fcb6df28c0&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930942.jpg?k=8debf198f9beb4c5c829d126a87cc6172ad1460c9a1d2f420c4195fcb6df28c0&o=",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930942.jpg?k=8debf198f9beb4c5c829d126a87cc6172ad1460c9a1d2f420c4195fcb6df28c0&o=",
+            "last_update_date": "2025-06-07 05:32:44",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930942.jpg?k=8debf198f9beb4c5c829d126a87cc6172ad1460c9a1d2f420c4195fcb6df28c0&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930942.jpg?k=8debf198f9beb4c5c829d126a87cc6172ad1460c9a1d2f420c4195fcb6df28c0&o=",
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930942.jpg?k=8debf198f9beb4c5c829d126a87cc6172ad1460c9a1d2f420c4195fcb6df28c0&o=",
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930942.jpg?k=8debf198f9beb4c5c829d126a87cc6172ad1460c9a1d2f420c4195fcb6df28c0&o=",
+            "photo_id": 693930942
+          },
+          {
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930938.jpg?k=317b1f20bf9b63c06194b0aac25f861b4fd272ed1112f240307209aa9d9eb2ba&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930938.jpg?k=317b1f20bf9b63c06194b0aac25f861b4fd272ed1112f240307209aa9d9eb2ba&o=",
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930938.jpg?k=317b1f20bf9b63c06194b0aac25f861b4fd272ed1112f240307209aa9d9eb2ba&o=",
+            "photo_id": 693930938,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930938.jpg?k=317b1f20bf9b63c06194b0aac25f861b4fd272ed1112f240307209aa9d9eb2ba&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930938.jpg?k=317b1f20bf9b63c06194b0aac25f861b4fd272ed1112f240307209aa9d9eb2ba&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930938.jpg?k=317b1f20bf9b63c06194b0aac25f861b4fd272ed1112f240307209aa9d9eb2ba&o=",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930938.jpg?k=317b1f20bf9b63c06194b0aac25f861b4fd272ed1112f240307209aa9d9eb2ba&o=",
+            "last_update_date": "2025-06-07 05:32:42"
+          },
+          {
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930960.jpg?k=877e222e922f72c1a48e6d255c32b045d4bf449e1740180f1012bb034d499023&o=",
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930960.jpg?k=877e222e922f72c1a48e6d255c32b045d4bf449e1740180f1012bb034d499023&o=",
+            "photo_id": 693930960,
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930960.jpg?k=877e222e922f72c1a48e6d255c32b045d4bf449e1740180f1012bb034d499023&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930960.jpg?k=877e222e922f72c1a48e6d255c32b045d4bf449e1740180f1012bb034d499023&o=",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930960.jpg?k=877e222e922f72c1a48e6d255c32b045d4bf449e1740180f1012bb034d499023&o=",
+            "last_update_date": "2025-06-07 05:33:04",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930960.jpg?k=877e222e922f72c1a48e6d255c32b045d4bf449e1740180f1012bb034d499023&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930960.jpg?k=877e222e922f72c1a48e6d255c32b045d4bf449e1740180f1012bb034d499023&o="
+          },
+          {
+            "photo_id": 693930965,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930965.jpg?k=c12c88e07a14c3a8e5024fa92a87c4a641c07fc99c8ef3941c7c1a2575f51538&o=",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930965.jpg?k=c12c88e07a14c3a8e5024fa92a87c4a641c07fc99c8ef3941c7c1a2575f51538&o=",
+            "ratio": 1.5,
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930965.jpg?k=c12c88e07a14c3a8e5024fa92a87c4a641c07fc99c8ef3941c7c1a2575f51538&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930965.jpg?k=c12c88e07a14c3a8e5024fa92a87c4a641c07fc99c8ef3941c7c1a2575f51538&o=",
+            "last_update_date": "2025-06-07 05:33:08",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930965.jpg?k=c12c88e07a14c3a8e5024fa92a87c4a641c07fc99c8ef3941c7c1a2575f51538&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930965.jpg?k=c12c88e07a14c3a8e5024fa92a87c4a641c07fc99c8ef3941c7c1a2575f51538&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930965.jpg?k=c12c88e07a14c3a8e5024fa92a87c4a641c07fc99c8ef3941c7c1a2575f51538&o="
+          },
+          {
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930966.jpg?k=4f8747541a352e8e0b23001821b4dd2b90755afc6442a38bc98e92017ff668ef&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930966.jpg?k=4f8747541a352e8e0b23001821b4dd2b90755afc6442a38bc98e92017ff668ef&o=",
+            "last_update_date": "2025-06-07 05:33:09",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930966.jpg?k=4f8747541a352e8e0b23001821b4dd2b90755afc6442a38bc98e92017ff668ef&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930966.jpg?k=4f8747541a352e8e0b23001821b4dd2b90755afc6442a38bc98e92017ff668ef&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930966.jpg?k=4f8747541a352e8e0b23001821b4dd2b90755afc6442a38bc98e92017ff668ef&o=",
+            "photo_id": 693930966,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930966.jpg?k=4f8747541a352e8e0b23001821b4dd2b90755afc6442a38bc98e92017ff668ef&o=",
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930966.jpg?k=4f8747541a352e8e0b23001821b4dd2b90755afc6442a38bc98e92017ff668ef&o="
+          },
+          {
+            "last_update_date": "2025-06-07 05:31:52",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930845.jpg?k=274406ff38fe138e57aea8853e69ddd6e152ada36801761fb25f360c5ffc518b&o=",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930845.jpg?k=274406ff38fe138e57aea8853e69ddd6e152ada36801761fb25f360c5ffc518b&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930845.jpg?k=274406ff38fe138e57aea8853e69ddd6e152ada36801761fb25f360c5ffc518b&o=",
+            "photo_id": 693930845,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930845.jpg?k=274406ff38fe138e57aea8853e69ddd6e152ada36801761fb25f360c5ffc518b&o=",
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930845.jpg?k=274406ff38fe138e57aea8853e69ddd6e152ada36801761fb25f360c5ffc518b&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930845.jpg?k=274406ff38fe138e57aea8853e69ddd6e152ada36801761fb25f360c5ffc518b&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930845.jpg?k=274406ff38fe138e57aea8853e69ddd6e152ada36801761fb25f360c5ffc518b&o="
+          },
+          {
+            "ratio": 1.5,
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/693930968.jpg?k=ece647d852c4213861be67dd2767d6292a8483150afbdd3d8cdf0ae134b81845&o=",
+            "photo_id": 693930968,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/693930968.jpg?k=ece647d852c4213861be67dd2767d6292a8483150afbdd3d8cdf0ae134b81845&o=",
+            "url_max1280": "https://cf.bstatic.com/xdata/images/hotel/1280x900/693930968.jpg?k=ece647d852c4213861be67dd2767d6292a8483150afbdd3d8cdf0ae134b81845&o=",
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/693930968.jpg?k=ece647d852c4213861be67dd2767d6292a8483150afbdd3d8cdf0ae134b81845&o=",
+            "url_max750": "https://cf.bstatic.com/xdata/images/hotel/max750/693930968.jpg?k=ece647d852c4213861be67dd2767d6292a8483150afbdd3d8cdf0ae134b81845&o=",
+            "last_update_date": "2025-06-07 05:33:10",
+            "url_square180": "https://cf.bstatic.com/xdata/images/hotel/square180/693930968.jpg?k=ece647d852c4213861be67dd2767d6292a8483150afbdd3d8cdf0ae134b81845&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/693930968.jpg?k=ece647d852c4213861be67dd2767d6292a8483150afbdd3d8cdf0ae134b81845&o="
+          }
+        ],
+        "description": "This villa's special feature is the private pool. The air-conditioned villa has 1 bedroom and 3 bathrooms with a bath and a shower. The villa's kitchen, which features a stovetop and a refrigerator, is available for cooking and storing food. Boasting a balcony with garden views, this villa also offers a tea and coffee maker and a flat-screen TV with streaming services. The unit has 1 bed.",
+        "private_bathroom_highlight": {
+          "has_highlight": 1
+        },
+        "facilities": [
+          {
+            "id": 211,
+            "name": "Carbon monoxide detector",
+            "facilitytype_id": 34,
+            "alt_facilitytype_id": 1,
+            "alt_facilitytype_name": "General"
+          },
+          {
+            "alt_facilitytype_name": "General",
+            "alt_facilitytype_id": 1,
+            "facilitytype_id": 4,
+            "id": 6,
+            "name": "Safe"
+          },
+          {
+            "facilitytype_id": 7,
+            "alt_facilitytype_name": "Kitchen",
+            "alt_facilitytype_id": 12,
+            "id": 126,
+            "name": "Dining table"
+          },
+          {
+            "facilitytype_id": 6,
+            "alt_facilitytype_name": "Media & Technology",
+            "alt_facilitytype_id": 6,
+            "name": "Flat-screen TV",
+            "id": 75
+          },
+          {
+            "name": "Sofa",
+            "id": 77,
+            "alt_facilitytype_name": "Living Area",
+            "alt_facilitytype_id": 15,
+            "facilitytype_id": 4
+          },
+          {
+            "id": 129,
+            "name": "Outdoor furniture",
+            "alt_facilitytype_name": "Outdoors",
+            "alt_facilitytype_id": 13,
+            "facilitytype_id": 7
+          },
+          {
+            "name": "Iron",
+            "id": 15,
+            "facilitytype_id": 4,
+            "alt_facilitytype_name": "General",
+            "alt_facilitytype_id": 1
+          },
+          {
+            "facilitytype_id": 4,
+            "alt_facilitytype_id": 1,
+            "alt_facilitytype_name": "General",
+            "name": "Fan",
+            "id": 30
+          },
+          {
+            "name": "Drying rack for clothing",
+            "id": 140,
+            "alt_facilitytype_id": 4,
+            "alt_facilitytype_name": "Room Amenities",
+            "facilitytype_id": 4
+          },
+          {
+            "alt_facilitytype_id": 5,
+            "alt_facilitytype_name": "Bathroom",
+            "facilitytype_id": 8,
+            "name": "Towels",
+            "id": 124
+          },
+          {
+            "alt_facilitytype_name": "General",
+            "alt_facilitytype_id": 1,
+            "facilitytype_id": 4,
+            "id": 25,
+            "name": "Ironing facilities"
+          },
+          {
+            "id": 26,
+            "name": "Sitting area",
+            "facilitytype_id": 4,
+            "alt_facilitytype_name": "Living Area",
+            "alt_facilitytype_id": 15
+          },
+          {
+            "facilitytype_id": 4,
+            "alt_facilitytype_name": "Room Amenities",
+            "alt_facilitytype_id": 4,
+            "id": 184,
+            "name": "Socket near the bed"
+          },
+          {
+            "id": 135,
+            "name": "Detached",
+            "alt_facilitytype_name": "Building Characteristics",
+            "alt_facilitytype_id": 20,
+            "facilitytype_id": 20
+          },
+          {
+            "id": 37,
+            "name": "Patio",
+            "facilitytype_id": 9,
+            "alt_facilitytype_id": 13,
+            "alt_facilitytype_name": "Outdoors"
+          },
+          {
+            "facilitytype_id": 7,
+            "alt_facilitytype_name": "Food & Drink",
+            "alt_facilitytype_id": 7,
+            "name": "Tea/Coffee maker",
+            "id": 1
+          },
+          {
+            "alt_facilitytype_id": 13,
+            "alt_facilitytype_name": "Outdoors",
+            "facilitytype_id": 9,
+            "name": "Balcony",
+            "id": 17
+          },
+          {
+            "alt_facilitytype_name": "Bathroom",
+            "alt_facilitytype_id": 5,
+            "facilitytype_id": 5,
+            "id": 12,
+            "name": "Hairdryer"
+          },
+          {
+            "id": 93,
+            "name": "Private pool",
+            "alt_facilitytype_name": "Outdoors",
+            "alt_facilitytype_id": 13,
+            "facilitytype_id": 4
+          },
+          {
+            "id": 110,
+            "name": "Garden view",
+            "facilitytype_id": 9,
+            "alt_facilitytype_name": "View",
+            "alt_facilitytype_id": 14
+          },
+          {
+            "alt_facilitytype_id": 6,
+            "alt_facilitytype_name": "Media & Technology",
+            "facilitytype_id": 6,
+            "name": "TV",
+            "id": 8
+          },
+          {
+            "id": 22,
+            "name": "Refrigerator",
+            "alt_facilitytype_id": 12,
+            "alt_facilitytype_name": "Kitchen",
+            "facilitytype_id": 7
+          },
+          {
+            "name": "Linens",
+            "id": 125,
+            "alt_facilitytype_name": "Bedroom",
+            "alt_facilitytype_id": 17,
+            "facilitytype_id": 8
+          },
+          {
+            "facilitytype_id": 6,
+            "alt_facilitytype_id": 6,
+            "alt_facilitytype_name": "Media & Technology",
+            "name": "Streaming service (like Netflix)",
+            "id": 199
+          },
+          {
+            "id": 97,
+            "name": "Stovetop",
+            "alt_facilitytype_name": "Kitchen",
+            "alt_facilitytype_id": 12,
+            "facilitytype_id": 7
+          },
+          {
+            "name": "Tile/Marble floor",
+            "id": 80,
+            "facilitytype_id": 4,
+            "alt_facilitytype_id": 1,
+            "alt_facilitytype_name": "General"
+          },
+          {
+            "id": 31,
+            "name": "Toilet",
+            "facilitytype_id": 5,
+            "alt_facilitytype_id": 5,
+            "alt_facilitytype_name": "Bathroom"
+          },
+          {
+            "facilitytype_id": 7,
+            "alt_facilitytype_id": 12,
+            "alt_facilitytype_name": "Kitchen",
+            "name": "Electric kettle",
+            "id": 86
+          },
+          {
+            "id": 45,
+            "name": "Kitchen",
+            "alt_facilitytype_id": 12,
+            "alt_facilitytype_name": "Kitchen",
+            "facilitytype_id": 7
+          },
+          {
+            "alt_facilitytype_name": "Bathroom",
+            "alt_facilitytype_id": 5,
+            "facilitytype_id": 5,
+            "name": "Shower",
+            "id": 4
+          },
+          {
+            "name": "Cable channels",
+            "id": 68,
+            "alt_facilitytype_name": "Media & Technology",
+            "alt_facilitytype_id": 6,
+            "facilitytype_id": 6
+          },
+          {
+            "name": "Wardrobe or closet",
+            "id": 95,
+            "alt_facilitytype_id": 17,
+            "alt_facilitytype_name": "Bedroom",
+            "facilitytype_id": 4
+          },
+          {
+            "facilitytype_id": 5,
+            "alt_facilitytype_id": 5,
+            "alt_facilitytype_name": "Bathroom",
+            "id": 141,
+            "name": "Toilet paper"
+          },
+          {
+            "alt_facilitytype_id": 6,
+            "alt_facilitytype_name": "Media & Technology",
+            "facilitytype_id": 6,
+            "name": "Satellite channels",
+            "id": 44
+          },
+          {
+            "alt_facilitytype_name": "General",
+            "alt_facilitytype_id": 1,
+            "facilitytype_id": 4,
+            "id": 11,
+            "name": "Air conditioning"
+          },
+          {
+            "facilitytype_id": 7,
+            "alt_facilitytype_name": "Living Area",
+            "alt_facilitytype_id": 15,
+            "name": "Dining area",
+            "id": 85
+          },
+          {
+            "facilitytype_id": 40,
+            "alt_facilitytype_name": "Cleanliness & disinfection",
+            "alt_facilitytype_id": 40,
+            "name": "Hand sanitizer",
+            "id": 231
+          },
+          {
+            "facilitytype_id": 5,
+            "alt_facilitytype_name": "Bathroom",
+            "alt_facilitytype_id": 5,
+            "name": "Bathtub",
+            "id": 5
+          },
+          {
+            "name": "Private bathroom",
+            "id": 38,
+            "alt_facilitytype_id": 5,
+            "alt_facilitytype_name": "Bathroom",
+            "facilitytype_id": 5
+          }
+        ],
+        "bed_configurations": [
+          {
+            "bed_types": [
+              {
+                "count": 1,
+                "description_imperial": "60-70 inches wide",
+                "bed_type": 6,
+                "description": "151-180 cm wide",
+                "name_with_count": "1 queen bed",
+                "name": "Queen bed(s)"
+              }
+            ]
+          }
+        ],
+        "private_bathroom_count": 1,
+        "apartment_configuration": [
+          {
+            "apartment_bed_setup": [
+              {
+                "name": "Queen bed(s)",
+                "desc_imperial": "60-70 inches wide",
+                "apartment_room_id": 109945014,
+                "description": "151-180 cm wide",
+                "desc_imperial_short": "60–70\"",
+                "bed_count": 1,
+                "room_type": "Bedroom",
+                "description_short": "151–180 cm",
+                "room_id": 1386703901,
+                "name_withnumber": "1 queen bed",
+                "name_alternative": "Queen bed(s)",
+                "bedtype_id": 6,
+                "max_persons": 1,
+                "ensuite_bathroom": 0
+              }
+            ],
+            "room_details": [
+              {
+                "room_type_translated": "Bedroom",
+                "room_type": "Bedroom",
+                "ensuite_bathroom": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "block": [
+      {
+        "paymentterms": {
+          "cancellation": {
+            "guaranteed_non_refundable": 0,
+            "type_translation": "Non-refundable",
+            "non_refundable_anymore": 0,
+            "type": "non_refundable",
+            "info": {
+              "time_before_midnight": null,
+              "timezone_offset": null,
+              "date_raw": null,
+              "date_before": null,
+              "refundable_date": null,
+              "time": null,
+              "is_midnight": null,
+              "date_before_raw": null,
+              "refundable": 0,
+              "timezone": null,
+              "date": null
+            },
+            "bucket": "SMP_NON_REF",
+            "description": "Note that if canceled, modified, or in case of no-show, the total price of the reservation will be charged."
+          },
+          "prepayment": {
+            "description": "You'll be charged a prepayment of the total price at any time.",
+            "simple_translation": "Prepayment",
+            "type": "full_prepayment",
+            "info": {
+              "prepayment_at_booktime": 1
+            },
+            "extended_type_translation": "SECURE YOUR BOOKING – pay now",
+            "type_translation": "SECURE YOUR BOOKING – pay now",
+            "type_extended": "non_refundable_prepayment"
+          }
+        },
+        "genius_discount_percentage": 0,
+        "mealplan": "Breakfast US$6",
+        "can_reserve_free_parking": 1,
+        "max_children_free_age": 12,
+        "half_board": 0,
+        "block_text": {
+          "policies": [
+            {
+              "content": "If you cancel, modify the booking, or don't show up, the fee will be the total price of the reservation.",
+              "class": "POLICY_CANCELLATION"
+            },
+            {
+              "class": "POLICY_PREPAY",
+              "content": "The total price of the reservation is charged at the time of booking."
+            },
+            {
+              "class": "POLICY_HOTEL_MEALPLAN",
+              "mealplan_vector": "2",
+              "content": "Breakfast US$6"
+            },
+            {
+              "content": "General",
+              "class": "POLICY_TITLE"
+            },
+            {
+              "class": "POLICY_REFUND_SCHEDULE",
+              "content": " You won't be eligible for a refund if you cancel this booking."
+            }
+          ]
+        },
+        "name": "Three-Bedroom Villa - Non-refundable",
+        "room_surface_in_feet2": 1291.669248,
+        "refundable_until": "",
+        "fit_status": 0,
+        "room_id": 1386703901,
+        "block_id": "1386703901_410678599_6_2_0",
+        "fit_occupancy": {
+          "children_ages": [],
+          "nr_adults": 1
+        },
+        "bh_room_highlights": [
+          {
+            "name": "1 bedroom",
+            "context": 5,
+            "icon_list": [
+              {
+                "icon": "door_open",
+                "size": 1
+              }
+            ]
+          },
+          {
+            "context": 5,
+            "icon_list": [
+              {
+                "size": 1,
+                "icon": "room_size"
+              }
+            ],
+            "name": "120 m²"
+          },
+          {
+            "name": "Sitting area",
+            "icon_list": [
+              {
+                "icon": "couch",
+                "size": 1
+              }
+            ],
+            "context": 4
+          },
+          {
+            "icon_list": [
+              {
+                "icon": "oven",
+                "size": 1
+              }
+            ],
+            "context": 4,
+            "name": "Kitchen"
+          },
+          {
+            "context": 4,
+            "icon_list": [
+              {
+                "icon": "resort",
+                "size": 1
+              }
+            ],
+            "name": "Balcony"
+          },
+          {
+            "name": "Garden view",
+            "context": 4,
+            "icon_list": [
+              {
+                "size": 1,
+                "icon": "eye"
+              }
+            ]
+          }
+        ],
+        "babycots_available": 0,
+        "babycots_available_amount": null,
+        "pay_in_advance": 1,
+        "refundable": 0,
+        "is_smart_deal": 0,
+        "package_id": 0,
+        "roomtype_id": 31,
+        "must_reserve_free_parking": 0,
+        "children_ages": [],
+        "is_domestic_rate": 0,
+        "is_block_fit": "",
+        "nr_adults": 6,
+        "extrabed_available_amount": null,
+        "is_flash_deal": 0,
+        "room_count": 2,
+        "room_surface_in_m2": 120,
+        "all_inclusive": 0,
+        "full_board": 0,
+        "pod_ios_migrate_policies_to_smp_fullon": 0,
+        "smoking": 0,
+        "number_of_bathrooms": 3,
+        "extrabed_available": 0,
+        "nr_children": 0,
+        "max_children_free": 0,
+        "max_occupancy": "6",
+        "room_name": "Three-Bedroom Villa",
+        "breakfast_included": 0,
+        "is_last_minute_deal": 0,
+        "is_genius_deal": null,
+        "name_without_policy": "Three-Bedroom Villa",
+        "deposit_required": 1,
+        "number_of_bedrooms": 1,
+        "is_vp2_enrolled": 1
+      }
+    ],
+    "rawData": {
+      "qualityClass": 4,
+      "blockIds": [],
+      "reviewScore": 10,
+      "isHighlightedHotel": true,
+      "id": 13867039,
+      "rankingPosition": 0,
+      "propertyClass": 0,
+      "ufi": 900040134,
+      "isFirstPage": true,
+      "latitude": -8.6847806,
+      "isSoldout": true,
+      "wishlistName": "Seminyak",
+      "reviewCount": 3,
+      "optOutFromGalleryChanges": 0,
+      "checkoutDate": "2025-06-10",
+      "longitude": 115.1667077,
+      "photoUrls": [
+        "https://cf.bstatic.com/xdata/images/hotel/square60/693930950.jpg?k=d3b55255a5cedc3511afa1f83ba3c918b36bb5207bbdb2c8618eb6747ad66b31&o="
+      ],
+      "checkin": {
+        "fromTime": "14:00",
+        "untilTime": "16:00"
+      },
+      "name": "Villa Shinta by JB Villas",
+      "accuratePropertyClass": 0,
+      "reviewScoreWord": "Exceptional",
+      "currency": "",
+      "checkout": {
+        "fromTime": "08:00",
+        "untilTime": "12:00"
+      },
+      "mainPhotoId": 693930950,
+      "position": 0,
+      "countryCode": "id",
+      "checkinDate": "2025-06-09"
+    }
+  }
+}

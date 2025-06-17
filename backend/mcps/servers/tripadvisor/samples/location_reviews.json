@@ -1,0 +1,57 @@
+{
+  "data": [
+    {
+      "id": 1011607875,
+      "lang": "en",
+      "location_id": 24987411,
+      "published_date": "2025-06-08T05:36:59Z",
+      "rating": 5,
+      "helpful_votes": 0,
+      "rating_image_url": "https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/s5.0-66827-5.svg",
+      "url": "https://www.tripadvisor.com/ShowUserReviews-g297701-d24987411-r1011607875-Reviews-Ivy_Cafe-Ubud_Gianyar_Regency_Bali.html?m=66827#review1011607875",
+      "text": "The best cafe in Ubud. Special thanks to Dina, the most humble and wonderful person. She suggested the most amazing things whether it was about cafés, shopping or hotels. She made our visit worth it. Wonderful service overall.",
+      "title": "Dina- the star of Ivy Cafe.",
+      "trip_type": "Family",
+      "travel_date": "2025-06-30",
+      "user": {
+        "username": "Getaway26078979527",
+        "user_location": {
+          "id": "null"
+        },
+        "avatar": {
+          "thumbnail": "https://media-cdn.tripadvisor.com/media/photo-t/1a/f6/e7/7b/default-avatar-2020-56.jpg",
+          "small": "https://media-cdn.tripadvisor.com/media/photo-l/1a/f6/e7/7b/default-avatar-2020-56.jpg",
+          "medium": "https://media-cdn.tripadvisor.com/media/photo-f/1a/f6/e7/7b/default-avatar-2020-56.jpg",
+          "large": "https://media-cdn.tripadvisor.com/media/photo-p/1a/f6/e7/7b/default-avatar-2020-56.jpg",
+          "original": "https://media-cdn.tripadvisor.com/media/photo-o/1a/f6/e7/7b/default-avatar-2020-56.jpg"
+        }
+      },
+      "subratings": {
+        "0": {
+          "name": "RATE_VALUE",
+          "rating_image_url": "https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/s5.0-66827-5.svg",
+          "value": 5,
+          "localized_name": "Value"
+        },
+        "1": {
+          "name": "RATE_SERVICE",
+          "rating_image_url": "https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/s5.0-66827-5.svg",
+          "value": 5,
+          "localized_name": "Service"
+        },
+        "2": {
+          "name": "RATE_FOOD",
+          "rating_image_url": "https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/s5.0-66827-5.svg",
+          "value": 5,
+          "localized_name": "Food"
+        },
+        "3": {
+          "name": "RATE_ATMOSPHERE",
+          "rating_image_url": "https://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/s5.0-66827-5.svg",
+          "value": 5,
+          "localized_name": "Atmosphere"
+        }
+      }
+    }
+  ]
+}

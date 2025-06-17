@@ -1,0 +1,207 @@
+services:
+  # Traefik Reverse Proxy & Load Balancer
+  traefik:
+    container_name: traefik
+    image: traefik:v3.4
+    restart: unless-stopped
+    ports:
+      - "80:80"      # HTTP entry point
+      - "8080:8080"  # Dashboard
+      # - "443:443"  # HTTPS entry point
+    env_file:
+      - ./traefik/config/.env
+    volumes:
+      # Mount Docker socket untuk auto-discovery
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      # Mount konfigurasi Traefik
+      - ./traefik/traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./traefik/dynamic:/etc/traefik/dynamic:ro
+      - ./traefik/config:/etc/traefik/config:ro
+    networks:
+      - agen-travel-network
+      - supabase_default
+    labels:
+      - "traefik.enable=true"
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck", "--ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    # ports: # Port di-comment karena akan diakses via Traefik
+    #   - "2025:2025"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - redis
+      - traefik
+    networks:
+      - agen-travel-network
+      - supabase_default
+    volumes:
+      - backend_data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:2025/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    environment:
+      - SUPABASE_URL=http://kong:8000
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - SUPABASE_CONNECTION=postgresql://postgres:${SUPABASE_DB_PASSWORD}@supabase-db:5432/postgres
+    labels:
+      - "traefik.enable=true"
+
+  telegram-bot:
+    container_name: telegram-bot
+    build:
+      context: ./frontend/telegram
+      dockerfile: Dockerfile
+    restart: always
+    # ports: # Port di-comment karena akan diakses via Traefik
+    #   - "8444:8444"
+    env_file:
+      - ./frontend/telegram/.env
+    depends_on:
+      - backend
+      - traefik
+    networks:
+      - agen-travel-network
+      - supabase_default
+    environment:
+      - API_URL=http://backend:2025/api/v1/response/
+      - SUPABASE_URL=http://kong:8000
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - SUPABASE_CONNECTION=postgresql://postgres:${SUPABASE_DB_PASSWORD}@supabase-db:5432/postgres
+    labels:
+      - "traefik.enable=true"
+
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus:latest
+    restart: always
+    # ports: # Port di-comment karena akan diakses via Traefik
+    #   - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+      # Konfigurasi untuk subdomain routing via Traefik
+      - '--web.external-url=/'
+      - '--web.route-prefix=/'
+    networks:
+      - agen-travel-network
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:latest
+    restart: always
+    # ports: # Port di-comment karena akan diakses via Traefik
+    #   - "2027:3000"
+    env_file:
+      - .env
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD}
+      - GF_USERS_ALLOW_SIGN_UP=false
+      # Konfigurasi untuk subdomain routing via Traefik
+      - GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s/
+    depends_on:
+      - prometheus
+    networks:
+      - agen-travel-network
+
+  node-exporter:
+    container_name: node-exporter
+    image: prom/node-exporter:latest
+    restart: always
+    ports:
+      - "9100:9100"
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+    networks:
+      - agen-travel-network
+
+  redis-exporter:
+    container_name: redis-exporter
+    image: oliver006/redis_exporter:latest
+    restart: always
+    ports:
+      - "9121:9121"
+    environment:
+      - REDIS_ADDR=redis://redis:6379
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_EXPORTER_LOG_FORMAT=txt
+    depends_on:
+      - redis
+    networks:
+      - agen-travel-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:9121/metrics"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+  redis:
+    container_name: redis
+    image: redis/redis-stack:latest
+    restart: always
+    ports:
+      - "6379:6379"  # Redis server port untuk TablePlus
+      # - "8001:8001"  # Redis Insight web interface port - diakses via Traefik subdomain dengan basic auth
+    environment:
+      - REDIS_ARGS=--requirepass ${REDIS_PASSWORD}
+      # Konfigurasi Redis Insight untuk trusted origins
+      - RITRUSTEDORIGINS=http://redis.localhost,https://redis.localhost,http://redis.agen-travel.live,https://redis.agen-travel.live
+    env_file:
+      - .env
+    volumes:
+      - redis_data:/data
+    networks:
+      - agen-travel-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "--raw", "incr", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    labels:
+      - "traefik.enable=true"
+      # Label untuk dokumentasi - Redis Insight diakses via subdomain dengan basic auth
+      - "traefik.http.services.redis.loadbalancer.server.port=8001"
+
+networks:
+  agen-travel-network:
+    name: agen-travel-network
+    driver: bridge
+  supabase_default:
+    external: true
+
+volumes:
+  backend_data:
+  prometheus_data:
+  grafana_data:
+  redis_data:

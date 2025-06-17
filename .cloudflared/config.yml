@@ -1,0 +1,59 @@
+tunnel: 98318113-6fe9-4c7d-8f57-5c9f2507b3ff
+credentials-file: ./.cloudflared/98318113-6fe9-4c7d-8f57-5c9f2507b3ff.json
+
+ingress:
+  # ===== SUBDOMAIN ROUTING =====
+
+  # Route untuk Traefik dashboard subdomain
+  - hostname: traefik.agen-travel.live
+    service: http://localhost:80
+
+  # Route untuk Redis Insight subdomain
+  - hostname: redis.agen-travel.live
+    service: http://localhost:80
+
+  # Route untuk Grafana subdomain
+  - hostname: grafana.agen-travel.live
+    service: http://localhost:80
+
+  # Route untuk Prometheus subdomain
+  - hostname: prometheus.agen-travel.live
+    service: http://localhost:80
+
+  # Route untuk Supabase Studio subdomain
+  - hostname: supabase.agen-travel.live
+    service: http://localhost:80
+
+  # ===== MAIN DOMAIN PATH-BASED ROUTING =====
+
+  # Route untuk API backend
+  - hostname: agen-travel.live
+    path: /api/*
+    service: http://localhost:80
+
+  # Route untuk webhook Telegram
+  - hostname: agen-travel.live
+    path: /webhook/*
+    service: http://localhost:80
+
+  # Route untuk health check
+  - hostname: agen-travel.live
+    path: /health
+    service: http://localhost:80
+
+  # Route untuk docs
+  - hostname: agen-travel.live
+    path: /docs
+    service: http://localhost:80
+
+  # Route untuk OpenAPI
+  - hostname: agen-travel.live
+    path: /openapi.json
+    service: http://localhost:80
+
+  # Route default untuk semua traffic lainnya ke main domain
+  - hostname: agen-travel.live
+    service: http://localhost:80
+
+  # Catch-all rule (harus selalu ada di akhir)
+  - service: http_status:404

@@ -1,0 +1,53 @@
+# Monitoring Services Dynamic Configuration
+# Routing untuk Grafana dan Prometheus dengan security
+
+http:
+  routers:
+    # Router untuk Grafana Dashboard - menggunakan subdomain
+    grafana-dashboard:
+      rule: "Host(`grafana.localhost`) || Host(`grafana.agen-travel.live`)"
+      entryPoints:
+        - "web"
+      service: "grafana-service"
+      middlewares:
+        - "grafana-headers"
+        - "basic-security"
+      priority: 150
+
+    # Router untuk Prometheus Dashboard - menggunakan subdomain
+    prometheus-dashboard:
+      rule: "Host(`prometheus.localhost`) || Host(`prometheus.agen-travel.live`)"
+      entryPoints:
+        - "web"
+      service: "prometheus-service"
+      middlewares:
+        - "prometheus-auth"
+        - "prometheus-headers"
+        - "basic-security"
+      priority: 150
+
+  services:
+    # Service definition untuk Grafana
+    grafana-service:
+      loadBalancer:
+        servers:
+          - url: "http://grafana:3000"
+        
+        # Health check untuk Grafana
+        healthCheck:
+          path: "/api/health"
+          interval: "30s"
+          timeout: "10s"
+
+    # Service definition untuk Prometheus
+    prometheus-service:
+      loadBalancer:
+        servers:
+          - url: "http://prometheus:9090"
+
+        # Health check untuk Prometheus (menggunakan health endpoint yang benar)
+        healthCheck:
+          path: "/-/healthy"
+          interval: "30s"
+          timeout: "10s"
+
