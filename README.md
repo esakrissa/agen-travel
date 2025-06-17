@@ -446,6 +446,26 @@ Sistem terintegrasi dengan Telegram Bot yang memungkinkan pengguna berinteraksi 
 - **Bot ID**: agen_travel_bot
 - **Webhook Integration**: Real-time message processing dengan Cloudflare Tunnel
 
+#### 🤖 Available Bot Commands
+Bot menyediakan command-command berikut untuk memudahkan interaksi:
+
+| Command | Deskripsi |
+|---------|-----------|
+| `/start` | Mulai percakapan dengan agen travel |
+| `/register` | Registrasi akun baru |
+| `/login` | Login ke akun yang sudah ada |
+| `/profile` | Lihat profil pengguna |
+| `/newchat` | Mulai percakapan baru |
+| `/deletechat` | Hapus riwayat percakapan |
+| `/help` | Tampilkan bantuan dan informasi bot |
+| `/logout` | Logout dari akun |
+
+**💡 Tips Penggunaan:**
+- Gunakan `/start` untuk memulai interaksi pertama kali
+- Setelah login, Anda dapat langsung mengetik permintaan dalam bahasa natural
+- Gunakan `/newchat` untuk memulai sesi percakapan baru
+- Command `/help` memberikan panduan lengkap penggunaan bot
+
 ## 📊 Diagram Arsitektur Multi-Agen
 
 ### Diagram Utama - Alur Multi-Agen
@@ -1359,10 +1379,14 @@ Setelah setup selesai, pengguna dapat berinteraksi dengan sistem melalui Telegra
 1. **Cari bot di Telegram**: `@agen_travel_bot`
 2. **Mulai percakapan**: Ketik `/start`
 3. **Gunakan commands**:
-   - `/start` - Memulai percakapan
-   - `/help` - Bantuan penggunaan
-   - `/booking` - Cek riwayat pemesanan
-   - `/cancel` - Batalkan operasi
+   - `/start` - Mulai percakapan
+   - `/register` - Registrasi baru
+   - `/login` - Login akun
+   - `/profile` - Lihat profil
+   - `/newchat` - Percakapan baru
+   - `/deletechat` - Hapus percakapan
+   - `/help` - Bantuan
+   - `/logout` - Logout akun
 
 4. **Contoh percakapan**:
    ```
