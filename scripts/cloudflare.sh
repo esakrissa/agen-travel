@@ -9,11 +9,13 @@ TUNNEL_ID="98318113-6fe9-4c7d-8f57-5c9f2507b3ff"
 
 # Daftar subdomain yang akan dikonfigurasi
 SUBDOMAINS=(
-    "traefik"
-    "redis" 
-    "grafana"
-    "prometheus"
-    "supabase"
+    "chat"        # WebUI (Next.js) - localhost:3000
+    "langgraph"   # LangGraph API - localhost:2024
+    "traefik"     # Traefik Dashboard via port 80
+    "redis"       # Redis Insight via port 80
+    "grafana"     # Grafana Dashboard via port 80
+    "prometheus"  # Prometheus Dashboard via port 80
+    "supabase"    # Supabase Studio via port 80
 )
 
 # Warna untuk output
@@ -64,27 +66,27 @@ check_cloudflared() {
 # Fungsi untuk memeriksa autentikasi Cloudflare
 check_auth() {
     echo -e "${BLUE}Memeriksa autentikasi Cloudflare...${NC}"
-    
+
     # Cek apakah sudah login
     if ! cloudflared tunnel list &> /dev/null; then
         echo -e "${RED}Error: Belum login ke Cloudflare.${NC}"
         echo "Login dengan: cloudflared tunnel login"
         exit 1
     fi
-    
+
     echo -e "${GREEN}✓ Autentikasi Cloudflare berhasil${NC}"
 }
 
 # Fungsi untuk membuat DNS records
 create_dns_records() {
     echo -e "${BLUE}Membuat DNS CNAME records untuk subdomain...${NC}"
-    
+
     for subdomain in "${SUBDOMAINS[@]}"; do
         echo -e "${YELLOW}Membuat record untuk ${subdomain}.${DOMAIN}...${NC}"
-        
+
         # Buat CNAME record yang mengarah ke tunnel
         result=$(cloudflared tunnel route dns $TUNNEL_ID "${subdomain}.${DOMAIN}" 2>&1)
-        
+
         if [[ $? -eq 0 ]]; then
             echo -e "${GREEN}✓ Berhasil membuat record untuk ${subdomain}.${DOMAIN}${NC}"
         else
@@ -96,38 +98,38 @@ create_dns_records() {
             fi
         fi
     done
-    
+
     echo -e "${GREEN}Selesai membuat DNS records.${NC}"
 }
 
 # Fungsi untuk menghapus DNS records
 delete_dns_records() {
     echo -e "${BLUE}Menghapus DNS CNAME records untuk subdomain...${NC}"
-    
+
     for subdomain in "${SUBDOMAINS[@]}"; do
         echo -e "${YELLOW}Menghapus record untuk ${subdomain}.${DOMAIN}...${NC}"
-        
+
         # Hapus CNAME record
         result=$(cloudflared tunnel route dns --overwrite-dns $TUNNEL_ID "${subdomain}.${DOMAIN}" 2>&1)
-        
+
         if [[ $? -eq 0 ]]; then
             echo -e "${GREEN}✓ Berhasil menghapus record untuk ${subdomain}.${DOMAIN}${NC}"
         else
             echo -e "${RED}✗ Gagal menghapus record untuk ${subdomain}.${DOMAIN}: $result${NC}"
         fi
     done
-    
+
     echo -e "${GREEN}Selesai menghapus DNS records.${NC}"
 }
 
 # Fungsi untuk menampilkan semua DNS records
 list_dns_records() {
     echo -e "${BLUE}Menampilkan semua DNS records untuk ${DOMAIN}...${NC}"
-    
+
     # Gunakan cloudflared untuk menampilkan route
     echo -e "${YELLOW}Routes yang dikonfigurasi untuk tunnel:${NC}"
     cloudflared tunnel route list
-    
+
     echo ""
     echo -e "${YELLOW}Informasi tunnel:${NC}"
     cloudflared tunnel info $TUNNEL_ID

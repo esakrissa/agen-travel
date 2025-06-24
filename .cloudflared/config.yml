@@ -2,7 +2,17 @@ tunnel: 98318113-6fe9-4c7d-8f57-5c9f2507b3ff
 credentials-file: ./.cloudflared/98318113-6fe9-4c7d-8f57-5c9f2507b3ff.json
 
 ingress:
-  # ===== SUBDOMAIN ROUTING =====
+  # ===== FRONTEND SERVICES - DIRECT ACCESS =====
+
+  # Route untuk WebUI (Next.js) - direct access
+  - hostname: chat.agen-travel.live
+    service: http://localhost:3000
+
+  # Route untuk LangGraph API - direct access
+  - hostname: langgraph.agen-travel.live
+    service: http://localhost:2024
+
+  # ===== SUBDOMAIN ROUTING VIA TRAEFIK =====
 
   # Route untuk Traefik dashboard subdomain
   - hostname: traefik.agen-travel.live
@@ -24,7 +34,7 @@ ingress:
   - hostname: supabase.agen-travel.live
     service: http://localhost:80
 
-  # ===== MAIN DOMAIN PATH-BASED ROUTING =====
+  # ===== MAIN DOMAIN PATH-BASED ROUTING VIA TRAEFIK =====
 
   # Route untuk API backend
   - hostname: agen-travel.live

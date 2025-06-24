@@ -1,0 +1,20 @@
+{
+    "title": "Agen Travel - LangGraph API",
+    "description": "Sistem Multi-Agen Travel untuk LangGraph API Runtime",
+    "version": "0.1.0",
+    "modules": {
+      "entrypoint": {
+        "functions": ["build_graph"]
+      }
+    },
+    "entrypoint": "entrypoint.build_graph",
+    "graphs": {
+      "agen_travel": "entrypoint:build_graph"
+    },
+    "dependencies": [
+      "langgraph",
+      "langchain",
+      "langchain-openai"
+    ],
+    "env": ".env"
+  }

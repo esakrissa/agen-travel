@@ -71,18 +71,77 @@ services:
     env_file:
       - ./frontend/telegram/.env
     depends_on:
-      - backend
+      - langgraph-api
       - traefik
     networks:
       - agen-travel-network
       - supabase_default
     environment:
-      - API_URL=http://backend:2025/api/v1/response/
+      - API_URL=http://langgraph-api:8000/api/v1/response/
       - SUPABASE_URL=http://kong:8000
       - SUPABASE_KEY=${SUPABASE_KEY}
       - SUPABASE_CONNECTION=postgresql://postgres:${SUPABASE_DB_PASSWORD}@supabase-db:5432/postgres
     labels:
       - "traefik.enable=true"
+
+  # WebUI Container
+  web-ui:
+    container_name: web-ui
+    build:
+      context: ./frontend/webui
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"  # WebUI on port 3000
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_LANGGRAPH_API_URL=https://langgraph.agen-travel.live
+    volumes:
+      - ./frontend/webui:/app
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - agen-travel-network
+    depends_on:
+      - langgraph-api
+
+  # LangGraph API Backend
+  langgraph-api:
+    container_name: langgraph-api
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.langgraph
+    restart: always
+    ports:
+      - "2024:8000"  # LangGraph API on port 2024
+    volumes:
+      - type: bind
+        source: ./backend
+        target: /deps/agen_travel
+    environment:
+      - REDIS_URI=redis://:${REDIS_PASSWORD}@redis:6379
+      - LANGSMITH_API_KEY=${LANGSMITH_API_KEY}
+      - DATABASE_URI=${DATABASE_URI}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - TAVILY_API_KEY=${TAVILY_API_KEY}
+      - RAPIDAPI_KEY=${RAPIDAPI_KEY}
+      - TRIPADVISOR_API_KEY=${TRIPADVISOR_API_KEY}
+      - SUPABASE_URL=http://kong:8000
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - SUPABASE_CONNECTION=postgresql://postgres:${SUPABASE_DB_PASSWORD}@supabase-db:5432/postgres
+    env_file:
+      - ./backend/.env
+    networks:
+      - agen-travel-network
+      - supabase_default
+    depends_on:
+      - redis
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 3
+    #   start_period: 20s
 
   prometheus:
     container_name: prometheus
