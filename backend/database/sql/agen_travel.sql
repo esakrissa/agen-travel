@@ -228,43 +228,43 @@ CREATE TABLE tour_bookings (
 CREATE TABLE external_bookings (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id),
-    
+
     -- Source dan tipe booking
     booking_source TEXT NOT NULL, -- 'booking_com', 'airbnb', 'tripadvisor'
     booking_type TEXT NOT NULL,   -- 'hotel', 'flight', 'attraction', 'restaurant'
-    
+
     -- Data pemesan (konsisten dengan hotel_bookings dan flight_bookings)
     nama_pemesan TEXT NOT NULL,
     email TEXT NOT NULL,
     telepon TEXT NOT NULL,
-    
+
     -- Data booking dari external (flexible JSON)
     external_data JSONB NOT NULL, -- Raw data dari MCP tools
     external_id TEXT,             -- ID dari platform eksternal
     external_url TEXT,            -- URL ke listing eksternal
-    
+
     -- Data booking yang dinormalisasi (konsisten dengan existing tables)
     nama_produk TEXT NOT NULL,    -- Nama hotel/flight/attraction/restaurant
     lokasi TEXT,                  -- Lokasi produk
     tanggal_mulai DATE NOT NULL,  -- Check-in/departure/visit date (konsisten dengan hotel_bookings)
     tanggal_akhir DATE,           -- Check-out/return (nullable untuk attraction/restaurant)
     jumlah_tamu INTEGER NOT NULL, -- Guests/passengers/visitors (konsisten dengan hotel_bookings.jumlah_tamu)
-    
+
     -- Data spesifik berdasarkan tipe booking
     booking_details JSONB,        -- Detail spesifik per tipe (kamar, kelas, dll)
-    
+
     -- Pricing (konsisten dengan existing tables, menggunakan INTEGER seperti hotel_bookings)
     total_harga INTEGER NOT NULL, -- Menggunakan INTEGER untuk konsistensi dengan existing tables
     currency TEXT DEFAULT 'IDR',
-    
+
     -- Status (konsisten dengan hotel_bookings dan flight_bookings)
     status TEXT NOT NULL DEFAULT 'pending',
     metode_pembayaran TEXT,
     status_pembayaran TEXT NOT NULL DEFAULT 'unpaid',
-    
+
     -- Catatan dan metadata (konsisten dengan existing tables)
     catatan TEXT,
-    
+
     -- Timestamps (konsisten dengan existing tables)
     tanggal_pemesanan DATE DEFAULT CURRENT_DATE,
     created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -319,19 +319,19 @@ CREATE INDEX idx_external_bookings_user_status ON external_bookings(user_id, sta
 CREATE INDEX idx_external_bookings_source_type ON external_bookings(booking_source, booking_type);
 
 -- Constraints untuk external_bookings
-ALTER TABLE external_bookings ADD CONSTRAINT chk_booking_source 
+ALTER TABLE external_bookings ADD CONSTRAINT chk_booking_source
     CHECK (booking_source IN ('booking_com', 'airbnb', 'tripadvisor'));
 
-ALTER TABLE external_bookings ADD CONSTRAINT chk_booking_type 
+ALTER TABLE external_bookings ADD CONSTRAINT chk_booking_type
     CHECK (booking_type IN ('hotel', 'flight', 'attraction', 'restaurant'));
 
-ALTER TABLE external_bookings ADD CONSTRAINT chk_status 
+ALTER TABLE external_bookings ADD CONSTRAINT chk_status
     CHECK (status IN ('pending', 'confirmed', 'cancelled', 'completed'));
 
-ALTER TABLE external_bookings ADD CONSTRAINT chk_status_pembayaran 
+ALTER TABLE external_bookings ADD CONSTRAINT chk_status_pembayaran
     CHECK (status_pembayaran IN ('unpaid', 'paid', 'failed', 'refunded'));
 
-ALTER TABLE external_bookings ADD CONSTRAINT chk_metode_pembayaran 
+ALTER TABLE external_bookings ADD CONSTRAINT chk_metode_pembayaran
     CHECK (metode_pembayaran IS NULL OR metode_pembayaran IN ('transfer bank', 'kartu kredit', 'e-wallet'));
 
 -- Constraint untuk validasi kombinasi booking_source dan booking_type
@@ -404,6 +404,23 @@ BEGIN
     AND platform = p_platform
     ORDER BY updated_at DESC
     LIMIT 1;
+
+    -- Jika thread_id ditemukan, pastikan ada di tabel thread untuk kompatibilitas LangGraph
+    IF v_thread_id IS NOT NULL THEN
+        -- Buat entry di tabel thread jika belum ada
+        INSERT INTO thread (thread_id, created_at, updated_at, metadata, status, config, values, interrupts)
+        VALUES (
+            v_thread_id::uuid,
+            NOW(),
+            NOW(),
+            '{"graph_id": "agen_travel", "assistant_id": "5e5d18ae-6710-5500-a26c-a57c95471bd0"}'::jsonb,
+            'idle',
+            '{}'::jsonb,
+            NULL::jsonb,
+            '{}'::jsonb
+        )
+        ON CONFLICT (thread_id) DO NOTHING;
+    END IF;
 
     RETURN v_thread_id;
 END;
@@ -512,6 +529,9 @@ BEGIN
     DELETE FROM chat_history ch WHERE ch.thread_id = p_thread_id;
     GET DIAGNOSTICS deleted_chat_history = ROW_COUNT;
 
+    -- Hapus juga dari tabel thread dan checkpoint terkait (LangGraph akan handle cascade)
+    DELETE FROM thread t WHERE t.thread_id = p_thread_id::uuid;
+
     -- Return sebagai table row
     RETURN QUERY SELECT
         'success'::text,
@@ -547,8 +567,22 @@ BEGIN
     ORDER BY ch.updated_at DESC
     LIMIT 1;
 
+    -- Buat entry di tabel thread untuk kompatibilitas dengan LangGraph
+    INSERT INTO thread (thread_id, created_at, updated_at, metadata, status, config, values, interrupts)
+    VALUES (
+        p_new_thread_id::uuid,
+        NOW(),
+        NOW(),
+        '{"graph_id": "agen_travel", "assistant_id": "5e5d18ae-6710-5500-a26c-a57c95471bd0"}'::jsonb,
+        'idle',
+        '{}'::jsonb,
+        NULL::jsonb,
+        '{}'::jsonb
+    )
+    ON CONFLICT (thread_id) DO NOTHING;
+
     -- Simpan mapping chat baru
-    PERFORM save_user_thread_mapping(p_user_id, p_new_thread_id, p_platform);
+    PERFORM save_chat_message(p_user_id, p_new_thread_id, 'thread_id_mapping', 'thread_id_mapping', p_platform);
 
     -- Return sebagai table row
     RETURN QUERY SELECT
@@ -882,6 +916,13 @@ GRANT EXECUTE ON FUNCTION register_user(TEXT, TEXT, TEXT, TEXT, TEXT, TEXT) TO P
 GRANT EXECUTE ON FUNCTION login_user(TEXT, TEXT) TO PUBLIC;
 GRANT EXECUTE ON FUNCTION link_telegram_user(INTEGER, TEXT) TO PUBLIC;
 GRANT EXECUTE ON FUNCTION get_user_by_telegram_id(TEXT) TO PUBLIC;
+
+-- Grant permissions untuk fungsi chat dan thread
+GRANT EXECUTE ON FUNCTION get_user_thread_id(TEXT, TEXT) TO PUBLIC;
+GRANT EXECUTE ON FUNCTION save_chat_message(TEXT, TEXT, TEXT, TEXT, TEXT) TO PUBLIC;
+GRANT EXECUTE ON FUNCTION get_all_user_thread_ids(TEXT) TO PUBLIC;
+GRANT EXECUTE ON FUNCTION create_new_chat(TEXT, TEXT, TEXT) TO PUBLIC;
+GRANT EXECUTE ON FUNCTION delete_chat(TEXT) TO PUBLIC;
 
 -- Disable RLS untuk semua tabel
 ALTER TABLE users DISABLE ROW LEVEL SECURITY;

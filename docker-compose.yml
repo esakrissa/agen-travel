@@ -71,13 +71,13 @@ services:
     env_file:
       - ./frontend/telegram/.env
     depends_on:
-      - langgraph-api
+      - backend
       - traefik
     networks:
       - agen-travel-network
       - supabase_default
     environment:
-      - API_URL=http://langgraph-api:8000/api/v1/response/
+      - API_URL=http://backend:2025/api/v1/response/
       - SUPABASE_URL=http://kong:8000
       - SUPABASE_KEY=${SUPABASE_KEY}
       - SUPABASE_CONNECTION=postgresql://postgres:${SUPABASE_DB_PASSWORD}@supabase-db:5432/postgres
