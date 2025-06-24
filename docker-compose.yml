@@ -40,8 +40,12 @@ services:
     env_file:
       - ./backend/.env
     depends_on:
-      - redis
-      - traefik
+      redis:
+        condition: service_healthy
+      langgraph-api:
+        condition: service_healthy
+      traefik:
+        condition: service_started
     networks:
       - agen-travel-network
       - supabase_default
@@ -51,8 +55,8 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost:2025/health"]
       interval: 30s
       timeout: 10s
-      retries: 3
-      start_period: 20s
+      retries: 5
+      start_period: 120s
     environment:
       - SUPABASE_URL=http://kong:8000
       - SUPABASE_KEY=${SUPABASE_KEY}
@@ -71,8 +75,10 @@ services:
     env_file:
       - ./frontend/telegram/.env
     depends_on:
-      - backend
-      - traefik
+      backend:
+        condition: service_healthy
+      traefik:
+        condition: service_started
     networks:
       - agen-travel-network
       - supabase_default
@@ -103,7 +109,8 @@ services:
     networks:
       - agen-travel-network
     depends_on:
-      - langgraph-api
+      langgraph-api:
+        condition: service_healthy
 
   # LangGraph API Backend
   langgraph-api:
@@ -135,13 +142,14 @@ services:
       - agen-travel-network
       - supabase_default
     depends_on:
-      - redis
-    # healthcheck:
-    #   test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
-    #   interval: 30s
-    #   timeout: 10s
-    #   retries: 3
-    #   start_period: 20s
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
 
   prometheus:
     container_name: prometheus
