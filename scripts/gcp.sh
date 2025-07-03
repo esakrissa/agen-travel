@@ -13,9 +13,9 @@ ZONE="asia-southeast2-a"
 REGION="asia-southeast2"
 VM_NAME="agen-travel"
 MACHINE_TYPE="e2-standard-16"
-IMAGE_FAMILY="ubuntu-2404-lts"
+IMAGE_FAMILY="ubuntu-2404-lts-amd64"
 IMAGE_PROJECT="ubuntu-os-cloud"
-DISK_SIZE="46GB"
+DISK_SIZE="64GB"
 DISK_TYPE="pd-standard"
 SSH_USER="esakrissa"
 SSH_KEY_PATH="/Users/esakrissa/.ssh/remote-agen-travel.pub"
@@ -87,7 +87,7 @@ create_vm() {
     --image-project=$IMAGE_PROJECT \
     --boot-disk-size=$DISK_SIZE \
     --boot-disk-type=$DISK_TYPE \
-    --tags=http-server,https-server,allow-supabase,allow-telegram,allow-grafana,allow-prometheus \
+    --tags=http-server,allow-webui,allow-langgraph,allow-tableplus,allow-redis \
     --metadata="ssh-keys=${SSH_USER}:${SSH_KEY_CONTENT}"
   
   VM_CREATE_STATUS=$?
@@ -100,39 +100,52 @@ create_vm() {
   echo -e "${GREEN}VM instance ${VM_NAME} berhasil dibuat!${NC}"
   
   # Membuat firewall rules
-  echo -e "\n${BLUE}Membuat firewall rules...${NC}"
+  echo -e "\n${BLUE}Membuat firewall rules untuk Cloudflare Tunnels...${NC}"
   
-  # HTTP dan HTTPS sudah tercakup oleh aturan GCP default, tapi kita akan memeriksa dan membuat jika diperlukan
+  # Hanya buka port yang diperlukan untuk Cloudflare tunnels
   
-  # Allow app ports (80, 3000, 8000, 8443)
-  echo -e "${YELLOW}Membuat firewall rule untuk port aplikasi (80, 3000, 8000, 8443)...${NC}"
-  gcloud compute firewall-rules create allow-app-ports \
+  # Allow Traefik (port 80)
+  echo -e "${YELLOW}Membuat firewall rule untuk Traefik (port 80)...${NC}"
+  gcloud compute firewall-rules create allow-traefik \
     --project=$PROJECT_ID \
     --direction=INGRESS \
     --priority=1000 \
     --network=default \
     --action=ALLOW \
-    --rules=tcp:80,tcp:3000,tcp:8000,tcp:8443 \
+    --rules=tcp:80 \
     --source-ranges=0.0.0.0/0 \
     --target-tags=http-server \
-    || echo -e "${YELLOW}Firewall rule allow-app-ports sudah ada atau gagal dibuat.${NC}"
+    || echo -e "${YELLOW}Firewall rule allow-traefik sudah ada atau gagal dibuat.${NC}"
   
-  # Allow HTTPS
-  echo -e "${YELLOW}Membuat firewall rule untuk HTTPS (443)...${NC}"
-  gcloud compute firewall-rules create allow-https \
+  # Allow WebUI (port 3000)
+  echo -e "${YELLOW}Membuat firewall rule untuk WebUI (port 3000)...${NC}"
+  gcloud compute firewall-rules create allow-webui \
     --project=$PROJECT_ID \
     --direction=INGRESS \
     --priority=1000 \
     --network=default \
     --action=ALLOW \
-    --rules=tcp:443 \
+    --rules=tcp:3000 \
     --source-ranges=0.0.0.0/0 \
-    --target-tags=https-server \
-    || echo -e "${YELLOW}Firewall rule allow-https sudah ada atau gagal dibuat.${NC}"
+    --target-tags=allow-webui \
+    || echo -e "${YELLOW}Firewall rule allow-webui sudah ada atau gagal dibuat.${NC}"
   
-  # Allow Supabase (54322)
-  echo -e "${YELLOW}Membuat firewall rule untuk Supabase (54322)...${NC}"
-  gcloud compute firewall-rules create allow-supabase \
+  # Allow LangGraph API (port 2024)
+  echo -e "${YELLOW}Membuat firewall rule untuk LangGraph API (port 2024)...${NC}"
+  gcloud compute firewall-rules create allow-langgraph \
+    --project=$PROJECT_ID \
+    --direction=INGRESS \
+    --priority=1000 \
+    --network=default \
+    --action=ALLOW \
+    --rules=tcp:2024 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=allow-langgraph \
+    || echo -e "${YELLOW}Firewall rule allow-langgraph sudah ada atau gagal dibuat.${NC}"
+  
+  # Allow TablePlus (port 54322)
+  echo -e "${YELLOW}Membuat firewall rule untuk TablePlus (port 54322)...${NC}"
+  gcloud compute firewall-rules create allow-tableplus \
     --project=$PROJECT_ID \
     --direction=INGRESS \
     --priority=1000 \
@@ -140,61 +153,23 @@ create_vm() {
     --action=ALLOW \
     --rules=tcp:54322 \
     --source-ranges=0.0.0.0/0 \
-    --target-tags=allow-supabase \
-    || echo -e "${YELLOW}Firewall rule allow-supabase sudah ada atau gagal dibuat.${NC}"
+    --target-tags=allow-tableplus \
+    || echo -e "${YELLOW}Firewall rule allow-tableplus sudah ada atau gagal dibuat.${NC}"
   
-  # Allow Telegram (8444)
-  echo -e "${YELLOW}Membuat firewall rule untuk Telegram (8444)...${NC}"
-  gcloud compute firewall-rules create allow-telegram \
+  # Allow Redis (port 6379)
+  echo -e "${YELLOW}Membuat firewall rule untuk Redis (port 6379)...${NC}"
+  gcloud compute firewall-rules create allow-redis \
     --project=$PROJECT_ID \
     --direction=INGRESS \
     --priority=1000 \
     --network=default \
     --action=ALLOW \
-    --rules=tcp:8444 \
+    --rules=tcp:6379 \
     --source-ranges=0.0.0.0/0 \
-    --target-tags=allow-telegram \
-    || echo -e "${YELLOW}Firewall rule allow-telegram sudah ada atau gagal dibuat.${NC}"
+    --target-tags=allow-redis \
+    || echo -e "${YELLOW}Firewall rule allow-redis sudah ada atau gagal dibuat.${NC}"
   
-  # Allow Backend (2025)
-  echo -e "${YELLOW}Membuat firewall rule untuk Backend (2025)...${NC}"
-  gcloud compute firewall-rules create allow-backend \
-    --project=$PROJECT_ID \
-    --direction=INGRESS \
-    --priority=1000 \
-    --network=default \
-    --action=ALLOW \
-    --rules=tcp:2025 \
-    --source-ranges=0.0.0.0/0 \
-    || echo -e "${YELLOW}Firewall rule allow-backend sudah ada atau gagal dibuat.${NC}"
-    
-  # Allow Grafana (2027)
-  echo -e "${YELLOW}Membuat firewall rule untuk Grafana (2027)...${NC}"
-  gcloud compute firewall-rules create allow-grafana \
-    --project=$PROJECT_ID \
-    --direction=INGRESS \
-    --priority=1000 \
-    --network=default \
-    --action=ALLOW \
-    --rules=tcp:2027 \
-    --source-ranges=0.0.0.0/0 \
-    --target-tags=allow-grafana \
-    || echo -e "${YELLOW}Firewall rule allow-grafana sudah ada atau gagal dibuat.${NC}"
-    
-  # Allow Prometheus (9090) dan exporters (9121, 9100)
-  echo -e "${YELLOW}Membuat firewall rule untuk Prometheus (9090, 9121, 9100)...${NC}"
-  gcloud compute firewall-rules create allow-prometheus \
-    --project=$PROJECT_ID \
-    --direction=INGRESS \
-    --priority=1000 \
-    --network=default \
-    --action=ALLOW \
-    --rules=tcp:9090,tcp:9121,tcp:9100 \
-    --source-ranges=0.0.0.0/0 \
-    --target-tags=allow-prometheus \
-    || echo -e "${YELLOW}Firewall rule allow-prometheus sudah ada atau gagal dibuat.${NC}"
-  
-  echo -e "${GREEN}Firewall rules berhasil dibuat!${NC}"
+  echo -e "${GREEN}Firewall rules untuk Cloudflare Tunnels berhasil dibuat!${NC}"
   
   # Setup SSH untuk VSCode
   setup_ssh
@@ -362,7 +337,7 @@ delete_vm() {
     echo -e "${BLUE}Menghapus custom firewall rules...${NC}"
     
     # Daftar custom firewall rules untuk dihapus
-    FW_RULES=("allow-app-ports" "allow-https" "allow-supabase" "allow-telegram" "allow-backend" "allow-grafana" "allow-prometheus")
+    FW_RULES=("allow-traefik" "allow-webui" "allow-langgraph" "allow-tableplus" "allow-redis")
     
     for rule in "${FW_RULES[@]}"; do
       echo -e "${YELLOW}Menghapus firewall rule: $rule${NC}"
