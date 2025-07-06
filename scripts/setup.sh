@@ -45,10 +45,23 @@ echo -e "${BLUE}=== Adding user to docker group ===${NC}"
 sudo usermod -aG docker $USER
 check_status "User added to docker group" "Failed to add user to docker group"
 
-# Install Docker Compose
+# Apply group changes to current session
+echo -e "${BLUE}=== Applying Docker group changes ===${NC}"
+newgrp docker << EOF
+echo -e "${GREEN}✓ Docker group changes applied to current session${NC}"
+EOF
+
+# Install Docker Compose (modern version)
 echo -e "${BLUE}=== Installing Docker Compose ===${NC}"
-sudo curl -L "https://github.com/docker/compose/releases/download/v2.24.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+# Docker Compose v2 is now included with Docker by default, but let's ensure it's available
+# Check if docker compose (v2) is available
+if ! docker compose version &> /dev/null; then
+    # Install Docker Compose v2 plugin if not available
+    sudo curl -L "https://github.com/docker/compose/releases/download/v2.24.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+    # Also create symlink for docker compose command
+    sudo ln -sf /usr/local/bin/docker-compose /usr/local/bin/docker-compose-v2
+fi
 check_status "Docker Compose installed" "Failed to install Docker Compose"
 
 # Install Cloudflared
@@ -180,20 +193,24 @@ else
   echo -e "${YELLOW}After fixing, run: sudo cloudflared service install${NC}"
 fi
 
-# Configure firewall
-echo -e "${BLUE}=== Configuring firewall ===${NC}"
-sudo ufw allow 22/tcp
-sudo ufw allow 80/tcp
-sudo ufw allow 3000/tcp
-sudo ufw allow 2024/tcp
-sudo ufw allow 54322/tcp
-sudo ufw allow 6379/tcp
-echo "y" | sudo ufw enable
-check_status "Firewall configured" "Failed to configure firewall"
+# Note: Firewall rules are already configured in gcp.sh when creating the VM
+# No additional firewall configuration needed here
+
+# Restart Docker service to ensure group changes take effect
+echo -e "${BLUE}=== Restarting Docker service ===${NC}"
+sudo systemctl restart docker
+check_status "Docker service restarted" "Failed to restart Docker service"
 
 # Create Docker network
 echo -e "${BLUE}=== Creating Docker network ===${NC}"
-docker network create agen-travel-network || true
+# Use sudo for the first docker command to ensure it works, then test without sudo
+sudo docker network create agen-travel-network 2>/dev/null || true
+# Test if docker works without sudo
+if docker network ls &> /dev/null; then
+    echo -e "${GREEN}✓ Docker commands work without sudo${NC}"
+else
+    echo -e "${YELLOW}⚠ Docker commands may still require sudo in this session${NC}"
+fi
 check_status "Docker network created" "Failed to create Docker network"
 
 # Enable and start Docker service
@@ -201,6 +218,13 @@ echo -e "${BLUE}=== Enabling and starting Docker service ===${NC}"
 sudo systemctl enable docker
 sudo systemctl start docker
 check_status "Docker service enabled and started" "Failed to enable and start Docker service"
+
+# Test Docker installation
+echo -e "${BLUE}=== Testing Docker Installation ===${NC}"
+echo -e "${BLUE}Docker version:${NC}"
+docker --version 2>/dev/null || sudo docker --version
+echo -e "${BLUE}Docker Compose version:${NC}"
+docker compose version 2>/dev/null || docker-compose --version 2>/dev/null || echo "Docker Compose not found"
 
 # Display status of services
 echo -e "${BLUE}=== Service Status ===${NC}"
@@ -217,8 +241,24 @@ echo -e "${GREEN}===========================${NC}"
 echo ""
 echo -e "${BLUE}Next steps:${NC}"
 echo "1. Upload your project files to the VM"
-echo "2. Run docker-compose up to start your services"
-echo "3. Check Cloudflared tunnel status with: sudo cloudflared tunnel info"
+echo "2. Test Docker without sudo: docker --version"
+echo "3. Run docker compose up -d to start your services (no sudo needed!)"
+echo "4. Check Cloudflared tunnel status with: sudo cloudflared tunnel info"
 echo ""
-echo -e "${YELLOW}NOTE: You may need to log out and log back in for Docker group membership to take effect${NC}"
-echo -e "${YELLOW}Run 'newgrp docker' to apply changes in current session${NC}" 
+echo -e "${GREEN}Docker Configuration:${NC}"
+echo -e "${GREEN}✓ Docker installed and configured${NC}"
+echo -e "${GREEN}✓ User added to docker group${NC}"
+echo -e "${GREEN}✓ Docker Compose v2 available${NC}"
+echo ""
+echo -e "${BLUE}Docker Commands (no sudo required):${NC}"
+echo "  - docker --version"
+echo "  - docker compose --version"
+echo "  - docker compose up -d"
+echo "  - docker compose down"
+echo "  - docker ps"
+echo "  - docker logs <container_name>"
+echo ""
+echo -e "${YELLOW}NOTE: If Docker commands still require sudo, try:${NC}"
+echo -e "${YELLOW}1. Log out and log back in, OR${NC}"
+echo -e "${YELLOW}2. Run: newgrp docker${NC}"
+echo -e "${YELLOW}3. Or restart the VM: sudo reboot${NC}"

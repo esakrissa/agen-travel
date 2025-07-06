@@ -11,8 +11,6 @@ TUNNEL_ID="98318113-6fe9-4c7d-8f57-5c9f2507b3ff"
 FRONTEND_SUBDOMAINS=(
     "chat"        # WebUI (Next.js) - localhost:3000
     "langgraph"   # LangGraph API - localhost:2024
-    "supabasedb"  # Supabase DB - localhost:54322
-    "redisdb"     # Redis - localhost:6379
 )
 
 # Warna untuk output
@@ -40,8 +38,6 @@ show_help() {
     echo "Setelah setup DNS, akses frontend services via:"
     echo "  - WebUI: https://chat.agen-travel.live"
     echo "  - LangGraph API: https://langgraph.agen-travel.live/docs"
-    echo "  - Supabase DB: https://supabasedb.agen-travel.live"
-    echo "  - Redis DB: https://redisdb.agen-travel.live"
 }
 
 # Fungsi untuk memeriksa apakah cloudflared terinstall
@@ -95,8 +91,6 @@ create_dns_records() {
     echo -e "${BLUE}Frontend services akan tersedia di:${NC}"
     echo -e "${GREEN}  • WebUI: https://chat.agen-travel.live${NC}"
     echo -e "${GREEN}  • LangGraph API: https://langgraph.agen-travel.live/docs${NC}"
-    echo -e "${GREEN}  • Supabase DB: https://supabasedb.agen-travel.live${NC}"
-    echo -e "${GREEN}  • Redis DB: https://redisdb.agen-travel.live${NC}"
     echo ""
     echo -e "${YELLOW}Catatan: DNS propagation mungkin membutuhkan beberapa menit.${NC}"
 }
