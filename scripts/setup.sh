@@ -201,17 +201,16 @@ echo -e "${BLUE}=== Restarting Docker service ===${NC}"
 sudo systemctl restart docker
 check_status "Docker service restarted" "Failed to restart Docker service"
 
-# Create Docker network
-echo -e "${BLUE}=== Creating Docker network ===${NC}"
-# Use sudo for the first docker command to ensure it works, then test without sudo
-sudo docker network create agen-travel-network 2>/dev/null || true
-# Test if docker works without sudo
-if docker network ls &> /dev/null; then
+# Test Docker without sudo
+echo -e "${BLUE}=== Testing Docker without sudo ===${NC}"
+if docker --version &> /dev/null; then
     echo -e "${GREEN}✓ Docker commands work without sudo${NC}"
+    echo -e "${GREEN}✓ Docker version: $(docker --version)${NC}"
 else
     echo -e "${YELLOW}⚠ Docker commands may still require sudo in this session${NC}"
+    echo -e "${YELLOW}This is normal - you may need to log out and log back in${NC}"
 fi
-check_status "Docker network created" "Failed to create Docker network"
+# Note: Docker networks will be created automatically by docker-compose
 
 # Enable and start Docker service
 echo -e "${BLUE}=== Enabling and starting Docker service ===${NC}"
@@ -249,6 +248,7 @@ echo -e "${GREEN}Docker Configuration:${NC}"
 echo -e "${GREEN}✓ Docker installed and configured${NC}"
 echo -e "${GREEN}✓ User added to docker group${NC}"
 echo -e "${GREEN}✓ Docker Compose v2 available${NC}"
+echo -e "${GREEN}✓ Docker networks will be created automatically by docker-compose${NC}"
 echo ""
 echo -e "${BLUE}Docker Commands (no sudo required):${NC}"
 echo "  - docker --version"
