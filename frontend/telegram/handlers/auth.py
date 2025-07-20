@@ -1008,9 +1008,9 @@ class AuthHandler:
                     parse_mode="Markdown"
                 )
 
-                # Callback effect di background - edit pesan success setelah 30 detik
+                # Callback effect di background - edit pesan success setelah 60 detik
                 async def callback_edit():
-                    await asyncio.sleep(30)
+                    await asyncio.sleep(60)
                     final_success_message = (
                         f"🎉 *Registrasi berhasil!*\n\n"
                         f"📬 *Email Verifikasi Dikirim!*"

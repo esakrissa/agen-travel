@@ -121,7 +121,7 @@ const StreamSession = ({
 };
 
 // Default values for the form
-const DEFAULT_API_URL = "http://localhost:2024";
+const DEFAULT_API_URL = "https://langgraph.agen-travel.live";
 const DEFAULT_ASSISTANT_ID = "agen_travel";
 
 export const StreamProvider: React.FC<{ children: ReactNode }> = ({
